@@ -1,8 +1,6 @@
-// ===== Year =====
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// ===== i18n =====
 const I18N = {
   ru: {
     "nav.services": "Услуги",
@@ -20,14 +18,18 @@ const I18N = {
     "sections.tiles": "Выкладки",
     "tiles.hint": "Готовые направления работ — выбирай модуль и пиши в Telegram.",
     "tiles.more": "Открыть →",
+
     "tiles.tv.title": "TradingView (Pine v5)",
     "tiles.tv.sub": "Сигналы, фильтры, алерты, авто-S/R зоны, Фибо, консервативные условия входа.",
+
     "tiles.mt5.title": "MetaTrader 5 (MQL5)",
     "tiles.mt5.sub": "SMC структура, BOS/CHoCH, свинги, стрелки, линии/лейблы, оптимизация и брендирование.",
+
     "tiles.bots.title": "Telegram Crypto Bots",
     "tiles.bots.sub": "Сигналы в каналы/группы, алерты по условиям, скринеры (объём/фандинг/вола/сетки), форматирование сообщений.",
+
     "tiles.vpn.title": "CosmiCLab VPN",
-    "tiles.vpn.sub": "Android VPN приложение, privacy policy, support contact и страница для Google Play.",
+    "tiles.vpn.sub": "Android VPN приложение, privacy policy, support contact, usage terms и страница для Google Play.",
 
     "sections.services": "Услуги",
     "services.hint": "Коротко и по делу. Всё индивидуально под твою торговлю.",
@@ -92,7 +94,7 @@ const I18N = {
 
     "privacy.pageTitle": "CosmiCLab VPN",
     "privacy.lead": "Политика конфиденциальности, условия использования и support contact для VPN-проекта.",
-    "privacy.policyTitle": "Политика конфиденциальности",
+    "privacy.privacyTitle": "Политика конфиденциальности",
     "privacy.p1": "CosmiCLab VPN предоставляет VPN-доступ с использованием технологии WireGuard.",
     "privacy.p2": "Мы НЕ собираем и НЕ храним:",
     "privacy.l1": "Историю браузинга",
@@ -113,8 +115,7 @@ const I18N = {
     "privacy.l11": "Сервис может быть временно недоступен или прерван",
     "privacy.l12": "Приложение может показывать рекламу",
     "privacy.p7": "CosmiCLab VPN сейчас находится в стадии разработки.",
-    "privacy.p8": "Использование — на ваш страх и риск.",
-    "privacy.home": "На главную"
+    "privacy.p8": "Использование — на ваш страх и риск."
   },
 
   en: {
@@ -133,14 +134,18 @@ const I18N = {
     "sections.tiles": "Showcase",
     "tiles.hint": "Ready modules — pick one and we’ll discuss it on Telegram.",
     "tiles.more": "Open →",
+
     "tiles.tv.title": "TradingView (Pine v5)",
     "tiles.tv.sub": "Signals, filters, alerts, auto S/R zones, Fibo, conservative entry logic.",
+
     "tiles.mt5.title": "MetaTrader 5 (MQL5)",
     "tiles.mt5.sub": "SMC structure, BOS/CHoCH, swings, arrows, lines/labels, optimization & branding.",
+
     "tiles.bots.title": "Telegram Crypto Bots",
     "tiles.bots.sub": "Signals to channels/groups, condition alerts, screeners (volume/funding/volatility/grids), message formatting.",
+
     "tiles.vpn.title": "CosmiCLab VPN",
-    "tiles.vpn.sub": "Android VPN app, privacy policy, support contact and Google Play policy page.",
+    "tiles.vpn.sub": "Android VPN app, privacy policy, support contact, usage terms and Google Play policy page.",
 
     "sections.services": "Services",
     "services.hint": "Short and to the point. Built specifically for your trading style.",
@@ -205,7 +210,7 @@ const I18N = {
 
     "privacy.pageTitle": "CosmiCLab VPN",
     "privacy.lead": "Privacy Policy, Terms of Use and support contact for the VPN project.",
-    "privacy.policyTitle": "Privacy Policy",
+    "privacy.privacyTitle": "Privacy Policy",
     "privacy.p1": "CosmiCLab VPN provides VPN access using WireGuard technology.",
     "privacy.p2": "We do NOT collect or store:",
     "privacy.l1": "Browsing history",
@@ -226,70 +231,73 @@ const I18N = {
     "privacy.l11": "The service may be interrupted or unavailable",
     "privacy.l12": "The app may display advertisements",
     "privacy.p7": "CosmiCLab VPN is currently in development stage.",
-    "privacy.p8": "Use at your own risk.",
-    "privacy.home": "Home"
+    "privacy.p8": "Use at your own risk."
   },
 
   de: {
-    "nav.services": "Dienstleistungen",
+    "nav.services": "Leistungen",
     "nav.tiles": "Module",
-    "nav.inside": "Inhalt",
+    "nav.inside": "Inhalte",
     "nav.contact": "Kontakt",
 
     "cta.telegramTop": "Telegram",
-    "cta.telegram": "In Telegram schreiben",
+    "cta.telegram": "Auf Telegram schreiben",
     "cta.services": "Leistungen ansehen",
 
     "hero.title": "TradingView- und MT5-Indikatoren für Krypto nach Maß",
-    "hero.sub": "Pine Script v5 • MQL5 • Auto-Zonen/Fibo/Signale/Alerts<br/>Krypto-Signal-Bots für Telegram (Screener / Alerts / Channels)",
+    "hero.sub": "Pine Script v5 • MQL5 • Auto-Zonen/Fibo/Signale/Alerts<br/>Krypto-Signal-Bots für Telegram (Screener / Alerts / Kanäle)",
 
     "sections.tiles": "Module",
-    "tiles.hint": "Fertige Arbeitsrichtungen — wähle ein Modul und schreibe in Telegram.",
+    "tiles.hint": "Fertige Arbeitsrichtungen — wähle ein Modul und schreibe auf Telegram.",
     "tiles.more": "Öffnen →",
-    "tiles.tv.title": "TradingView (Pine v5)",
-    "tiles.tv.sub": "Signale, Filter, Alerts, Auto-S/R-Zonen, Fibo, konservative Einstiegskriterien.",
-    "tiles.mt5.title": "MetaTrader 5 (MQL5)",
-    "tiles.mt5.sub": "SMC-Struktur, BOS/CHoCH, Swings, Pfeile, Linien/Labels, Optimierung & Branding.",
-    "tiles.bots.title": "Telegram Crypto Bots",
-    "tiles.bots.sub": "Signale in Kanäle/Gruppen, Alerts nach Bedingungen, Screener (Volumen/Funding/Volatilität/Grids), Nachrichtenformatierung.",
-    "tiles.vpn.title": "CosmiCLab VPN",
-    "tiles.vpn.sub": "Android-VPN-App, Datenschutzseite, Support-Kontakt und Google-Play-Richtlinienseite.",
 
-    "sections.services": "Dienstleistungen",
+    "tiles.tv.title": "TradingView (Pine v5)",
+    "tiles.tv.sub": "Signale, Filter, Alerts, Auto-S/R-Zonen, Fibo, konservative Einstiegslogik.",
+
+    "tiles.mt5.title": "MetaTrader 5 (MQL5)",
+    "tiles.mt5.sub": "SMC-Struktur, BOS/CHoCH, Swings, Pfeile, Linien/Labels, Optimierung und Branding.",
+
+    "tiles.bots.title": "Telegram Crypto Bots",
+    "tiles.bots.sub": "Signale für Kanäle/Gruppen, bedingte Alerts, Screener (Volumen/Funding/Volatilität/Gitter), Nachrichtenformatierung.",
+
+    "tiles.vpn.title": "CosmiCLab VPN",
+    "tiles.vpn.sub": "Android-VPN-App, Datenschutzrichtlinie, Support-Kontakt, Nutzungsbedingungen und Google-Play-Seite.",
+
+    "sections.services": "Leistungen",
     "services.hint": "Kurz und direkt. Alles individuell für deinen Trading-Stil.",
     "services.s1.title": "Audit & Fixes",
     "services.s1.text": "Wir beheben Bugs, beschleunigen, bereinigen die Logik und bringen alles in saubere Form.",
     "services.s2.title": "Signale & Filter",
-    "services.s2.text": "Konservative Signale, Trend-/Volatilitätsfilter, Alerts.",
+    "services.s2.text": "Konservative Signale, Trend-/Volatilitätsfilter und Alerts.",
     "services.s3.title": "Telegram Bots",
-    "services.s3.text": "Market-Screener und Benachrichtigungen, saubere Nachrichtenformate, Support für Kanäle/Topics.",
+    "services.s3.text": "Markt-Screener und Benachrichtigungen, saubere Nachrichtenformatierung, Arbeit mit Kanälen/Topics.",
 
-    "sections.inside": "Was ist drin",
+    "sections.inside": "Inhalte",
     "inside.hint": "Typische Module, die wir für dein System zusammenbauen können.",
-    "inside.i1": "Auto-Unterstützungs-/Widerstandszonen, dichte Schlüssellevels",
-    "inside.i2": "Fibonacci-Levels + Einstiegsbestätigungen",
+    "inside.i1": "Automatische Support-/Resistance-Zonen, dichte Schlüssel-Level",
+    "inside.i2": "Fibonacci-Level + Einstiegsbestätigungen",
     "inside.i3": "SMC: BOS/CHoCH + Swings",
     "inside.i4": "Trendfilter (EMA/SMA/HMA) und ATR-Modi",
     "inside.i5": "Alerts: Entry/Exit, Kreuzungen, Ausbrüche, Setups",
     "inside.i6": "Telegram: Formatierung, Buttons, Anti-Spam, Multi-Chats",
 
     "sections.contact": "Kontakt",
-    "contact.text": "Schreibe in Telegram, erkläre die Aufgabe und sende ein Referenz-Screenshot.",
+    "contact.text": "Schreib auf Telegram, erkläre die Aufgabe und sende einen Referenz-Screenshot.",
     "contact.btn": "Telegram öffnen",
     "contact.support": "Support: cosmiclab.support@gmail.com",
 
     "footer.note": "HINWEIS: Alle Investitionen erfolgen auf eigenes Risiko. Wir geben keine finanziellen Garantien.",
 
     "back": "← Zurück",
-    "screens.hint": "Ersetze diese Bilder durch deine eigenen: einfach Dateien in /assets legen und die Namen beibehalten.",
+    "screens.hint": "Du kannst diese Bilder durch deine eigenen ersetzen: einfach in /assets ablegen und die Namen beibehalten.",
 
     "tv.pageTitle": "TradingView (Pine v5)",
-    "tv.lead": "Benutzerdefinierte Krypto-Indikatoren: Zonen, Levels, Signale, Filter und Alerts — sauber und schnell.",
+    "tv.lead": "Individuelle Krypto-Indikatoren: Zonen, Levels, Signale, Filter und Alerts — sauber und schnell.",
     "tv.featuresTitle": "Was wir bauen können",
-    "tv.f1": "Auto-S/R-Zonen (für deinen Timeframe), dichte Schlüssellevels",
-    "tv.f2": "Fibo-Levels + Bestätigungen (konservativ)",
+    "tv.f1": "Auto-S/R-Zonen (für deinen Timeframe), dichte Schlüssel-Level",
+    "tv.f2": "Fibo-Level + Bestätigungen (konservativ)",
     "tv.f3": "BUY/SELL-Signale, Trend-/Volatilitätsfilter",
-    "tv.f4": "Alerts für Free-Plan (ggf. in 1 Indikator kombiniert)",
+    "tv.f4": "Alerts für den Free-Plan (bei Bedarf in 1 Skript kombiniert)",
     "tv.f5": "Performance-Optimierung + saubere Visualisierung",
     "tv.screensTitle": "Beispiele / Screenshots",
     "tv.next": "Weiter: MT5 →",
@@ -298,30 +306,30 @@ const I18N = {
     "mt5.lead": "MT5-Indikatoren: Struktur, Zonen, Pfeile, Alerts, Optimierung und Branding (Logo/Wasserzeichen).",
     "mt5.featuresTitle": "Was wir bauen können",
     "mt5.f1": "SMC: BOS/CHoCH, Swings, Struktur",
-    "mt5.f2": "Auto-Levels und Zonen (Unterstützung/Widerstand)",
+    "mt5.f2": "Auto-Level und Zonen (Support/Resistance)",
     "mt5.f3": "Pfeile/Labels/Linien + Terminal-Alerts",
     "mt5.f4": "Optimierung, damit nichts laggt",
-    "mt5.f5": "Branding: Name, Watermark, sauberer Stil",
+    "mt5.f5": "Branding: Name, Wasserzeichen, sauberer Stil",
     "mt5.screensTitle": "Beispiele / Screenshots",
     "mt5.next": "Weiter: Telegram Bots →",
 
     "bots.pageTitle": "Telegram Crypto Bots",
-    "bots.lead": "Signal-/Alert-/Screener-Bots: schön formatierte Nachrichten, Kanäle, Gruppen und Topics.",
+    "bots.lead": "Bots für Signale/Alerts/Screener: schön formatierte Nachrichten, Kanäle, Gruppen und Topics.",
     "bots.featuresTitle": "Was wir bauen können",
-    "bots.f1": "Signale in Kanal/Gruppe/DM (inkl. Topics)",
+    "bots.f1": "Signale an Kanal/Gruppe/DM (inkl. Topics)",
     "bots.f2": "Screener: Preis/Volumen/OI/Funding/Volatilität/Liquidationen",
-    "bots.f3": "Anti-Spam/Cooldowns/Filter zur Rauschreduzierung",
+    "bots.f3": "Anti-Spam/Cooldowns/Filter zur Reduzierung von Rauschen",
     "bots.f4": "Schöne Nachrichtenkarten + Buttons",
-    "bots.f5": "Integrationen: Bybit/DEX/TradingView Webhooks (je nach Aufgabe)",
+    "bots.f5": "Integrationen: Bybit/DEX/TradingView-Webhooks (je nach Aufgabe)",
     "bots.screensTitle": "Beispiele / Screenshots",
     "bots.next": "Weiter: TradingView →",
 
     "privacy.pageTitle": "CosmiCLab VPN",
-    "privacy.lead": "Datenschutzerklärung, Nutzungsbedingungen und Support-Kontakt für das VPN-Projekt.",
-    "privacy.policyTitle": "Datenschutzerklärung",
+    "privacy.lead": "Datenschutzrichtlinie, Nutzungsbedingungen und Support-Kontakt für das VPN-Projekt.",
+    "privacy.privacyTitle": "Datenschutzrichtlinie",
     "privacy.p1": "CosmiCLab VPN bietet VPN-Zugang mit WireGuard-Technologie.",
     "privacy.p2": "Wir sammeln und speichern NICHT:",
-    "privacy.l1": "Browser-Verlauf",
+    "privacy.l1": "Browserverlauf",
     "privacy.l2": "Verkehrsinhalte",
     "privacy.l3": "DNS-Anfragen",
     "privacy.p3": "Wir verarbeiten nur begrenzte technische Daten:",
@@ -329,18 +337,17 @@ const I18N = {
     "privacy.l5": "Sitzungsstatus",
     "privacy.l6": "Verbindungszeitstempel",
     "privacy.l7": "Anzahl der Boost-Nutzungen",
-    "privacy.p4": "Diese Daten werden nur zur Verwaltung von VPN-Sitzungen, Limits und der App-Funktionalität verwendet.",
+    "privacy.p4": "Diese Daten werden nur zur Verwaltung von VPN-Sitzungen, Limits und App-Funktionalität verwendet.",
     "privacy.p5": "Wir verkaufen oder teilen keine Daten mit Dritten.",
-    "privacy.termsTitle": "Nutzungsbedingungen / Disclaimer",
+    "privacy.termsTitle": "Nutzungsbedingungen / Hinweis",
     "privacy.p6": "Durch die Nutzung dieser Anwendung stimmst du Folgendem zu:",
-    "privacy.l8": "VPN-Dienst nur für rechtmäßige Nutzung",
-    "privacy.l9": "Du bist für deine Aktivitäten selbst verantwortlich",
+    "privacy.l8": "Der VPN-Dienst ist nur für rechtmäßige Nutzung bestimmt",
+    "privacy.l9": "Du bist selbst für deine Aktivitäten verantwortlich",
     "privacy.l10": "Der Dienst kann Limits enthalten (Traffic, Zeit, Boost)",
-    "privacy.l11": "Der Dienst kann unterbrochen oder nicht verfügbar sein",
+    "privacy.l11": "Der Dienst kann unterbrochen oder vorübergehend nicht verfügbar sein",
     "privacy.l12": "Die App kann Werbung anzeigen",
     "privacy.p7": "CosmiCLab VPN befindet sich derzeit in der Entwicklungsphase.",
-    "privacy.p8": "Nutzung auf eigenes Risiko.",
-    "privacy.home": "Zur Startseite"
+    "privacy.p8": "Nutzung auf eigenes Risiko."
   }
 };
 
@@ -362,16 +369,15 @@ function applyLang(lang) {
   localStorage.setItem("site_lang", lang);
 }
 
-// init
 const saved = localStorage.getItem("site_lang");
-const browserLang = (navigator.language || "ru").toLowerCase();
-let browser = "en";
-if (browserLang.startsWith("ru")) browser = "ru";
-else if (browserLang.startsWith("de")) browser = "de";
+const navLang = (navigator.language || "ru").toLowerCase();
+const browser =
+  navLang.startsWith("ru") ? "ru" :
+  navLang.startsWith("de") ? "de" :
+  "en";
 
 applyLang(saved || browser);
 
-// buttons
 document.querySelectorAll(".langBtn").forEach((btn) => {
   btn.addEventListener("click", () => applyLang(btn.dataset.lang));
 });
