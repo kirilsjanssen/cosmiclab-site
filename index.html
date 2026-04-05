@@ -2,175 +2,102 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=1200, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>CosmiCLabIndicators</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
+  <div class="bg"></div>
 
-<div class="bg"></div>
+  <header class="topbar">
+    <div class="container topbarInner">
+      <a class="brand" href="index.html">
+        <img class="brandLogo" src="assets/cosmiclab_logo.png" />
+        <div class="brandName">CosmiCLabIndicators</div>
+      </a>
 
-<header class="topbar">
-  <div class="wrap topbar-inner">
+      <nav class="nav">
+        <a class="navLink" href="#services" data-i18n="nav.services">Услуги</a>
+        <a class="navLink" href="#tiles" data-i18n="nav.tiles">Выкладки</a>
+        <a class="navLink" href="#inside" data-i18n="nav.inside">Что внутри</a>
+        <a class="navLink" href="#contact" data-i18n="nav.contact">Контакт</a>
+      </nav>
 
-    <div class="brand">
-      <img src="cosmiclab_logo.png" alt="CosmiCLabIndicators" class="logo"
-           onerror="this.style.display='none'">
-      <div class="brand-text">CosmiCLabIndicators</div>
-    </div>
+      <div class="topbarRight">
+        <div class="lang">
+          <button class="langBtn" data-lang="ru">RU</button>
+          <button class="langBtn" data-lang="en">EN</button>
+          <button class="langBtn" data-lang="de">DE</button>
+        </div>
 
-    <nav class="nav">
-      <a href="#services">Услуги</a>
-      <a href="#modules">Выкладки</a>
-      <a href="#features">Что внутри</a>
-      <a href="#contact">Контакт</a>
-    </nav>
-
-    <a href="https://t.me/Agenhill_NutCraKer" target="_blank" class="btn-primary">
-      Telegram
-    </a>
-
-  </div>
-</header>
-
-<section class="hero">
-  <div class="wrap hero-grid">
-
-    <div class="hero-left">
-      <h1>
-        Индикаторы TradingView и MT5<br>
-        под крипту — на заказ
-      </h1>
-
-      <p>
-        Pine Script v5 • MQL5 • Авто-зоны/Фибо/сигналы/алерты<br>
-        Крипто-боты для сигналов в Telegram (скринеры / алерты / каналы)
-      </p>
-
-      <div class="hero-buttons">
-        <a href="https://t.me/Agenhill_NutCraKer" target="_blank" class="btn-main">
-          Написать в Telegram
-        </a>
-        <a href="#services" class="btn-ghost">
-          Посмотреть услуги
-        </a>
+        <a class="btn pill" target="_blank"
+           href="https://t.me/KirilsSZ" data-i18n="cta.telegramTop">Telegram</a>
       </div>
     </div>
+  </header>
 
-    <div class="hero-right">
-      <div class="terminal">
-        <img src="assets/hero_chart.png" alt="Chart"
-             onerror="this.style.display='none'">
-        <div class="terminal-badges">
-          <span class="badge">Auto S/R</span>
-          <span class="badge">Trend Filter</span>
-          <span class="badge">Alerts</span>
+  <main class="container">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <h1 class="heroTitle" data-i18n="hero.title"></h1>
+        <p class="heroSub" data-i18n="hero.sub"></p>
+
+        <div class="heroCtas">
+          <a class="btn primary" target="_blank"
+             href="https://t.me/KirilsSZ" data-i18n="cta.telegram"></a>
+
+          <a class="btn ghost" href="#services" data-i18n="cta.services"></a>
         </div>
       </div>
-    </div>
 
-  </div>
-</section>
-
-<!-- ВЫКЛАДКИ / МОДУЛИ -->
-<section id="modules" class="section">
-  <div class="wrap">
-    <div class="section-title">
-      <h2>Выкладки</h2>
-      <div class="section-sub">Готовые направления работ — выбирай модуль и пишем в Telegram.</div>
-    </div>
-
-    <div class="modules-grid">
-      <a class="bigcard bigcard-green" href="#services">
-        Аудит &amp; Правки<br><span>TV / MT5</span>
-      </a>
-
-      <a class="bigcard bigcard-purple" href="#services">
-        Custom Indicators<br><span>TV Pine v5 / MT5 MQL5</span>
-      </a>
-
-      <a class="bigcard bigcard-violet" href="#services">
-        Telegram Bots<br><span>Сигналы / Алёрты / Скринеры</span>
-      </a>
-    </div>
-
-    <div class="warning">
-      ВНИМАНИЕ: Все инвестиции на ваш страх и риск. Мы не даём финансовых гарантий.
-    </div>
-  </div>
-</section>
-
-<!-- УСЛУГИ -->
-<section id="services" class="section">
-  <div class="wrap">
-    <div class="section-title">
-      <h2>Услуги</h2>
-      <div class="section-sub">Коротко и по делу. Всё индивидуально под твою торговлю.</div>
-    </div>
-
-    <div class="cards3">
-      <div class="card">
-        <h3>TradingView (Pine v5)</h3>
-        <p>Сигналы, фильтры, алерты, авто-S/R зоны, Фибо, консервативные условия входа.</p>
+      <div class="heroImageWrap">
+        <img class="heroImage" src="assets/hero_chart.png" />
       </div>
+    </section>
 
-      <div class="card">
-        <h3>MetaTrader 5 (MQL5)</h3>
-        <p>SMC структура, BOS/CHoCH, свинги, стрелки, линии/лейблы, оптимизация и брендирование.</p>
+    <!-- TILES -->
+    <section id="tiles" class="section">
+      <h2 data-i18n="sections.tiles"></h2>
+
+      <div class="tiles">
+
+        <a class="tile" href="tradingview.html">
+          <div class="tileTitle" data-i18n="tiles.tv.title"></div>
+          <div class="tileSub" data-i18n="tiles.tv.sub"></div>
+        </a>
+
+        <a class="tile" href="mt5.html">
+          <div class="tileTitle" data-i18n="tiles.mt5.title"></div>
+          <div class="tileSub" data-i18n="tiles.mt5.sub"></div>
+        </a>
+
+        <a class="tile" href="bots.html">
+          <div class="tileTitle" data-i18n="tiles.bots.title"></div>
+          <div class="tileSub" data-i18n="tiles.bots.sub"></div>
+        </a>
+
+        <!-- VPN -->
+        <a class="tile" href="privacy.html">
+          <div class="tileTitle" data-i18n="tiles.vpn.title"></div>
+          <div class="tileSub" data-i18n="tiles.vpn.sub"></div>
+        </a>
+
       </div>
+    </section>
 
-      <div class="card">
-        <h3>Telegram Crypto Bots</h3>
-        <p>Сигналы в каналы/группы, алерты по условиям, скринеры (объём/фандинг/вола/сетки), форматирование сообщений.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- CONTACT -->
+    <section id="contact" class="section contact">
+      <h2 data-i18n="sections.contact"></h2>
 
-<!-- ЧТО ВНУТРИ -->
-<section id="features" class="section">
-  <div class="wrap">
-    <div class="section-title">
-      <h2>Что внутри</h2>
-      <div class="section-sub">Типовые фичи, которые можно собрать в твою систему.</div>
-    </div>
+      <a class="btn primary" target="_blank"
+         href="https://t.me/KirilsSZ" data-i18n="contact.btn"></a>
+    </section>
 
-    <div class="features-grid">
-      <div class="mini">Auto Support/Resistance Zones</div>
-      <div class="mini">Auto Fibonacci (ETH/BTC)</div>
-      <div class="mini">Conservative Signals</div>
-      <div class="mini">Trend / Volatility Filters</div>
-      <div class="mini">Alerts (TV/Telegram)</div>
-      <div class="mini">SMC: BOS / CHoCH</div>
-      <div class="mini">MT5 Branding / Watermark</div>
-      <div class="mini">Telegram Formatting</div>
-    </div>
-  </div>
-</section>
+  </main>
 
-<!-- КОНТАКТ -->
-<section id="contact" class="section">
-  <div class="wrap">
-    <div class="cta-line">
-      <div>
-        <div class="cta-title">Готов начать?</div>
-        <div class="cta-sub">Пиши в Telegram: <b>@Agenhill_NutCraKer</b></div>
-      </div>
-      <a class="btn-main" href="https://t.me/Agenhill_NutCraKer" target="_blank">Открыть Telegram</a>
-    </div>
-  </div>
-</section>
-
-<footer class="footer">
-  <div class="wrap footer-inner">
-    <div>CosmiCLabIndicators © <span id="year"></span></div>
-    <a href="https://t.me/Agenhill_NutCraKer" target="_blank">@Agenhill_NutCraKer</a>
-  </div>
-</footer>
-
-<script src="app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
