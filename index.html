@@ -3,10 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>CosmiCLabIndicators</title>
+  <title>CosmiCLab — приложения, боты, серверы и индикаторы</title>
+  <meta
+    name="description"
+    content="CosmiCLab — разработка Android-приложений, AI tools, Telegram-ботов, backend/API, VPS-серверов, TradingView и MT5 индикаторов, сайтов и игровых прототипов."
+  />
   <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
   <div class="bg"></div>
 
@@ -16,171 +19,268 @@
         <img class="brandLogo" src="assets/cosmiclab_logo.png" alt="CosmiCLabIndicators" />
         <div class="brandText">
           <div class="brandName">CosmiCLabIndicators</div>
+          <div class="brandSub">Apps • Bots • Servers • Indicators</div>
         </div>
       </a>
 
       <nav class="nav">
         <a class="navLink" href="#services" data-i18n="nav.services">Услуги</a>
-        <a class="navLink" href="#tiles" data-i18n="nav.tiles">Выкладки</a>
-        <a class="navLink" href="#inside" data-i18n="nav.inside">Что внутри</a>
+        <a class="navLink" href="#projects" data-i18n="nav.projects">Проекты</a>
+        <a class="navLink" href="#process" data-i18n="nav.process">Процесс</a>
         <a class="navLink" href="#contact" data-i18n="nav.contact">Контакт</a>
       </nav>
 
       <div class="topbarRight">
         <div class="lang">
-          <button class="langBtn" data-lang="ru" type="button">RU</button>
+          <button class="langBtn active" data-lang="ru" type="button">RU</button>
           <button class="langBtn" data-lang="en" type="button">EN</button>
           <button class="langBtn" data-lang="de" type="button">DE</button>
         </div>
 
-        <a class="btn pill" target="_blank" rel="noopener"
-           href="https://t.me/KirilsSZ" data-i18n="cta.telegramTop">Telegram</a>
+        <a class="btn pill" target="_blank" rel="noopener" href="https://t.me/CosmiCLabSupportBot">
+          Support Bot
+        </a>
       </div>
     </div>
   </header>
 
   <main class="container">
     <section class="hero">
-      <div class="heroLeft">
+      <div class="heroBox">
+        <div class="heroBadge" data-i18n="hero.badge">CosmiCLab / Development Services</div>
+
         <h1 class="heroTitle" data-i18n="hero.title">
-          Индикаторы TradingView и MT5 под крипту — на заказ
+          Разработка приложений, ботов, серверов и торговых инструментов
         </h1>
 
         <p class="heroSub" data-i18n="hero.sub">
-          Pine Script v5 • MQL5 • Авто-зоны/Фибо/сигналы/алерты<br/>
-          Крипто-боты для сигналов в Telegram (скринеры / алерты / каналы)
+          Android-приложения, AI tools, Telegram-боты, backend/API,
+          VPS-серверы, TradingView / MT5 индикаторы, сайты и игровые прототипы —
+          под конкретную задачу клиента.
         </p>
 
+        <div class="heroMini" data-i18n-html="hero.mini">
+          <b>CosmiCLabIndicators</b> начинался с торговых инструментов,
+          но теперь охватывает и более широкие направления: Android apps,
+          AI tools, backend systems, Telegram bots, websites, automation и game prototypes.
+        </div>
+
+        <div class="heroTags">
+          <span class="tag">Android Apps</span>
+          <span class="tag">AI Tools</span>
+          <span class="tag">Telegram Bots</span>
+          <span class="tag">TradingView</span>
+          <span class="tag">MT5 / MQL5</span>
+          <span class="tag">Backend</span>
+          <span class="tag">Websites</span>
+          <span class="tag">Mini Apps</span>
+        </div>
+
         <div class="heroCtas">
-          <a class="btn primary" target="_blank" rel="noopener"
-             href="https://t.me/KirilsSZ" data-i18n="cta.telegram">
-            Написать в Telegram
+          <a class="btn primary" target="_blank" rel="noopener" href="https://t.me/CosmiCLabSupportBot" data-i18n="cta.support">
+            Написать в Support Bot
           </a>
-
-          <a class="btn ghost" href="#services" data-i18n="cta.services">
-            Посмотреть услуги
-          </a>
+          <a class="btn ghost" href="#services" data-i18n="cta.services">Посмотреть услуги</a>
+          <a class="btn ghost" href="#projects" data-i18n="cta.projects">Примеры работ</a>
         </div>
-      </div>
-
-      <div class="heroRight">
-        <div class="heroImageWrap">
-          <img class="heroImage" src="assets/hero_chart.png" alt="Showcase" />
-          <div class="heroBadges">
-            <span class="badge">Auto S/R</span>
-            <span class="badge">Trend Filter</span>
-            <span class="badge">Alerts</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="tiles" class="section">
-      <div class="sectionHead">
-        <h2 class="sectionTitle" data-i18n="sections.tiles">Выкладки</h2>
-        <div class="sectionHint" data-i18n="tiles.hint">
-          Готовые направления работ — выбирай модуль и пишем в Telegram.
-        </div>
-      </div>
-
-      <div class="tiles tiles4">
-        <a class="tile" href="tradingview.html">
-          <div class="tileTitle" data-i18n="tiles.tv.title">TradingView (Pine v5)</div>
-          <div class="tileSub" data-i18n="tiles.tv.sub">
-            Сигналы, фильтры, алерты, авто-S/R зоны, Фибо, консервативные условия входа.
-          </div>
-          <div class="tileMore" data-i18n="tiles.more">Открыть →</div>
-        </a>
-
-        <a class="tile" href="mt5.html">
-          <div class="tileTitle" data-i18n="tiles.mt5.title">MetaTrader 5 (MQL5)</div>
-          <div class="tileSub" data-i18n="tiles.mt5.sub">
-            SMC структура, BOS/CHoCH, свинги, стрелки, линии/лейблы, оптимизация и брендирование.
-          </div>
-          <div class="tileMore" data-i18n="tiles.more">Открыть →</div>
-        </a>
-
-        <a class="tile" href="bots.html">
-          <div class="tileTitle" data-i18n="tiles.bots.title">Telegram Crypto Bots</div>
-          <div class="tileSub" data-i18n="tiles.bots.sub">
-            Сигналы в каналы/группы, алерты по условиям, скринеры (объём/фандинг/вола/сетки), форматирование сообщений.
-          </div>
-          <div class="tileMore" data-i18n="tiles.more">Открыть →</div>
-        </a>
-
-        <a class="tile" href="privacy.html">
-          <div class="tileTitle" data-i18n="tiles.vpn.title">CosmiCLab VPN</div>
-          <div class="tileSub" data-i18n="tiles.vpn.sub">
-            Android VPN приложение, privacy policy, support contact, usage terms и страница для Google Play.
-          </div>
-          <div class="tileMore" data-i18n="tiles.more">Открыть →</div>
-        </a>
       </div>
     </section>
 
     <section id="services" class="section">
       <div class="sectionHead">
-        <h2 class="sectionTitle" data-i18n="sections.services">Услуги</h2>
+        <h2 class="sectionTitle" data-i18n="services.title">Услуги</h2>
         <div class="sectionHint" data-i18n="services.hint">
-          Коротко и по делу. Всё индивидуально под твою торговлю.
+          Основные направления разработки. Можно сделать MVP, прототип,
+          отдельный модуль, backend, бота, приложение или готовую страницу
+          под публикацию.
         </div>
       </div>
 
-      <div class="cards3">
-        <div class="card">
-          <div class="cardTitle" data-i18n="services.s1.title">Аудит & Правки</div>
-          <div class="cardText" data-i18n="services.s1.text">Чиним баги, ускоряем, чистим логику, приводим к аккуратному виду.</div>
+      <div class="tiles3">
+        <a class="tile" href="android-app-development.html">
+          <div>
+            <div class="tileIcon">📱</div>
+            <div class="tileTitle">Android Apps</div>
+            <div class="tileSub" data-i18n="tile.android">Kotlin / Jetpack Compose, Google Play, AdMob, Privacy Policy, backend connection, экраны, лимиты, профили.</div>
+          </div>
+          <div class="tileMore" data-i18n="tile.open">Открыть →</div>
+        </a>
+
+        <a class="tile" href="ai-app-development.html">
+          <div>
+            <div class="tileIcon">🤖</div>
+            <div class="tileTitle">AI Apps & Tools</div>
+            <div class="tileSub" data-i18n="tile.ai">AI chat, writer, rewrite, translate tools, prompt tools, backend API, free/pro limits, monetization.</div>
+          </div>
+          <div class="tileMore" data-i18n="tile.open">Открыть →</div>
+        </a>
+
+        <a class="tile" href="backend-server-setup.html">
+          <div>
+            <div class="tileIcon">🖥️</div>
+            <div class="tileTitle">Backend & Servers</div>
+            <div class="tileSub" data-i18n="tile.backend">VPS, Ubuntu, FastAPI, PostgreSQL, Nginx, SSL/HTTPS, API endpoints, deployment, базовая настройка сервера.</div>
+          </div>
+          <div class="tileMore" data-i18n="tile.open">Открыть →</div>
+        </a>
+
+        <a class="tile" href="telegram-bots.html">
+          <div>
+            <div class="tileIcon">💬</div>
+            <div class="tileTitle">Telegram Bots</div>
+            <div class="tileSub" data-i18n="tile.telegram">Telegram bots на Python, aiogram, каналы, группы, topics, crypto alerts, market signals, admin logic.</div>
+          </div>
+          <div class="tileMore" data-i18n="tile.open">Открыть →</div>
+        </a>
+
+        <a class="tile" href="tradingview.html">
+          <div>
+            <div class="tileIcon">📈</div>
+            <div class="tileTitle">TradingView Indicators</div>
+            <div class="tileSub" data-i18n="tile.tradingview">Pine Script v5, S/R zones, Fibonacci, trend filters, alerts, buy/sell signal logic, crypto indicators.</div>
+          </div>
+          <div class="tileMore" data-i18n="tile.open">Открыть →</div>
+        </a>
+
+        <a class="tile" href="mt5.html">
+          <div>
+            <div class="tileIcon">📊</div>
+            <div class="tileTitle">MetaTrader 5 / MQL5</div>
+            <div class="tileSub" data-i18n="tile.mt5">Custom MT5 indicators, EX5 files, dashboard logic, signals, visual trading tools, брендирование.</div>
+          </div>
+          <div class="tileMore" data-i18n="tile.open">Открыть →</div>
+        </a>
+
+        <a class="tile" href="websites-landing-pages.html">
+          <div>
+            <div class="tileIcon">🌐</div>
+            <div class="tileTitle">Websites & Landing Pages</div>
+            <div class="tileSub" data-i18n="tile.websites">Лендинги, product pages, app support/privacy pages, dark sci-fi design, responsive layout, HTML/CSS/JS.</div>
+          </div>
+          <div class="tileMore" data-i18n="tile.open">Открыть →</div>
+        </a>
+
+        <a class="tile" href="game-development.html">
+          <div>
+            <div class="tileIcon">🎮</div>
+            <div class="tileTitle">Games & Telegram Mini Apps</div>
+            <div class="tileSub" data-i18n="tile.games">Browser games, Telegram Mini App prototypes, clicker games, UI panels, game logic, assets integration.</div>
+          </div>
+          <div class="tileMore" data-i18n="tile.open">Открыть →</div>
+        </a>
+
+        <a class="tile" href="automation-tools.html">
+          <div>
+            <div class="tileIcon">⚙️</div>
+            <div class="tileTitle">Automation & Custom Programs</div>
+            <div class="tileSub" data-i18n="tile.automation">Python scripts, API integrations, parsers, screeners, bots, data processing, small backend utilities.</div>
+          </div>
+          <div class="tileMore" data-i18n="tile.open">Открыть →</div>
+        </a>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="sectionHead">
+        <h2 class="sectionTitle" data-i18n="projects.title">Примеры работ / Projects</h2>
+        <div class="sectionHint" data-i18n="projects.hint">
+          Selected projects and prototypes. Реальные направления, прототипы и рабочие проекты,
+          которые можно развивать под конкретную задачу.
+        </div>
+      </div>
+
+      <div class="projectsGrid">
+        <div class="projectCard">
+          <div class="projectTitle">CosmiCLab VPN</div>
+          <div class="projectText">Android VPN app, WireGuard, backend, серверная логика, Google Play preparation, privacy/support pages.</div>
         </div>
 
-        <div class="card">
-          <div class="cardTitle" data-i18n="services.s2.title">Сигналы & Фильтры</div>
-          <div class="cardText" data-i18n="services.s2.text">Консервативные сигналы, фильтры тренда/волатильности, алерты.</div>
+        <div class="projectCard">
+          <div class="projectTitle">Gromvex AI</div>
+          <div class="projectText">Android AI app: AI chat, backend API, free limits, monetization, AdMob, future Pro logic.</div>
         </div>
 
-        <div class="card">
-          <div class="cardTitle" data-i18n="services.s3.title">Боты в Telegram</div>
-          <div class="cardText" data-i18n="services.s3.text">Скринеры и уведомления по рынку, оформление сообщений, работа с каналами/топиками.</div>
+        <div class="projectCard">
+          <div class="projectTitle">TradingView Indicators</div>
+          <div class="projectText">Pine Script v5 indicators: S/R zones, Fibonacci, conservative signals, alerts and crypto chart tools.</div>
+        </div>
+
+        <div class="projectCard">
+          <div class="projectTitle">MetaTrader 5 / MQL5</div>
+          <div class="projectText">Custom MT5 indicators, dashboard logic, signals and visual tools.<br>
+            <a target="_blank" rel="noopener" href="https://www.mql5.com/ru/users/kirilssubins">MQL5 profile →</a>
+          </div>
+        </div>
+
+        <div class="projectCard">
+          <div class="projectTitle">Telegram Crypto Bots</div>
+          <div class="projectText">Crypto alerts, market screeners, formatted messages, channels/groups/topics integration.</div>
+        </div>
+
+        <div class="projectCard">
+          <div class="projectTitle">Backend / API</div>
+          <div class="projectText">FastAPI, PostgreSQL, Nginx, SSL, VPS deployment, API endpoints for apps, bots and internal tools.</div>
+        </div>
+
+        <div class="projectCard">
+          <div class="projectTitle">CosmiCorn / Cosmicorn</div>
+          <div class="projectText">Browser / Telegram Mini App game prototype with sci-fi UI, clicker mechanics, custom assets and game logic.</div>
+        </div>
+
+        <div class="projectCard">
+          <div class="projectTitle">Websites / Privacy Pages</div>
+          <div class="projectText">Static websites, landing pages, app support pages, privacy policy pages and Google Play helper pages.</div>
         </div>
       </div>
     </section>
 
-    <section id="inside" class="section">
+    <section id="process" class="section">
       <div class="sectionHead">
-        <h2 class="sectionTitle" data-i18n="sections.inside">Что внутри</h2>
-        <div class="sectionHint" data-i18n="inside.hint">
-          Типовые модули, которые можно собрать под твою систему.
+        <h2 class="sectionTitle" data-i18n="process.title">Как работаю</h2>
+        <div class="sectionHint" data-i18n="process.hint">
+          Без лишней бюрократии: сначала понятная задача, потом рабочая первая версия,
+          тест, правки и подготовка к публикации.
         </div>
       </div>
 
-      <div class="listGrid">
-        <div class="listItem" data-i18n="inside.i1">Авто зоны поддержки/сопротивления, плотные уровни</div>
-        <div class="listItem" data-i18n="inside.i2">Фибо уровни + подтверждения входа</div>
-        <div class="listItem" data-i18n="inside.i3">SMC: BOS/CHoCH + свинги</div>
-        <div class="listItem" data-i18n="inside.i4">Фильтры тренда (EMA/SMA/HMA) и ATR-режимы</div>
-        <div class="listItem" data-i18n="inside.i5">Алерты: entry/exit, пересечения, пробои, сетапы</div>
-        <div class="listItem" data-i18n="inside.i6">Telegram: формат, кнопки, антиспам, мульти-чаты</div>
+      <div class="processGrid">
+        <div class="processItem"><div class="processNum">01</div><div class="processTitle">Обсуждаем задачу</div><div class="processText">Что нужно сделать: приложение, бот, сайт, индикатор, backend или прототип.</div></div>
+        <div class="processItem"><div class="processNum">02</div><div class="processTitle">Составляем простое ТЗ</div><div class="processText">Фиксируем функции, экраны, логику, API, ограничения и результат.</div></div>
+        <div class="processItem"><div class="processNum">03</div><div class="processTitle">Делаю MVP</div><div class="processText">Собирается первая рабочая версия, которую уже можно проверить руками.</div></div>
+        <div class="processItem"><div class="processNum">04</div><div class="processTitle">Тестируем и правим</div><div class="processText">Исправляем баги, улучшаем интерфейс, проверяем реальные сценарии.</div></div>
+        <div class="processItem"><div class="processNum">05</div><div class="processTitle">Готовим релиз</div><div class="processText">Сервер, домен, SSL, Google Play, privacy pages, support и публикация.</div></div>
       </div>
     </section>
 
     <section id="contact" class="section contact">
-      <h2 class="sectionTitle" data-i18n="sections.contact">Контакт</h2>
-      <p class="contactText" data-i18n="contact.text">
-        Пиши в Telegram, объясни задачу и скинь пример скрина/референса.
-      </p>
+      <div class="contactBox">
+        <h2 class="sectionTitle" data-i18n="contact.title">Контакт</h2>
+        <p class="contactText" data-i18n="contact.text">
+          Для связи по разработке, приложениям, ботам, серверам,
+          индикаторам, сайтам и прототипам — пиши в официальный support bot
+          или на email.
+        </p>
 
-      <a class="btn primary" target="_blank" rel="noopener"
-         href="https://t.me/KirilsSZ" data-i18n="contact.btn">
-        Открыть Telegram
-      </a>
+        <div class="contactLinks">
+          <a class="btn primary" target="_blank" rel="noopener" href="https://t.me/CosmiCLabSupportBot" data-i18n="contact.bot">Открыть Support Bot</a>
+          <a class="btn ghost" href="mailto:cosmiclab.support@gmail.com">Email Support</a>
+        </div>
 
-      <div class="supportText" data-i18n="contact.support">Support: cosmiclab.support@gmail.com</div>
-
-      <div class="footerNote" data-i18n="footer.note">
-        ВНИМАНИЕ: Все инвестиции на ваш страх и риск. Мы не даём финансовых гарантий.
+        <div class="supportText">
+          Telegram: <b>@CosmiCLabSupportBot</b><br>
+          Email: <b>cosmiclab.support@gmail.com</b><br>
+          Gromvex AI: <b>support.gromvexai@gmail.com</b>
+        </div>
       </div>
 
-      <div class="copy">© <span id="year"></span> CosmiCLabIndicators</div>
+      <div class="footerNote" data-i18n="footer.note">
+        ВНИМАНИЕ: торговые индикаторы, боты и рыночные инструменты не являются
+        финансовой рекомендацией. Все решения пользователь принимает самостоятельно
+        и на свой риск.
+      </div>
     </section>
+
+    <div class="copy">© <span id="year"></span> CosmiCLab / CosmiCLabIndicators</div>
   </main>
 
   <script src="app.js"></script>
