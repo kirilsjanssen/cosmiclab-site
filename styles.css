@@ -759,3 +759,104 @@ button, input, textarea { font: inherit; }
   .phoneOverlay { min-height: 520px; padding-left: 14px; padding-right: 14px; }
   .vpnLogoPreview { width: 200px; }
 }
+
+
+/* PATCH v2: VPN phone preview without external phone images.
+   This removes the black/missing-image phone screen problem on hosting. */
+.phoneMock.phoneMockNoImages {
+  min-height: 610px;
+  background:
+    radial-gradient(circle at 30% 12%, rgba(120,231,255,.32), transparent 24%),
+    radial-gradient(circle at 80% 28%, rgba(156,109,255,.36), transparent 28%),
+    radial-gradient(circle at 45% 74%, rgba(0,255,180,.20), transparent 24%),
+    linear-gradient(180deg, rgba(1,7,18,.10), rgba(1,7,18,.44)),
+    url("assets/space_bg.jpg") center center / cover no-repeat;
+}
+.phoneMock.phoneMockNoImages::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(4,10,26,.06), rgba(4,10,26,.28)),
+    radial-gradient(circle at center, transparent 0%, rgba(0,0,0,.22) 88%);
+  z-index: 1;
+}
+.phoneMockNoImages .phoneOverlay {
+  background: transparent;
+}
+.phoneMockNoImages .phoneBg,
+.phoneMockNoImages .vpnLogoPreview {
+  display: none !important;
+}
+.vpnLogoPreviewCss {
+  width: 205px;
+  min-height: 145px;
+  margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 24px;
+  border: 1px solid rgba(120,231,255,.38);
+  background: linear-gradient(135deg, rgba(120,231,255,.16), rgba(156,109,255,.13)), rgba(2,7,17,.28);
+  box-shadow: 0 0 28px rgba(120,231,255,.14);
+  backdrop-filter: blur(3px);
+}
+.vpnShieldIcon {
+  width: 70px;
+  height: 70px;
+  border-radius: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #08111c;
+  font-size: 38px;
+  font-weight: 950;
+  background: linear-gradient(135deg, #78e7ff, #9c6dff);
+  box-shadow: 0 0 26px rgba(120,231,255,.24);
+}
+.vpnBrandText {
+  text-align: center;
+  line-height: 1.05;
+  color: #fff;
+  text-shadow: 0 0 14px rgba(120,231,255,.28);
+}
+.vpnBrandText b {
+  display: block;
+  font-size: 23px;
+  font-weight: 950;
+  letter-spacing: -.03em;
+}
+.vpnBrandText span {
+  display: block;
+  margin-top: 3px;
+  color: var(--cyan);
+  font-size: 22px;
+  font-weight: 950;
+  letter-spacing: .06em;
+}
+.phoneSkinRow {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7px;
+}
+.phoneSkinRow span {
+  min-height: 32px;
+  padding: 8px 6px;
+  border-radius: 999px;
+  border: 1px solid rgba(120,231,255,.28);
+  background: rgba(2,7,17,.34);
+  color: rgba(245,250,255,.82);
+  font-size: 10px;
+  font-weight: 850;
+  text-align: center;
+}
+@media (max-width: 420px) {
+  .vpnLogoPreviewCss { width: 190px; min-height: 132px; }
+  .vpnShieldIcon { width: 60px; height: 60px; font-size: 32px; }
+  .vpnBrandText b { font-size: 20px; }
+  .vpnBrandText span { font-size: 19px; }
+}
