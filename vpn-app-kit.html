@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>White‑Label Android VPN App Kit — CosmiCLab</title>
+  <meta name="description" content="White-label Android VPN app kit: Kotlin, Jetpack Compose, WireGuard, FastAPI backend, PostgreSQL-ready logic, demo skins, setup support, control panel and website customization." />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Analytics placeholder: paste Cloudflare Web Analytics or GA4 tag here if needed. -->
+</head>
+<body>
+  <div class="bg"></div>
+
+  <header class="topbar">
+    <div class="container topbarInner">
+      <a class="brand" href="index.html">
+        <img class="brandLogo" src="assets/cosmiclab_logo.png" alt="CosmiCLabIndicators" />
+        <div class="brandText">
+          <div class="brandName">CosmiCLabIndicators</div>
+          <div class="brandSub">Apps • Bots • Servers • Indicators</div>
+        </div>
+      </a>
+
+      <nav class="nav">
+        <a class="navLink" href="index.html#services">Услуги</a>
+        <a class="navLink" href="index.html#projects">Проекты</a>
+        <a class="navLink" href="vpn-app-kit.html">VPN Kit</a>
+        <a class="navLink" href="#packages">Цены</a>
+        <a class="navLink" href="#contact">Контакт</a>
+      </nav>
+
+      <div class="topbarRight">
+        <a class="btn pill" target="_blank" rel="noopener" href="https://t.me/CosmiCLabSupportBot">Support Bot</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="serviceHero vpnHero">
+      <div class="serviceHeroBox productHeroBox">
+        <div class="productHeroText">
+          <div class="serviceKicker">White‑Label Android VPN App Kit</div>
+          <h1 class="serviceTitle">Готовый VPN‑шаблон под свой бренд</h1>
+          <p class="serviceLead">
+            Android VPN app kit with WireGuard backend, demo skins, server connection flow, free/boost logic,
+            backend structure and optional setup support. Покупатель может заменить название, логотип,
+            цвета, фон, список серверов, backend URL, тексты и запустить VPN‑сервис под своим брендом.
+          </p>
+          <div class="heroTags productTags">
+            <span class="tag">Kotlin</span>
+            <span class="tag">Jetpack Compose</span>
+            <span class="tag">WireGuard</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">PostgreSQL ready</span>
+            <span class="tag">Multi‑skin demo</span>
+            <span class="tag">AdMob structure</span>
+            <span class="tag">Control panel options</span>
+          </div>
+          <div class="heroCtas">
+            <a class="btn primary" target="_blank" rel="noopener" href="https://t.me/CosmiCLabSupportBot">Contact / Request Demo</a>
+            <a class="btn ghost" href="#included">Что входит</a>
+            <a class="btn ghost" href="#packages">Packages</a>
+          </div>
+        </div>
+        <div class="productHeroVisual">
+          <div class="phoneMock">
+            <div class="phoneTop"></div>
+            <img class="phoneBg" src="assets/vpn_demo_bg.png" alt="VPN app preview background" />
+            <div class="phoneOverlay">
+              <img class="vpnLogoPreview" src="assets/vpn_skin_logo_divertunnel.png" alt="White-label VPN skin preview" />
+              <div class="phoneCard">
+                <div class="phoneCardTitle">DiverTunnel VPN</div>
+                <div class="phoneCardSub">EU free node • READY</div>
+                <div class="phoneButton">CONNECT</div>
+              </div>
+              <div class="phoneCard small">
+                <div class="phoneCardTitle">BOOST</div>
+                <div class="phoneCardSub">Watch ads • 30 minutes</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="included" class="section">
+      <div class="sectionHead">
+        <h2 class="sectionTitle">Что входит в комплект</h2>
+        <div class="sectionHint">Это не просто картинка приложения, а рабочая основа: Android app + backend логика + VPN connection flow + skin system + документация.</div>
+      </div>
+      <div class="cards3">
+        <div class="card"><div class="cardTitle">Android source code</div><div class="cardText">Kotlin + Jetpack Compose, screens, server list, profile, support, FAQ, privacy/delete data links, free/plus/premium UI structure.</div></div>
+        <div class="card"><div class="cardTitle">WireGuard VPN logic</div><div class="cardText">VPN connection flow, config provisioning structure, server status, connect/disconnect logic and session handling.</div></div>
+        <div class="card"><div class="cardTitle">Backend structure</div><div class="cardText">FastAPI backend concept, PostgreSQL-ready logic, endpoints for init/provision/status/profile/boost and server integration.</div></div>
+        <div class="card"><div class="cardTitle">Multi‑skin system</div><div class="cardText">Several demo brands inside one app: names, logos, colors, backgrounds and preview skins for selling the white-label concept.</div></div>
+        <div class="card"><div class="cardTitle">Ad / Boost structure</div><div class="cardText">Rewarded ads / boost logic structure, free mode concept, daily limits and monetization-ready UI flow.</div></div>
+        <div class="card"><div class="cardTitle">Documentation & support</div><div class="cardText">Setup guide, README, explanation of project structure and optional 30-day technical support for installation and branding.</div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="sectionHead">
+        <h2 class="sectionTitle">Что можно менять под покупателя</h2>
+        <div class="sectionHint">White-label логика нужна для того, чтобы быстро показать разные бренды и потом собрать финальную APK/AAB под конкретного клиента.</div>
+      </div>
+      <div class="listGrid">
+        <div class="listItem">App name, package name / applicationId</div>
+        <div class="listItem">Launcher icon, logo, splash/visual assets</div>
+        <div class="listItem">Main colors, buttons, cards, backgrounds</div>
+        <div class="listItem">Server countries, server cards and backend URLs</div>
+        <div class="listItem">Support email, Telegram bot, FAQ and policy links</div>
+        <div class="listItem">AdMob IDs, rewarded ads, banner logic</div>
+        <div class="listItem">Free / Plus / Premium plan texts</div>
+        <div class="listItem">Website landing page and sales page</div>
+        <div class="listItem">Admin/control panel features</div>
+      </div>
+    </section>
+
+    <section class="section splitInfo">
+      <div class="infoBox">
+        <h2>Что я могу сделать дополнительно</h2>
+        <ul>
+          <li>помочь установить backend на VPS покупателя;</li>
+          <li>настроить WireGuard серверы, nginx, SSL/HTTPS и домен;</li>
+          <li>перебрендировать приложение: лого, название, цвета, тексты, иконки;</li>
+          <li>доработать control panel / admin panel / remote dashboard;</li>
+          <li>разработать сайт или product landing page под VPN‑сервис;</li>
+          <li>подготовить privacy policy, delete data page, support page;</li>
+          <li>помочь с Google Play closed testing и технической подготовкой;</li>
+          <li>добавить Plus/Premium, billing, payment flow или новые серверы отдельной работой.</li>
+        </ul>
+      </div>
+      <div class="infoBox warningBox">
+        <h2>Important</h2>
+        <p>
+          VPN publication on Google Play may require a Google Play Developer Organization account and VpnService declaration.
+          Buyer is responsible for own servers, domain, Google Play account, AdMob account, legal compliance and local regulations.
+          Demo server access is only for preview/testing.
+        </p>
+      </div>
+    </section>
+
+    <section id="packages" class="section">
+      <div class="sectionHead">
+        <h2 class="sectionTitle">Packages / Prices</h2>
+        <div class="sectionHint">Цены можно менять под площадку. На своём сайте лучше продавать как комплект + помощь, а не как дешёвый template.</div>
+      </div>
+      <div class="pricingGrid">
+        <div class="priceCard">
+          <div class="priceName">Starter Source Kit</div>
+          <div class="priceValue">999 €</div>
+          <div class="priceText">Android source code + backend source code + demo skins + setup documentation.</div>
+          <a class="btn ghost" target="_blank" rel="noopener" href="https://t.me/CosmiCLabSupportBot">Ask about Starter</a>
+        </div>
+        <div class="priceCard featuredPrice">
+          <div class="priceBadge">Recommended</div>
+          <div class="priceName">Pro Setup Package</div>
+          <div class="priceValue">1499 €</div>
+          <div class="priceText">Source code + documentation + 30 days setup support + help with backend/server setup and minor branding changes.</div>
+          <a class="btn primary" target="_blank" rel="noopener" href="https://t.me/CosmiCLabSupportBot">Request Pro Demo</a>
+        </div>
+        <div class="priceCard">
+          <div class="priceName">Custom Launch Package</div>
+          <div class="priceValue">from 1999 €</div>
+          <div class="priceText">Full branding, backend/server setup, website landing page, control panel customization and launch preparation.</div>
+          <a class="btn ghost" target="_blank" rel="noopener" href="https://t.me/CosmiCLabSupportBot">Discuss Custom</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="sectionHead">
+        <h2 class="sectionTitle">Website analytics</h2>
+        <div class="sectionHint">
+          Чтобы смотреть посетителей сайта, можно подключить Cloudflare Web Analytics, Google Analytics 4 или Matomo.
+          В HTML уже оставлен комментарий-placeholder, куда вставляется analytics script.
+        </div>
+      </div>
+      <div class="cards3">
+        <div class="card"><div class="cardTitle">Cloudflare Web Analytics</div><div class="cardText">Простой вариант: privacy-first analytics, без обязательной смены DNS/proxy. Хорошо для быстрого старта.</div></div>
+        <div class="card"><div class="cardTitle">Google Analytics 4</div><div class="cardText">Больше маркетинговых отчётов и traffic sources. Для EU лучше аккуратно с privacy/cookie consent.</div></div>
+        <div class="card"><div class="cardTitle">Matomo</div><div class="cardText">Можно self-host на своём сервере, если нужен максимальный контроль над данными.</div></div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <div class="contactBox">
+        <h2 class="sectionTitle">Request demo / Contact</h2>
+        <p class="contactText">
+          For demo APK, source code package, setup support, custom branding, backend installation or control panel development — contact me.
+        </p>
+        <div class="contactLinks">
+          <a class="btn primary" target="_blank" rel="noopener" href="https://t.me/CosmiCLabSupportBot">Open Support Bot</a>
+          <a class="btn ghost" href="mailto:cosmiclab.support@gmail.com">Email Support</a>
+        </div>
+        <div class="supportText">
+          Telegram: <b>@CosmiCLabSupportBot</b><br>
+          Email: <b>cosmiclab.support@gmail.com</b>
+        </div>
+      </div>
+    </section>
+
+    <div class="copy">© <span id="year"></span> CosmiCLab / White‑Label VPN App Kit</div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
