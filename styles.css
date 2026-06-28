@@ -860,3 +860,288 @@ button, input, textarea { font: inherit; }
   .vpnBrandText b { font-size: 20px; }
   .vpnBrandText span { font-size: 19px; }
 }
+
+/* PHOTOREPORT PLAY PRODUCT PAGE */
+.photoreportCta,
+.tilePhotoReport,
+.projectPhotoReport {
+  border-color: rgba(35, 196, 107, 0.58) !important;
+  background: linear-gradient(135deg, rgba(35,196,107,.16), rgba(120,231,255,.08)), rgba(3, 9, 22, 0.44) !important;
+}
+.tilePhotoReport .tileMore,
+.projectPhotoReport .projectText a { color: #7dffb0; }
+.photoreportHeroBox {
+  border-color: rgba(35,196,107,.32);
+  background:
+    radial-gradient(circle at 82% 18%, rgba(35,196,107,.18), transparent 34%),
+    linear-gradient(135deg, rgba(35,196,107,.07), rgba(120,231,255,.05)),
+    rgba(3, 9, 22, 0.40);
+}
+.photoreportKicker { color: #7dffb0; border-color: rgba(35,196,107,.38); }
+.photoreportPhone {
+  border-color: rgba(35,196,107,.48);
+  background:
+    linear-gradient(180deg, rgba(3,55,28,.12), rgba(1,8,14,.56)),
+    radial-gradient(circle at 35% 12%, rgba(126,255,176,.28), transparent 24%),
+    linear-gradient(180deg, #193c24 0%, #69a841 38%, #dbefff 38%, #bfe6ff 48%, #316b34 49%, #0f331d 100%);
+}
+.photoreportPhone::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 70% 55%, rgba(255,255,255,.18), transparent 18%),
+    linear-gradient(180deg, rgba(0,0,0,.04), rgba(0,0,0,.28));
+}
+.photoreportPhone .phoneOverlay { gap: 12px; background: transparent; }
+.prHeader {
+  width: 100%;
+  padding: 15px;
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(5, 61, 31, .82);
+  box-shadow: 0 12px 30px rgba(0,0,0,.24);
+}
+.prHeaderTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: #fff;
+  font-weight: 950;
+}
+.prRoundIcon {
+  width: 34px;
+  height: 34px;
+  border-radius: 13px;
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,.12);
+  color: #eafff1;
+}
+.prTabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 13px;
+}
+.prTabs span {
+  min-height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.18);
+  color: rgba(255,255,255,.86);
+  font-size: 11px;
+  font-weight: 850;
+}
+.prTabs span:nth-child(2) {
+  background: #fff;
+  color: #0e592f;
+}
+.prCard {
+  width: 100%;
+  padding: 14px;
+  border-radius: 22px;
+  border: 1px solid rgba(16,117,55,.14);
+  background: rgba(255,255,255,.92);
+  color: #163323;
+  box-shadow: 0 12px 26px rgba(0,0,0,.16);
+}
+.prCardTitle { font-size: 17px; font-weight: 950; letter-spacing: -.02em; }
+.prCardText { margin-top: 4px; color: rgba(22,51,35,.68); font-size: 12px; line-height: 1.45; }
+.prObjectRow {
+  display: grid;
+  grid-template-columns: 54px 1fr auto;
+  gap: 10px;
+  align-items: center;
+}
+.prThumb {
+  width: 54px;
+  height: 54px;
+  border-radius: 15px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #e9f8ef, #b9e8c8);
+  color: #13833e;
+  font-size: 26px;
+}
+.prStatus {
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: #eef1ef;
+  color: #66706a;
+  font-size: 10px;
+  font-weight: 850;
+}
+.prFab {
+  position: absolute;
+  right: 23px;
+  bottom: 24px;
+  z-index: 3;
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  border-radius: 24px;
+  background: #0f8f3a;
+  color: #fff;
+  font-size: 31px;
+  font-weight: 950;
+  box-shadow: 0 14px 30px rgba(0,0,0,.28);
+}
+.photoreportFeatureGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+.photoreportFeature {
+  padding: 18px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(35,196,107,.22);
+  background: linear-gradient(135deg, rgba(35,196,107,.08), rgba(120,231,255,.04)), rgba(3,9,22,.40);
+  box-shadow: var(--shadow);
+}
+.photoreportFeatureIcon { font-size: 26px; margin-bottom: 10px; }
+.photoreportFeatureTitle { font-size: 17px; font-weight: 950; color: #fff; margin-bottom: 8px; }
+.photoreportFeatureText { color: var(--muted); line-height: 1.65; font-size: 14px; }
+.workflowSteps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+.workflowStep {
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(128,220,255,.18);
+  background: rgba(3,9,22,.40);
+}
+.workflowStepNum {
+  width: 38px;
+  height: 38px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 12px;
+  color: #06120a;
+  background: linear-gradient(135deg, #7dffb0, #78e7ff);
+  font-weight: 950;
+}
+.localModeBox {
+  border-color: rgba(35,196,107,.34);
+  background: linear-gradient(135deg, rgba(35,196,107,.10), rgba(120,231,255,.04)), rgba(3,9,22,.42);
+}
+.planCards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.planCard {
+  padding: 22px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(35,196,107,.20);
+  background: rgba(3, 9, 22, .42);
+  box-shadow: var(--shadow);
+}
+.planName { color: #fff; font-size: 21px; font-weight: 950; margin-bottom: 8px; }
+.planValue { color: #7dffb0; font-size: 28px; font-weight: 950; margin-bottom: 12px; }
+.planText { color: var(--muted); line-height: 1.65; }
+@media (max-width: 980px) {
+  .photoreportFeatureGrid,
+  .workflowSteps,
+  .planCards { grid-template-columns: 1fr; }
+}
+
+/* PHOTOREPORT PAGE EXPANDED v02 */
+.photoreportPage .cards3 .card,
+.photoreportPage .screenCard,
+.photoreportPage .roadmapCard {
+  border-color: rgba(35,196,107,.22);
+}
+.photoreportShowcasePhone {
+  width: 320px;
+  min-height: 640px;
+  border-color: rgba(35,196,107,.48);
+  background: linear-gradient(180deg, rgba(3,55,28,.18), rgba(1,8,14,.62)), rgba(2,7,17,1);
+}
+.screenshotPhoneOverlay {
+  padding: 48px 0 0;
+  min-height: 640px;
+  background: linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.16));
+}
+.phoneScreenImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.screenGallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.screenCard {
+  display: grid;
+  grid-template-columns: 220px minmax(0,1fr);
+  gap: 18px;
+  align-items: center;
+  padding: 18px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(35,196,107,.20);
+  background: linear-gradient(135deg, rgba(35,196,107,.08), rgba(120,231,255,.04)), rgba(3,9,22,.40);
+  box-shadow: var(--shadow);
+}
+.screenPreview {
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(120,231,255,.20);
+  background: rgba(0,0,0,.16);
+}
+.screenPreview img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.screenTitle {
+  font-size: 22px;
+  font-weight: 950;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.screenText {
+  color: var(--muted);
+  line-height: 1.7;
+}
+.audienceGrid .listItem {
+  border-color: rgba(35,196,107,.22);
+  background: linear-gradient(135deg, rgba(35,196,107,.08), rgba(120,231,255,.04)), rgba(3,9,22,.40);
+}
+.roadmapGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.roadmapCard {
+  min-height: 100%;
+}
+.photoreportPage .infoBox ul {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--muted);
+}
+.photoreportPage .infoBox li {
+  margin: 8px 0;
+}
+@media (max-width: 980px) {
+  .screenGallery,
+  .roadmapGrid { grid-template-columns: 1fr; }
+  .screenCard { grid-template-columns: 1fr; }
+  .photoreportShowcasePhone { width: min(100%, 320px); min-height: 560px; }
+  .screenshotPhoneOverlay { min-height: 560px; }
+}
+@media (max-width: 420px) {
+  .screenTitle { font-size: 20px; }
+  .screenCard { padding: 14px; }
+}
