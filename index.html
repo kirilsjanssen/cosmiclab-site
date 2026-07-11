@@ -2,138 +2,134 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CosmiCLab Indicators by Agenhill — Personal Digital Project Lab</title>
   <meta name="description" content="CosmiCLab Indicators by Agenhill — personal digital project lab with MT5 indicators, 3D models, Android apps, AI tools and future concepts. Website under development." />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="assets/agenhill-logo-256.png?v=2" />
+  <link rel="stylesheet" href="agenhill.css?v=2" />
 </head>
-<body class="agenhillHome">
-  <div class="clBg"></div>
+<body class="ah-body">
+  <div class="ah-stars" aria-hidden="true"></div>
 
-  <aside class="clSide" aria-label="Side navigation">
-    <a class="clSideLogo js-secret-logo" href="index.html" title="CosmiCLab Indicators">
-      <img src="assets/agenhill_cat_logo.png" alt="CosmiCLab cat astronaut logo" />
+  <aside class="ah-sidebar" aria-label="Quick navigation">
+    <a class="ah-logo js-owner-trigger" href="index.html" aria-label="CosmiCLab Indicators home">
+      <img src="assets/agenhill-logo-v2.png?v=2" alt="" />
     </a>
-    <nav class="clIconNav" aria-label="Quick sections">
-      <a class="active" href="index.html" title="Home">⌂</a>
+    <nav class="ah-side-nav" aria-label="Icon navigation">
+      <a class="is-active" href="#home" title="Home">⌂</a>
       <a href="#projects" title="Projects">▦</a>
-      <a href="#available" title="MT5 Indicators">⇵</a>
-      <a href="#available" title="3D Models">◇</a>
+      <a href="#products" title="MT5 Indicators">⇅</a>
+      <a href="#products" title="3D Models">◇</a>
       <a href="#apps" title="Apps">▯</a>
       <a href="#ai-lab" title="AI Lab">✺</a>
       <a href="#contact" title="Contact">✉</a>
     </nav>
-    <div class="clSideHint">5×</div>
   </aside>
 
-  <header class="clTopbar">
-    <nav class="clTopNav" aria-label="Main navigation">
-      <a class="active" href="index.html">Home</a>
+  <header class="ah-topbar">
+    <nav class="ah-top-nav" aria-label="Main navigation">
+      <a class="is-active" href="#home">Home</a>
       <a href="#projects">Projects</a>
       <a href="mt5-mql5-indicators.html">MT5 Indicators</a>
-      <a href="#available">3D Models</a>
+      <a href="#products">3D Models</a>
       <a href="#apps">Apps</a>
       <a href="#ai-lab">AI Lab</a>
       <a href="#contact">Contact</a>
     </nav>
-    <a class="clExplore" href="#projects">🚀 Explore Projects</a>
+    <a class="ah-explore" href="#projects">🚀 Explore Projects</a>
   </header>
 
-  <main class="clMain">
-    <section class="clHero">
-      <div class="clHeroText">
-        <div class="clEyebrow">Personal digital project lab</div>
+  <main id="home" class="ah-main">
+    <section class="ah-hero" aria-label="CosmiCLab Indicators hero section">
+      <div class="ah-hero-copy">
+        <div class="ah-pill">Personal Digital Project Lab</div>
         <h1><span>CosmiCLab</span><strong>Indicators</strong></h1>
-        <p class="clBy">by <b>Agenhill</b></p>
-        <div class="clStatus">🪐 Website currently under development</div>
-        <p class="clLead">
+        <p class="ah-by">by <b>Agenhill</b></p>
+        <p class="ah-status">🪐 Website currently under development</p>
+        <p class="ah-lead">
           Personal digital project space featuring MT5 indicators, 3D models, Android apps,
           AI tools and future concepts. Some digital products are already available on external
           marketplaces while new projects are still in development.
         </p>
-        <div class="clCtas">
-          <a class="clBtn primary" href="#available">Available products</a>
-          <a class="clBtn" href="#projects">Projects in development</a>
-          <a class="clBtn" href="#contact">Contact</a>
+        <div class="ah-actions">
+          <a class="ah-btn ah-btn-main" href="#products">Available products</a>
+          <a class="ah-btn" href="#projects">Projects in development</a>
+          <a class="ah-btn" href="#contact">Contact</a>
         </div>
       </div>
 
-      <div class="clHeroVisual" aria-label="Astronaut cat in space">
-        <img src="assets/agenhill_cat_astronaut_hero.jpg" alt="Black and white cat astronaut floating in a nebula" />
-        <div class="clHeroGlow"></div>
+      <div class="ah-hero-art" aria-label="Black and white cat astronaut floating in a nebula">
+        <img src="assets/agenhill-cat-hero-v2.jpg?v=2" alt="" />
       </div>
     </section>
 
-    <section id="available" class="clCardsRow" aria-label="Available products and directions">
-      <a class="clMiniCard" href="mt5-mql5-indicators.html">
-        <div class="clMiniIcon">📊</div>
-        <h3>MT5 Indicators</h3>
-        <span class="clBadge green">Available externally</span>
+    <section id="products" class="ah-product-row" aria-label="Product directions">
+      <a class="ah-mini-card" href="mt5-mql5-indicators.html">
+        <span class="ah-mini-icon">📊</span>
+        <h2>MT5 Indicators</h2>
+        <em class="ah-tag ah-green">Available externally</em>
       </a>
-      <a class="clMiniCard" href="#contact">
-        <div class="clMiniIcon">🧊</div>
-        <h3>3D Models</h3>
-        <span class="clBadge green">Available externally</span>
+      <a class="ah-mini-card" href="#contact">
+        <span class="ah-mini-icon">🧊</span>
+        <h2>3D Models</h2>
+        <em class="ah-tag ah-green">Available externally</em>
       </a>
-      <a class="clMiniCard" href="#apps" id="apps">
-        <div class="clMiniIcon">🤖</div>
-        <h3>Android Apps</h3>
-        <span class="clBadge amber">In development</span>
+      <a id="apps" class="ah-mini-card" href="#projects">
+        <span class="ah-mini-icon">🤖</span>
+        <h2>Android Apps</h2>
+        <em class="ah-tag ah-amber">In development</em>
       </a>
-      <a class="clMiniCard" href="#ai-lab">
-        <div class="clMiniIcon">🧠</div>
-        <h3>AI Tools</h3>
-        <span class="clBadge blue">Prototype</span>
+      <a class="ah-mini-card" href="#ai-lab">
+        <span class="ah-mini-icon">🧠</span>
+        <h2>AI Tools</h2>
+        <em class="ah-tag ah-blue">Prototype</em>
       </a>
-      <a class="clMiniCard" href="#projects">
-        <div class="clMiniIcon">🪐</div>
-        <h3>Concept Projects</h3>
-        <span class="clBadge amber">In development</span>
+      <a class="ah-mini-card" href="#projects">
+        <span class="ah-mini-icon">🪐</span>
+        <h2>Concept Projects</h2>
+        <em class="ah-tag ah-amber">In development</em>
       </a>
     </section>
 
-    <section class="clInfoStrip">
-      <div>
+    <section class="ah-info-strip" aria-label="Project lab information">
+      <article>
         <span>⭐</span>
-        <h3>Personal Project Lab</h3>
-        <p>Passion-driven creations and experiments from my digital lab.</p>
-      </div>
-      <div>
+        <div><h2>Personal Project Lab</h2><p>Passion-driven creations and experiments from my digital lab.</p></div>
+      </article>
+      <article>
         <span>🚀</span>
-        <h3>Building the Future</h3>
-        <p>Exploring ideas today that can become tools for tomorrow.</p>
-      </div>
-      <div>
+        <div><h2>Building the Future</h2><p>Exploring ideas today that can become tools for tomorrow.</p></div>
+      </article>
+      <article>
         <span>🪐</span>
-        <h3>Always Evolving</h3>
-        <p>New projects, tools and concepts can be added regularly.</p>
-      </div>
+        <div><h2>Always Evolving</h2><p>New projects, tools and concepts can be added regularly.</p></div>
+      </article>
     </section>
 
-    <section id="projects" class="clSection">
-      <div class="clSectionHead">
+    <section id="projects" class="ah-section">
+      <div class="ah-section-head">
         <p>Project archive</p>
         <h2>Current and future projects</h2>
-        <span>Not a big company. This is a personal creator portfolio and project space under the pseudonym Agenhill.</span>
+        <span>CosmiCLab Indicators is a personal creator portfolio and project space under the pseudonym Agenhill.</span>
       </div>
-      <div class="clProjectGrid">
-        <article class="clProjectCard">
+      <div class="ah-project-grid">
+        <article class="ah-project-card">
           <b>PhotoReport</b>
           <em>In development</em>
           <p>Mobile app for work photo reports, object documentation, markings, GPS notes and export.</p>
           <a href="photoreport.html">Open page →</a>
         </article>
-        <article class="clProjectCard">
+        <article class="ah-project-card">
           <b>CaptureDeck Studio</b>
           <em>Prototype</em>
           <p>Screen recording and mobile video editing concept with floating control panel and timeline editor.</p>
         </article>
-        <article class="clProjectCard">
+        <article id="ai-lab" class="ah-project-card">
           <b>Gromvex AI Lab</b>
-          <em>Private / concept</em>
+          <em>Private concept</em>
           <p>Experimental AI workspace for prompts, scripts, video ideas and private project tools.</p>
         </article>
-        <article class="clProjectCard">
+        <article class="ah-project-card">
           <b>CosmiCLab VPN</b>
           <em>Development</em>
           <p>Android VPN concept with backend, server logic, limits and account flow.</p>
@@ -142,26 +138,8 @@
       </div>
     </section>
 
-    <section id="ai-lab" class="clSection clAiBlock">
-      <div class="clSectionHead">
-        <p>Private AI workspace</p>
-        <h2>Hidden cabinet and scenario writing panel</h2>
-        <span>
-          A private owner area has been added as a first frontend version. It can be used today as a local script-writing workspace.
-          Real secure login and real AI API connection should be moved to the server later.
-        </span>
-      </div>
-      <div class="clAiPanel">
-        <div>
-          <h3>Owner Cabinet</h3>
-          <p>Hidden from the public menu. Opens by direct URL or by clicking the cat logo 5 times.</p>
-        </div>
-        <a class="clBtn primary" href="cabinet.html">Open private cabinet</a>
-      </div>
-    </section>
-
-    <section id="contact" class="clSection clContact">
-      <div class="clSectionHead">
+    <section id="contact" class="ah-section ah-contact-section">
+      <div class="ah-section-head">
         <p>Contact</p>
         <h2>External marketplaces and contact</h2>
         <span>
@@ -169,19 +147,19 @@
           Direct selling through this website is not active yet.
         </span>
       </div>
-      <div class="clContactGrid">
-        <a href="mailto:kirils.janssen@gmail.com">Email: kirils.janssen@gmail.com</a>
+      <div class="ah-contact-box">
+        <a href="mailto:kirils.janssen@gmail.com">Email contact</a>
         <a href="https://t.me/CosmiCLabSupportBot" target="_blank" rel="noopener">Telegram Support Bot</a>
       </div>
     </section>
   </main>
 
-  <footer class="clFooter">
+  <footer class="ah-footer">
     <div>
       <b>CosmiCLab Indicators by Agenhill</b><br />
       Website under development. Personal project archive and digital product showcase.
     </div>
-    <nav>
+    <nav aria-label="Legal pages">
       <a href="privacy.html">Privacy</a>
       <a href="photoreport-privacy-policy.html">PhotoReport Privacy</a>
       <a href="photoreportplay-privacy-policy.html">PhotoReport Play Privacy</a>
@@ -190,6 +168,6 @@
     </nav>
   </footer>
 
-  <script src="app.js"></script>
+  <script src="agenhill.js?v=2"></script>
 </body>
 </html>

@@ -1,94 +1,87 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agenhill Private Cabinet — Scenario Workspace</title>
   <meta name="robots" content="noindex,nofollow" />
-  <title>Private Cabinet — Agenhill</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="assets/agenhill-logo-256.png?v=2" />
+  <link rel="stylesheet" href="cabinet.css?v=2" />
 </head>
-<body class="cabinetPage">
-  <div class="clBg"></div>
+<body class="cab-body">
+  <div class="cab-bg" aria-hidden="true"></div>
 
-  <main class="cabWrap">
-    <section id="cabLock" class="cabLock">
-      <img src="assets/agenhill_cat_logo.png" alt="Agenhill cat astronaut logo" />
-      <p class="cabKicker">Private owner area</p>
+  <main class="cab-shell">
+    <section id="loginPanel" class="cab-login" aria-label="Private login">
+      <img src="assets/agenhill-logo-512.png?v=2" alt="" />
+      <p class="cab-kicker">Private owner workspace</p>
       <h1>Agenhill Cabinet</h1>
-      <p class="cabMuted">
-        Hidden frontend workspace for project notes and scenario writing. This is the first local version.
-      </p>
-      <form id="cabLoginForm" class="cabLoginForm">
-        <input id="cabPassword" type="password" autocomplete="current-password" placeholder="Owner password" required />
-        <button class="clBtn primary" type="submit">Open cabinet</button>
+      <p class="cab-muted">Временная закрытая панель для сценариев, промтов и AI Movie Studio идей.</p>
+      <form id="loginForm" class="cab-login-form">
+        <input id="cabPassword" type="password" autocomplete="current-password" placeholder="Password" />
+        <button type="submit">Open cabinet</button>
       </form>
-      <div id="cabLoginError" class="cabError" hidden>Wrong password.</div>
-      <a class="cabBack" href="index.html">← Back to site</a>
-      <p class="cabTiny">
-        Temporary static protection. For real security use server login + allowed e-mails.
-      </p>
+      <p id="loginError" class="cab-error" hidden>Неверный пароль.</p>
+      <a class="cab-back" href="index.html">← Back to website</a>
     </section>
 
-    <section id="cabApp" class="cabApp" hidden>
-      <header class="cabHeader">
+    <section id="workspace" class="cab-workspace" hidden>
+      <header class="cab-header">
         <div>
-          <p class="cabKicker">Private workspace</p>
-          <h1>Scenario Writer Panel</h1>
-          <span>Local notes, AI prompt builder and project drafting area.</span>
+          <p class="cab-kicker">Private AI workspace</p>
+          <h1>Scenario Writing Panel</h1>
+          <span>Локальная рабочая выкладка: идея → структура → сцены → промты для ИИ.</span>
         </div>
-        <div class="cabHeaderActions">
-          <a class="clBtn" href="index.html">Site</a>
-          <button id="cabLockBtn" class="clBtn" type="button">Lock</button>
-        </div>
+        <nav>
+          <button id="saveBtn">Save local</button>
+          <button id="clearBtn" class="ghost">Clear</button>
+          <a href="index.html">Website</a>
+        </nav>
       </header>
 
-      <div class="cabNotice">
-        <b>AI connection status:</b> frontend prototype only. Today this panel prepares strong prompts and stores drafts in your browser. Later it can connect to your server endpoint like <code>/api/ai/script</code>.
-      </div>
-
-      <div class="cabGrid">
-        <section class="cabCard cabEditor">
-          <h2>Project / Script</h2>
-          <label>Project title<input id="scTitle" type="text" placeholder="Example: Space Cat / AI Movie Idea" /></label>
-          <label>Format<select id="scFormat"><option>Short video</option><option>Movie scene</option><option>Series episode</option><option>Trailer</option><option>Game cutscene</option><option>YouTube script</option></select></label>
-          <label>Genre<input id="scGenre" type="text" placeholder="Sci-fi, dark fantasy, comedy, action..." /></label>
-          <label>Main idea<textarea id="scIdea" rows="5" placeholder="Write the main story idea here..."></textarea></label>
-          <label>Characters<textarea id="scCharacters" rows="4" placeholder="Main characters, goals, conflicts..."></textarea></label>
-          <label>Visual style / mood<textarea id="scMood" rows="3" placeholder="Cinematic, realistic, dark, funny, retro, cosmic..."></textarea></label>
-          <label>Scene notes<textarea id="scScenes" rows="7" placeholder="Scene 1... Scene 2... Scene 3..."></textarea></label>
-        </section>
-
-        <section class="cabCard cabTools">
-          <h2>AI Helper</h2>
-          <div class="cabToolButtons">
-            <button data-tool="master" type="button">Build master AI prompt</button>
-            <button data-tool="structure" type="button">Create 3-act structure</button>
-            <button data-tool="scene" type="button">Scene-by-scene prompt</button>
-            <button data-tool="dialogue" type="button">Dialogue helper</button>
-            <button data-tool="video" type="button">Video generator prompt</button>
+      <section class="cab-grid">
+        <article class="cab-card wide">
+          <h2>Project Core</h2>
+          <label>Название проекта<input id="projectTitle" placeholder="Например: Cosmic Cat Movie" /></label>
+          <label>Логлайн<textarea id="logline" rows="3" placeholder="Коротко: кто герой, чего хочет, что мешает..."></textarea></label>
+          <div class="cab-two">
+            <label>Жанр<input id="genre" placeholder="sci-fi, thriller, adventure..." /></label>
+            <label>Формат<input id="format" placeholder="short film, episode, trailer..." /></label>
           </div>
-          <label>AI / Output<textarea id="scOutput" rows="17" placeholder="Generated prompt / structure appears here..."></textarea></label>
-          <div class="cabToolButtons two">
-            <button id="copyOutput" type="button">Copy output</button>
-            <button id="saveProject" type="button">Save locally</button>
-            <button id="clearOutput" type="button">Clear output</button>
-          </div>
-          <div id="saveState" class="cabSaveState"></div>
-        </section>
-      </div>
+        </article>
 
-      <section class="cabCard cabRoadmap">
-        <h2>Next server version</h2>
-        <ul>
-          <li>Login by approved e-mail only.</li>
-          <li>Private pages: script writer, prompt studio, project memory, file library.</li>
-          <li>AI backend: OpenAI / Gemini endpoint, prompt history and saved projects.</li>
-          <li>Admin allow-list: only your e-mail at launch, later access by request.</li>
-        </ul>
+        <article class="cab-card">
+          <h2>Style</h2>
+          <label>Визуальный стиль<textarea id="style" rows="8" placeholder="cinematic, dark cosmic, realistic, neon, moody..."></textarea></label>
+        </article>
+
+        <article class="cab-card">
+          <h2>Characters</h2>
+          <label>Персонажи<textarea id="characters" rows="8" placeholder="Герой, антагонист, помощники, мотивация..."></textarea></label>
+        </article>
+
+        <article class="cab-card wide">
+          <h2>Scene Board</h2>
+          <label>Сцены<textarea id="scenes" rows="8" placeholder="1. Opening shot...&#10;2. Conflict...&#10;3. Final image..."></textarea></label>
+        </article>
+
+        <article class="cab-card wide">
+          <h2>Prompt Builder</h2>
+          <div class="cab-button-row">
+            <button data-build="structure">3-act structure</button>
+            <button data-build="dialogue">Dialogue prompt</button>
+            <button data-build="video">Video generator prompt</button>
+            <button data-build="pitch">Short pitch</button>
+          </div>
+          <label>Output<textarea id="output" rows="12" placeholder="Здесь появится готовый промт..."></textarea></label>
+          <div class="cab-button-row">
+            <button id="copyBtn">Copy output</button>
+          </div>
+        </article>
       </section>
     </section>
   </main>
 
-  <script src="cabinet.js"></script>
+  <script src="cabinet.js?v=2"></script>
 </body>
 </html>

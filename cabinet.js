@@ -1,115 +1,68 @@
-// Agenhill Cabinet — temporary static owner gate.
-// IMPORTANT: this is not real security. For production use server-side login and allowed e-mail list.
-const PRIVATE_PASS_HASH = "6e0bbf85f919aed24792d9205af911cd494dc34ace3395801257e7813e389a40"; // default password: agenhill2026
+(function () {
+  const PASSWORD = 'agenhill2026';
+  const loginPanel = document.getElementById('loginPanel');
+  const workspace = document.getElementById('workspace');
+  const loginForm = document.getElementById('loginForm');
+  const passInput = document.getElementById('cabPassword');
+  const loginError = document.getElementById('loginError');
+  const ids = ['projectTitle','logline','genre','format','style','characters','scenes','output'];
 
-const $ = (id) => document.getElementById(id);
-const fields = ["scTitle", "scFormat", "scGenre", "scIdea", "scCharacters", "scMood", "scScenes", "scOutput"];
-
-async function sha256(text) {
-  const data = new TextEncoder().encode(text);
-  const buf = await crypto.subtle.digest("SHA-256", data);
-  return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, "0")).join("");
-}
-
-function showApp() {
-  $("cabLock").hidden = true;
-  $("cabApp").hidden = false;
-  loadProject();
-}
-
-function showLock() {
-  $("cabApp").hidden = true;
-  $("cabLock").hidden = false;
-}
-
-function getData() {
-  return Object.fromEntries(fields.map((id) => [id, $(id)?.value || ""]));
-}
-
-function setData(data) {
-  fields.forEach((id) => {
-    if ($(id) && data[id] !== undefined) $(id).value = data[id];
-  });
-}
-
-function loadProject() {
-  try { setData(JSON.parse(localStorage.getItem("agenhill_cabinet_script") || "{}")); } catch (_) {}
-}
-
-function saveProject(message = "Saved locally") {
-  localStorage.setItem("agenhill_cabinet_script", JSON.stringify(getData()));
-  const el = $("saveState");
-  if (el) {
-    el.textContent = message + " · " + new Date().toLocaleString();
-    setTimeout(() => (el.textContent = ""), 4000);
+  function openWorkspace() {
+    sessionStorage.setItem('agenhill_cabinet_open', '1');
+    loginPanel.hidden = true;
+    workspace.hidden = false;
+    loadData();
   }
-}
 
-function baseContext() {
-  const title = $("scTitle").value.trim() || "Untitled project";
-  const format = $("scFormat").value.trim();
-  const genre = $("scGenre").value.trim() || "not specified";
-  const idea = $("scIdea").value.trim() || "not specified";
-  const characters = $("scCharacters").value.trim() || "not specified";
-  const mood = $("scMood").value.trim() || "cinematic, clear, detailed";
-  const scenes = $("scScenes").value.trim() || "not specified";
-  return { title, format, genre, idea, characters, mood, scenes };
-}
+  loginForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    if (passInput.value === PASSWORD) openWorkspace();
+    else loginError.hidden = false;
+  });
 
-function buildTool(tool) {
-  const c = baseContext();
-  const header = `Project: ${c.title}\nFormat: ${c.format}\nGenre: ${c.genre}\nVisual style / mood: ${c.mood}\n\nMain idea:\n${c.idea}\n\nCharacters:\n${c.characters}\n\nCurrent scene notes:\n${c.scenes}\n`;
+  if (sessionStorage.getItem('agenhill_cabinet_open') === '1') openWorkspace();
 
-  if (tool === "structure") {
-    return `${header}\nTASK: Create a strong 3-act story structure. Include:\n1) logline,\n2) Act I setup,\n3) Act II escalation and midpoint,\n4) Act III climax and ending,\n5) 8-12 scene list,\n6) visual notes for each scene,\n7) what should be improved in the idea. Write clearly and cinematically.`;
+  function collect() {
+    const data = {};
+    ids.forEach(id => data[id] = (document.getElementById(id)?.value || '').trim());
+    return data;
   }
-  if (tool === "scene") {
-    return `${header}\nTASK: Turn this idea into a scene-by-scene screenplay plan. For each scene include: location, time, characters, goal, conflict, action beats, camera/visual mood, and short dialogue notes.`;
+  function loadData() {
+    try {
+      const data = JSON.parse(localStorage.getItem('agenhill_scenario_workspace') || '{}');
+      ids.forEach(id => { if (data[id] !== undefined) document.getElementById(id).value = data[id]; });
+    } catch (e) {}
   }
-  if (tool === "dialogue") {
-    return `${header}\nTASK: Write natural dialogue for the most important scene. Keep characters distinct. Add emotional subtext, pauses, actions, and a short explanation of why the dialogue works.`;
+  function saveData() {
+    localStorage.setItem('agenhill_scenario_workspace', JSON.stringify(collect()));
   }
-  if (tool === "video") {
-    return `${header}\nTASK: Create a video generation prompt. Include camera movement, lighting, environment, character actions, cinematic style, duration, lens, realism level, and negative prompt. Make it suitable for AI video generation.`;
+  document.getElementById('saveBtn').addEventListener('click', saveData);
+  document.getElementById('clearBtn').addEventListener('click', function () {
+    if (!confirm('Очистить локальную выкладку?')) return;
+    localStorage.removeItem('agenhill_scenario_workspace');
+    ids.forEach(id => document.getElementById(id).value = '');
+  });
+
+  function baseContext() {
+    const d = collect();
+    return `Project: ${d.projectTitle || '[project title]'}\nFormat: ${d.format || '[format]'}\nGenre: ${d.genre || '[genre]'}\nLogline: ${d.logline || '[logline]'}\nCharacters:\n${d.characters || '[characters]'}\nVisual style:\n${d.style || '[visual style]'}\nScenes / notes:\n${d.scenes || '[scenes]'}\n`;
   }
-  return `${header}\nTASK: Act as a professional screenwriter and AI movie prompt engineer. Help improve this project. First analyze the idea, then propose a stronger version, then create a clear script outline, scene list, character motivations, visual direction, and a production-ready AI prompt.`;
-}
-
-window.addEventListener("DOMContentLoaded", () => {
-  if (localStorage.getItem("agenhill_cabinet_unlocked") === "1") showApp();
-
-  $("cabLoginForm")?.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const hash = await sha256($("cabPassword").value);
-    if (hash === PRIVATE_PASS_HASH) {
-      localStorage.setItem("agenhill_cabinet_unlocked", "1");
-      showApp();
-    } else {
-      $("cabLoginError").hidden = false;
-    }
+  function build(type) {
+    const ctx = baseContext();
+    const blocks = {
+      structure: `Act as an experienced film screenwriter. Based on the project notes below, create a clean 3-act structure with: Act 1 setup, Act 2 conflict/escalation, Act 3 climax/resolution. Add 8-12 key scenes and a short emotional arc.\n\n${ctx}`,
+      dialogue: `Act as a dialogue writer. Based on the project notes below, write a natural dialogue scene with strong character voices, conflict, subtext, and cinematic pacing. Keep it usable for a short film or AI video scene.\n\n${ctx}`,
+      video: `Create a cinematic AI video generation prompt from the project notes below. Include camera movement, lighting, mood, environment, character action, style, lens language, and negative prompt. Make it suitable for a high-quality video generator.\n\n${ctx}`,
+      pitch: `Create a short professional pitch from the project notes below: title, one-sentence logline, genre, target mood, main character, conflict, and why the idea is visually interesting.\n\n${ctx}`
+    };
+    document.getElementById('output').value = blocks[type] || ctx;
+    saveData();
+  }
+  document.querySelectorAll('[data-build]').forEach(btn => btn.addEventListener('click', () => build(btn.dataset.build)));
+  document.getElementById('copyBtn').addEventListener('click', async function () {
+    const out = document.getElementById('output');
+    out.select();
+    try { await navigator.clipboard.writeText(out.value); this.textContent = 'Copied'; setTimeout(() => this.textContent = 'Copy output', 1200); }
+    catch (e) { document.execCommand('copy'); }
   });
-
-  $("cabLockBtn")?.addEventListener("click", () => {
-    localStorage.removeItem("agenhill_cabinet_unlocked");
-    showLock();
-  });
-
-  fields.forEach((id) => $(id)?.addEventListener("input", () => saveProject("Draft autosaved")));
-
-  document.querySelectorAll("[data-tool]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      $("scOutput").value = buildTool(btn.dataset.tool);
-      saveProject("Prompt created");
-    });
-  });
-
-  $("copyOutput")?.addEventListener("click", async () => {
-    await navigator.clipboard.writeText($("scOutput").value || "");
-    saveProject("Copied");
-  });
-  $("saveProject")?.addEventListener("click", () => saveProject("Saved locally"));
-  $("clearOutput")?.addEventListener("click", () => {
-    $("scOutput").value = "";
-    saveProject("Output cleared");
-  });
-});
+})();
