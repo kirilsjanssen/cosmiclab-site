@@ -5,23 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CosmiCLab Indicators by Agenhill — Personal Digital Project Lab</title>
   <meta name="description" content="CosmiCLab Indicators by Agenhill — personal digital project lab with MT5 indicators, 3D models, Android apps, AI tools and future concepts. Website under development." />
-  <link rel="icon" href="assets/agenhill-logo-256.png?v=2" />
-  <link rel="stylesheet" href="agenhill.css?v=2" />
+  <link rel="icon" href="assets/agenhill-logo-v3-256.png?v=3" />
+  <link rel="stylesheet" href="agenhill.css?v=3" />
 </head>
 <body class="ah-body">
-  <div class="ah-stars" aria-hidden="true"></div>
+  <div class="ah-space-noise" aria-hidden="true"></div>
 
   <aside class="ah-sidebar" aria-label="Quick navigation">
-    <a class="ah-logo js-owner-trigger" href="index.html" aria-label="CosmiCLab Indicators home">
-      <img src="assets/agenhill-logo-v2.png?v=2" alt="" />
+    <a class="ah-logo" href="index.html" aria-label="CosmiCLab Indicators home">
+      <img src="assets/agenhill-logo-v3.png?v=3" alt="CosmiCLab cat astronaut logo" />
     </a>
     <nav class="ah-side-nav" aria-label="Icon navigation">
       <a class="is-active" href="#home" title="Home">⌂</a>
       <a href="#projects" title="Projects">▦</a>
-      <a href="#products" title="MT5 Indicators">⇅</a>
-      <a href="#products" title="3D Models">◇</a>
+      <a href="#products" title="MT5 Indicators and 3D Models">⇅</a>
       <a href="#apps" title="Apps">▯</a>
       <a href="#ai-lab" title="AI Lab">✺</a>
+      <a href="#cabinet-access" title="Cabinet login">⌁</a>
       <a href="#contact" title="Contact">✉</a>
     </nav>
   </aside>
@@ -53,13 +53,13 @@
         </p>
         <div class="ah-actions">
           <a class="ah-btn ah-btn-main" href="#products">Available products</a>
-          <a class="ah-btn" href="#projects">Projects in development</a>
-          <a class="ah-btn" href="#contact">Contact</a>
+          <a class="ah-btn" href="#projects">Development projects</a>
+          <a class="ah-btn" href="#cabinet-access">Owner cabinet</a>
         </div>
       </div>
 
       <div class="ah-hero-art" aria-label="Black and white cat astronaut floating in a nebula">
-        <img src="assets/agenhill-cat-hero-v2.jpg?v=2" alt="" />
+        <img src="assets/agenhill-cat-hero-v3.jpg?v=3" alt="Black and white cat astronaut floating in a colorful nebula" />
       </div>
     </section>
 
@@ -138,6 +138,29 @@
       </div>
     </section>
 
+    <section id="cabinet-access" class="ah-section ah-cabinet-section">
+      <div class="ah-cabinet-card">
+        <div class="ah-cabinet-copy">
+          <p>Owner workspace</p>
+          <h2>Cabinet login</h2>
+          <span>
+            Вход в приватную рабочую панель для сценариев, AI Movie Studio, промтов и идей.
+            Сейчас это первая статическая версия. Позже сюда можно подключить настоящий серверный вход.
+          </span>
+        </div>
+        <form id="ownerLoginForm" class="ah-login-form">
+          <label>Email
+            <input id="ownerEmail" type="email" autocomplete="username" placeholder="your@email.com" required />
+          </label>
+          <label>Password
+            <input id="ownerPassword" type="password" autocomplete="current-password" placeholder="Password" required />
+          </label>
+          <button type="submit">Open cabinet</button>
+          <p id="ownerLoginError" class="ah-login-error" hidden>Wrong email or password.</p>
+        </form>
+      </div>
+    </section>
+
     <section id="contact" class="ah-section ah-contact-section">
       <div class="ah-section-head">
         <p>Contact</p>
@@ -168,6 +191,6 @@
     </nav>
   </footer>
 
-  <script src="agenhill.js?v=2"></script>
+  <script src="agenhill.js?v=3"></script>
 </body>
 </html>
