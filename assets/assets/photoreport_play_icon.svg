@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="PhotoReport icon">
+  <defs>
+    <linearGradient id="bg" x1="80" y1="48" x2="432" y2="464" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#36c66b"/>
+      <stop offset="0.55" stop-color="#0b8f3b"/>
+      <stop offset="1" stop-color="#075629"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="132" y1="96" x2="380" y2="420" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#dff8e7"/>
+    </linearGradient>
+  </defs>
+  <rect x="48" y="48" width="416" height="416" rx="110" fill="url(#bg)"/>
+  <rect x="132" y="92" width="248" height="328" rx="38" fill="url(#paper)" opacity="0.98"/>
+  <rect x="168" y="132" width="176" height="22" rx="11" fill="#13743a" opacity="0.78"/>
+  <rect x="168" y="174" width="124" height="18" rx="9" fill="#13743a" opacity="0.35"/>
+  <rect x="168" y="308" width="176" height="18" rx="9" fill="#13743a" opacity="0.36"/>
+  <rect x="168" y="344" width="126" height="18" rx="9" fill="#13743a" opacity="0.30"/>
+  <rect x="166" y="216" width="180" height="70" rx="20" fill="#0f8f3a" opacity="0.13"/>
+  <path d="M186 270l45-44 38 34 25-24 34 34H186z" fill="#0f8f3a" opacity="0.85"/>
+  <circle cx="292" cy="235" r="14" fill="#0f8f3a" opacity="0.95"/>
+  <path d="M368 250l46-46" stroke="#ffb13b" stroke-width="28" stroke-linecap="round"/>
+  <path d="M356 262l-18 52 52-18" fill="#ffffff" opacity="0.96"/>
+  <path d="M356 262l34 34" stroke="#0b5d2e" stroke-width="10" stroke-linecap="round" opacity="0.75"/>
+</svg>

@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <meta name="theme-color" content="#070b14" />
+  <title>Gromvex AI Movie Studio</title>
+  <link rel="icon" href="assets/gromvex-logo.png" />
+  <link rel="stylesheet" href="studio.css?v=11" />
+</head>
+<body>
+  <div class="browser-shell" aria-hidden="true">
+    <div class="browser-dots"><span></span><span></span><span></span></div>
+    <div class="browser-address">🔒 studio.gromvex.ai</div>
+    <div class="browser-actions">⋯　⇧　◇</div>
+  </div>
+
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <img src="assets/gromvex-logo.png" alt="Gromvex AI" />
+        <div><strong>Gromvex AI</strong><span>Movie Studio</span></div>
+      </div>
+
+      <button class="primary-btn new-project-btn" id="newProjectBtn">＋ Новый проект</button>
+
+      <p class="section-label">Текущий проект</p>
+      <button class="project-switcher" id="projectSwitcher" aria-expanded="false">
+        <span class="project-thumb" id="projectThumb"></span>
+        <span class="project-switcher-copy"><strong id="projectSwitcherTitle">Район мёртвых</strong><small id="projectSwitcherMeta">Постапокалипсис / 90 минут</small></span>
+        <span>⌄</span>
+      </button>
+      <div class="project-menu" id="projectMenu" hidden></div>
+
+      <div class="project-library-head">
+        <p class="section-label">Все проекты</p>
+        <span id="projectCount">1</span>
+      </div>
+      <div class="project-list" id="projectList" aria-label="Список проектов"></div>
+
+      <nav class="main-nav" id="mainNav" aria-label="Разделы студии">
+        <button data-view="overview" class="active"><span>⌂</span>Проект</button>
+        <button data-view="script"><span>▤</span>Сценарий</button>
+        <button data-view="characters"><span>♙</span>Персонажи</button>
+        <button data-view="locations"><span>⌖</span>Локации</button>
+        <button data-view="scenes"><span>▣</span>Сцены</button>
+        <button data-view="assets"><span>📎</span>Ассеты</button>
+        <button data-view="prompts"><span>✣</span>Промты</button>
+        <button data-view="renders"><span>▧</span>Рендеры</button>
+        <button data-view="editing"><span>▥</span>Монтаж</button>
+        <button data-view="export"><span>⇧</span>Экспорт</button>
+        <button data-view="settings"><span>⚙</span>Настройки</button>
+      </nav>
+
+      <div class="storage-card">
+        <div class="storage-title"><span>Хранилище</span><strong id="storageValue">0 МБ</strong></div>
+        <div class="storage-track"><span id="storageBar"></span></div>
+        <small id="storageModeLabel">Локальное хранилище браузера</small>
+        <button id="manageStorageBtn">Управление</button>
+      </div>
+    </aside>
+
+    <main class="workspace">
+      <header class="workspace-hero">
+        <div class="hero-overlay"></div>
+        <div class="workspace-head-copy">
+          <div class="title-line">
+            <h1 id="projectTitleHeading">Район мёртвых</h1>
+            <button class="icon-btn" id="renameProjectBtn" title="Переименовать проект">✎</button>
+          </div>
+          <p id="projectSubtitle">Постапокалипсис / зомби / 90 минут</p>
+        </div>
+        <div class="workspace-head-actions">
+          <button class="icon-btn" id="projectMoreBtn">⋯</button>
+          <button class="soft-btn" id="projectAssetsBtn" type="button">📎 Ассеты</button>
+          <button class="soft-btn" id="assistantToggleBtn" type="button" title="Скрыть или показать панель помощника">◫ Помощник</button>
+          <span class="server-sync-status" id="serverSyncStatus" data-state="idle">Подключение…</span>
+          <a class="soft-btn cabinet-link" href="/cabinet.html">⌂ Кабинет</a>
+          <button class="soft-btn" id="shareBtn">⌯ Поделиться</button>
+        </div>
+      </header>
+
+      <div class="workspace-content">
+        <div class="top-tabs" id="topTabs">
+          <button data-view="overview" class="active">Обзор</button>
+          <button data-view="world">Библия мира</button>
+          <button data-view="structure">Трёхактная структура</button>
+          <button data-view="scenes">Сцены</button>
+        </div>
+
+        <section id="viewHost" class="view-host" aria-live="polite"></section>
+
+        <div class="command-bar">
+          <span>✣</span>
+          <input id="commandInput" placeholder="Например: разбей сцену на 8 кадров и подготовь промты для Seedance и Kling" />
+          <button id="commandSendBtn">➤</button>
+        </div>
+        <p class="ai-disclaimer">ИИ может допускать неточности. Проверяйте важную информацию.</p>
+      </div>
+    </main>
+
+    <aside class="assistant-panel">
+      <header class="assistant-header">
+        <div class="assistant-title"><span class="spark">✣</span><strong>ИИ-режиссёр</strong></div>
+        <div class="assistant-actions"><button id="assistantAssetsBtn" title="Ассеты активной сцены">📎</button><button id="themeBtn" title="Переключить оформление">◐</button><button id="notifyBtn" title="Уведомления">♢<i>3</i></button><button class="profile-btn" id="profileBtn"><span>К</span><div><strong>Кирилл</strong><small>Режиссёр</small></div>⌄</button></div>
+      </header>
+
+      <div class="role-tabs" id="roleTabs">
+        <button data-role="writer">Сценарист</button>
+        <button data-role="director" class="active">Режиссёр</button>
+        <button data-role="camera">Оператор</button>
+        <button data-role="editor">Монтажёр</button>
+      </div>
+
+      <p class="analysis-status">Анализирую <span id="activeSceneLabel">сцену 14 — Больница...</span> <b>●</b></p>
+
+      <div class="assistant-scroll">
+        <div class="accordion" id="assistantAccordion">
+          <article>
+            <button class="accordion-title" data-accordion="breakdown"><span>›</span>Разбивка сцены <small id="frameCountLabel">8 кадров</small></button>
+            <div class="accordion-body" data-panel="breakdown" hidden>
+              <div class="mini-grid" id="breakdownList"></div>
+            </div>
+          </article>
+          <article>
+            <button class="accordion-title" data-accordion="camera"><span>›</span>Камера</button>
+            <div class="accordion-body" data-panel="camera" hidden>
+              <textarea id="cameraNotes" rows="4" placeholder="Крупность, движение камеры, объектив..."></textarea>
+            </div>
+          </article>
+          <article>
+            <button class="accordion-title" data-accordion="light"><span>›</span>Свет</button>
+            <div class="accordion-body" data-panel="light" hidden>
+              <textarea id="lightNotes" rows="4" placeholder="Схема света, цветовая температура, контраст..."></textarea>
+            </div>
+          </article>
+          <article class="open">
+            <button class="accordion-title" data-accordion="prompts"><span>⌄</span>Промты</button>
+            <div class="accordion-body" data-panel="prompts">
+              <div id="promptCards" class="prompt-cards"></div>
+            </div>
+          </article>
+        </div>
+
+        <section class="storyboard-panel">
+          <div class="storyboard-title"><strong>Сториборд</strong><small id="storyboardRange">кадры 1–3 из 8</small></div>
+          <div id="storyboard" class="storyboard"></div>
+        </section>
+      </div>
+
+      <div class="assistant-buttons">
+        <button class="primary-btn" id="generateFramesBtn">✣ Сгенерировать кадры</button>
+        <button class="soft-btn" id="makeStoryboardBtn">▦ Сделать сториборд</button>
+        <button class="soft-btn" id="exportMdBtn">▣ Экспорт в .md</button>
+        <button class="soft-btn" id="shotlistBtn">☷ Собрать шотлист</button>
+      </div>
+
+      <section class="production-card">
+        <h3>Прогресс производства</h3>
+        <div class="production-steps" id="productionSteps">
+          <div class="production-step" id="scriptStep">
+            <span id="scriptProgressValue">0%</span>
+            <small>Сценарий<br><b id="scriptProgressLabel">в работе</b></small>
+          </div><i></i>
+          <div class="production-step" id="promptsStep">
+            <span id="promptsProgressValue">0%</span>
+            <small>Промты<br><b id="promptsProgressLabel">не готовы</b></small>
+          </div><i></i>
+          <div class="production-step" id="rendersStep">
+            <span id="renderProgressValue">0%</span>
+            <small>Рендеры<br><b id="renderCountValue">0/0</b></small>
+          </div><i></i>
+          <div class="production-step" id="editingStep">
+            <span id="editingProgressValue">0%</span>
+            <small>Монтаж<br><b id="editingProgressLabel">не начат</b></small>
+          </div>
+        </div>
+      </section>
+    </aside>
+  </div>
+
+  <dialog id="projectDialog" class="studio-dialog">
+    <form method="dialog" id="projectForm">
+      <header><div><p>Новый фильм</p><h2>Создать проект</h2></div><button value="cancel" class="dialog-close">×</button></header>
+      <label>Название<input id="newProjectTitle" required placeholder="Название проекта" /></label>
+      <div class="form-grid">
+        <label>Жанр<input id="newProjectGenre" placeholder="Фантастика, триллер..." /></label>
+        <label>Хронометраж<input id="newProjectDuration" type="number" min="1" max="500" value="15" /></label>
+      </div>
+      <label>Логлайн<textarea id="newProjectLogline" rows="4" placeholder="Кто герой, чего он хочет и что ему мешает?"></textarea></label>
+      <footer><button value="cancel" class="soft-btn">Отмена</button><button value="default" class="primary-btn" id="createProjectConfirm">Создать проект</button></footer>
+    </form>
+  </dialog>
+
+  <dialog id="textDialog" class="studio-dialog compact-dialog">
+    <form method="dialog" id="textDialogForm">
+      <header><div><p id="textDialogKicker">Редактирование</p><h2 id="textDialogTitle">Изменить</h2></div><button value="cancel" class="dialog-close">×</button></header>
+      <label id="textDialogLabel">Значение<input id="textDialogInput" /></label>
+      <footer><button value="cancel" class="soft-btn">Отмена</button><button value="default" class="primary-btn" id="textDialogSave">Сохранить</button></footer>
+    </form>
+  </dialog>
+
+
+  <dialog id="characterDialog" class="studio-dialog wide-dialog entity-dialog">
+    <form method="dialog" id="characterForm">
+      <header><div><p id="characterDialogKicker">Персонаж</p><h2 id="characterDialogTitle">Карточка персонажа</h2></div><button type="button" class="dialog-close" data-close-dialog="characterDialog">×</button></header>
+      <input type="hidden" id="characterId" />
+      <div class="dialog-scroll-area">
+        <div class="form-grid">
+          <label>Имя<input id="characterName" required placeholder="Имя персонажа" /></label>
+          <label>Возраст<input id="characterAge" placeholder="Например: 36 лет" /></label>
+        </div>
+        <div class="form-grid">
+          <label>Роль<input id="characterRole" placeholder="Главный герой, антагонист..." /></label>
+          <label>Профессия<input id="characterOccupation" placeholder="Инженер, врач, военный..." /></label>
+        </div>
+        <label>Цель персонажа<textarea id="characterGoal" rows="3" placeholder="Чего персонаж хочет добиться?"></textarea></label>
+        <div class="form-grid">
+          <label>Мотивация<textarea id="characterMotivation" rows="4" placeholder="Почему это для него важно?"></textarea></label>
+          <label>Внутренний конфликт<textarea id="characterConflict" rows="4" placeholder="Страх, вина, противоречие..."></textarea></label>
+        </div>
+        <div class="form-grid">
+          <label>Внешность<textarea id="characterAppearance" rows="4" placeholder="Лицо, телосложение, волосы, возрастные признаки..."></textarea></label>
+          <label>Одежда и реквизит<textarea id="characterWardrobe" rows="4" placeholder="Постоянный образ, предметы, цвета..."></textarea></label>
+        </div>
+        <div class="form-grid">
+          <label>Речь и поведение<textarea id="characterVoice" rows="4" placeholder="Манера речи, жесты, привычки..."></textarea></label>
+          <label>Дуга персонажа<textarea id="characterArc" rows="4" placeholder="Как он меняется от начала к финалу?"></textarea></label>
+        </div>
+        <label>Дополнительные заметки<textarea id="characterNotes" rows="4"></textarea></label>
+        <section class="asset-attachment-box" data-dialog-asset-zone="character">
+          <div><strong>📎 Ассеты персонажа</strong><small>Фото лица, полный рост, одежда, голосовые и текстовые референсы.</small></div>
+          <button type="button" class="soft-btn dialog-asset-add" data-dialog-owner="character">📎 Добавить с компьютера</button>
+          <div class="dialog-asset-list" id="characterAssetList"></div>
+        </section>
+      </div>
+      <footer class="dialog-footer-split"><button type="button" class="danger-btn" id="characterDeleteBtn" hidden>Удалить</button><span></span><button type="button" class="soft-btn" data-close-dialog="characterDialog">Отмена</button><button type="submit" class="primary-btn">Сохранить персонажа</button></footer>
+    </form>
+  </dialog>
+
+  <dialog id="locationDialog" class="studio-dialog wide-dialog entity-dialog">
+    <form method="dialog" id="locationForm">
+      <header><div><p id="locationDialogKicker">Локация</p><h2 id="locationDialogTitle">Карточка локации</h2></div><button type="button" class="dialog-close" data-close-dialog="locationDialog">×</button></header>
+      <input type="hidden" id="locationId" />
+      <div class="dialog-scroll-area">
+        <label>Название<input id="locationName" required placeholder="Название локации" /></label>
+        <label>Основное описание<textarea id="locationDescription" rows="5" placeholder="Как выглядит пространство и что в нём важно для действия?"></textarea></label>
+        <div class="form-grid">
+          <label>Атмосфера<textarea id="locationAtmosphere" rows="4" placeholder="Тон, погода, состояние пространства..."></textarea></label>
+          <label>Свет<textarea id="locationLighting" rows="4" placeholder="Источники света, цвет, контраст..."></textarea></label>
+        </div>
+        <div class="form-grid">
+          <label>Звуки<textarea id="locationSound" rows="4" placeholder="Фоновый шум, тишина, эхо..."></textarea></label>
+          <label>Ключевой реквизит<textarea id="locationProps" rows="4" placeholder="Предметы, техника, декорации..."></textarea></label>
+        </div>
+        <label>Непрерывность и ограничения<textarea id="locationContinuity" rows="4" placeholder="Что нельзя менять между кадрами и сценами?"></textarea></label>
+        <label>Дополнительные заметки<textarea id="locationNotes" rows="4"></textarea></label>
+        <section class="asset-attachment-box" data-dialog-asset-zone="location">
+          <div><strong>📎 Ассеты локации</strong><small>Фото, схемы, видео прохода, звук атмосферы и реквизит.</small></div>
+          <button type="button" class="soft-btn dialog-asset-add" data-dialog-owner="location">📎 Добавить с компьютера</button>
+          <div class="dialog-asset-list" id="locationAssetList"></div>
+        </section>
+      </div>
+      <footer class="dialog-footer-split"><button type="button" class="danger-btn" id="locationDeleteBtn" hidden>Удалить</button><span></span><button type="button" class="soft-btn" data-close-dialog="locationDialog">Отмена</button><button type="submit" class="primary-btn">Сохранить локацию</button></footer>
+    </form>
+  </dialog>
+
+  <dialog id="sceneDialog" class="studio-dialog scene-dialog">
+    <form method="dialog" id="sceneForm">
+      <header><div><p id="sceneDialogKicker">Сцена</p><h2 id="sceneDialogTitle">Редактор сцены</h2></div><button type="button" class="dialog-close" data-close-dialog="sceneDialog">×</button></header>
+      <input type="hidden" id="sceneId" />
+      <div class="dialog-scroll-area">
+        <div class="form-grid scene-main-grid">
+          <label>№<input id="sceneNumber" type="number" min="1" required /></label>
+          <label>Название<input id="sceneTitle" required placeholder="Название сцены" /></label>
+          <label>Локация<input id="sceneLocation" list="sceneLocationList" placeholder="Выбери или введи локацию" /><datalist id="sceneLocationList"></datalist></label>
+        </div>
+        <div class="form-grid scene-meta-grid">
+          <label>Время<select id="sceneTime"><option>День</option><option>Ночь</option><option>Рассвет</option><option>Сумерки</option><option>Вечер</option></select></label>
+          <label>Страницы<input id="scenePages" placeholder="Например: 3 4/8" /></label>
+          <label>Длительность, сек.<input id="sceneDurationSec" type="number" min="0" step="1" /></label>
+          <label>Статус<select id="sceneStatus"><option value="draft">Черновик</option><option value="work">В работе</option><option value="ready">Готово</option></select></label>
+        </div>
+        <label>Участники сцены<div id="sceneCharactersPicker" class="character-picker"></div></label>
+        <label>Краткое содержание<textarea id="sceneSummary" rows="4" placeholder="Что происходит в сцене?"></textarea></label>
+        <div class="form-grid">
+          <label>Цель сцены<textarea id="scenePurpose" rows="4" placeholder="Зачем эта сцена нужна истории?"></textarea></label>
+          <label>Конфликт / поворот<textarea id="sceneConflict" rows="4" placeholder="Что меняется к концу сцены?"></textarea></label>
+        </div>
+        <label>Действие<textarea id="sceneAction" rows="6" placeholder="Последовательность действий и ключевые события..."></textarea></label>
+        <label>Диалоги / реплики<textarea id="sceneDialogue" rows="6" placeholder="Черновые реплики или важные фразы..."></textarea></label>
+        <div class="form-grid">
+          <label>Камера<textarea id="sceneCamera" rows="5" placeholder="Крупности, объектив, движение камеры..."></textarea></label>
+          <label>Свет<textarea id="sceneLighting" rows="5" placeholder="Источники света, цвет, контраст..."></textarea></label>
+        </div>
+        <div class="form-grid">
+          <label>Звук<textarea id="sceneSound" rows="4" placeholder="Атмосфера, эффекты, музыка..."></textarea></label>
+          <label>Примечание для промта<textarea id="scenePromptNote" rows="4" placeholder="Особые требования для генератора видео..."></textarea></label>
+        </div>
+        <label>Дополнительные заметки<textarea id="sceneNotes" rows="4"></textarea></label>
+        <section class="asset-attachment-box" data-dialog-asset-zone="scene">
+          <div><strong>📎 Ассеты сцены</strong><small>Референсы кадров, видео, музыка, звуки, раскадровки и документы.</small></div>
+          <button type="button" class="soft-btn dialog-asset-add" data-dialog-owner="scene">📎 Добавить с компьютера</button>
+          <div class="dialog-asset-list" id="sceneAssetList"></div>
+        </section>
+      </div>
+      <footer class="dialog-footer-split"><button type="button" class="danger-btn" id="sceneDeleteBtn" hidden>Удалить сцену</button><span></span><button type="button" class="soft-btn" data-close-dialog="sceneDialog">Отмена</button><button type="submit" class="primary-btn">Сохранить сцену</button></footer>
+    </form>
+  </dialog>
+
+  <dialog id="confirmDialog" class="studio-dialog compact-dialog confirm-dialog">
+    <form method="dialog" id="confirmForm">
+      <header><div><p>Подтверждение</p><h2 id="confirmTitle">Подтвердить действие</h2></div><button type="button" class="dialog-close" data-close-dialog="confirmDialog">×</button></header>
+      <p id="confirmMessage" class="confirm-message"></p>
+      <footer><button type="button" class="soft-btn" data-close-dialog="confirmDialog">Отмена</button><button type="submit" class="danger-btn" id="confirmSubmitBtn">Удалить</button></footer>
+    </form>
+  </dialog>
+
+
+  <dialog id="assetDialog" class="studio-dialog asset-dialog">
+    <form method="dialog" id="assetDialogForm">
+      <header><div><p id="assetDialogKicker">Ассеты проекта</p><h2 id="assetDialogTitle">Файлы и референсы</h2></div><button type="button" class="dialog-close" data-close-dialog="assetDialog">×</button></header>
+      <div class="asset-dialog-tools">
+        <button type="button" class="primary-btn" id="assetChooseBtn">📎 Выбрать файлы с компьютера</button>
+        <input id="assetFileInput" type="file" multiple hidden />
+        <span id="assetDialogOwnerLabel"></span>
+      </div>
+      <div class="asset-dropzone" id="assetDropzone" tabindex="0">
+        <strong>Перетащи файлы сюда</strong>
+        <span>Фото, видео, аудио, PDF, текст, документы и другие материалы</span>
+      </div>
+      <div class="asset-dialog-status" id="assetDialogStatus"></div>
+      <div class="asset-list" id="assetDialogList"></div>
+      <footer><button type="button" class="soft-btn" data-close-dialog="assetDialog">Закрыть</button></footer>
+    </form>
+  </dialog>
+
+  <dialog id="assetPreviewDialog" class="studio-dialog asset-preview-dialog">
+    <form method="dialog">
+      <header><div><p>Просмотр ассета</p><h2 id="assetPreviewTitle">Файл</h2></div><button type="button" class="dialog-close" data-close-dialog="assetPreviewDialog">×</button></header>
+      <div id="assetPreviewHost" class="asset-preview-host"></div>
+      <footer><button type="button" class="soft-btn" data-close-dialog="assetPreviewDialog">Закрыть</button><button type="button" class="primary-btn" id="assetPreviewDownloadBtn">Скачать</button></footer>
+    </form>
+  </dialog>
+
+  <div id="toastHost" class="toast-host" aria-live="polite"></div>
+
+  <script src="server-sync.js?v=11"></script>
+  <script src="studio.js?v=11"></script>
+  <script src="assets-v08.js?v=11"></script>
+</body>
+</html>
