@@ -1,353 +1,158 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="robots" content="noindex,nofollow" />
-  <meta name="theme-color" content="#070b14" />
-  <title>Gromvex AI Movie Studio</title>
-  <link rel="icon" href="assets/gromvex-logo.png" />
-  <link rel="stylesheet" href="studio.css?v=6" />
+  <title>CosmiCLab Crypto Indicators by Agenhill — Personal Digital Project Lab</title>
+  <meta name="description" content="CosmiCLab Indicators by Agenhill — personal digital project lab with crypto indicators, bots, TradingView/MT5 tools, 3D models, Android apps, AI tools and future concepts." />
+  <link rel="icon" href="assets/agenhill-logo-v9.png?v=9" />
+  <link rel="stylesheet" href="agenhill.css?v=10" />
 </head>
-<body>
-  <div class="browser-shell" aria-hidden="true">
-    <div class="browser-dots"><span></span><span></span><span></span></div>
-    <div class="browser-address">🔒 studio.gromvex.ai</div>
-    <div class="browser-actions">⋯　⇧　◇</div>
-  </div>
+<body class="ah-body">
+  <div class="ah-stars" aria-hidden="true"></div>
 
-  <div class="app-shell">
-    <aside class="sidebar">
-      <div class="brand">
-        <img src="assets/gromvex-logo.png" alt="Gromvex AI" />
-        <div><strong>Gromvex AI</strong><span>Movie Studio</span></div>
+  <aside class="ah-sidebar" aria-label="Quick navigation">
+    <a class="ah-logo" href="index.html" aria-label="CosmiCLab Indicators home"><span class="ah-logo-mark"></span></a>
+    <nav class="ah-side-nav" aria-label="Icon navigation">
+      <a class="is-active" href="#home" title="Home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.5 12 5l8 6.5"/><path d="M6.5 10.8V20h11v-9.2"/><path d="M9.6 20v-5.8h4.8V20"/></svg></a>
+      <a href="#projects" title="Projects"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="4" width="6" height="6" rx="1.5"/><rect x="4" y="14" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/></svg></a>
+      <a href="crypto-indicators.html" title="MT5 Indicators"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19V9"/><path d="M12 19V5"/><path d="M19 19v-8"/><path d="M3.5 9h3V19h-3z"/><path d="M10.5 5h3v14h-3z"/><path d="M17.5 11h3v8h-3z"/></svg></a>
+      <a href="#products" title="3D Models"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 21 8v8l-9 5-9-5V8l9-5Z"/><path d="M3 8l9 5 9-5"/><path d="M12 13v8"/></svg></a>
+      <a href="#apps" title="Apps"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2.2"/><path d="M10 18h4"/></svg></a>
+      <a href="#ai-lab" title="AI Lab"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a4 4 0 0 1 4 4v1.1a4.6 4.6 0 0 1 2.6 4.1A4.8 4.8 0 0 1 16 16.6V18a4 4 0 0 1-8 0v-1.4a4.8 4.8 0 0 1-2.6-4.4A4.6 4.6 0 0 1 8 8.1V7a4 4 0 0 1 4-4Z"/><path d="M9.2 11.2h.1"/><path d="M14.7 11.2h.1"/><path d="M9.5 14.5c1.7 1 3.3 1 5 0"/></svg></a>
+      <button type="button" data-owner-drawer-open title="Owner cabinet login"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7.5A4 4 0 0 1 12 3.5a4 4 0 0 1 4 4V10"/><path d="M12 14v2.5"/></svg></button>
+      <a href="#contact" title="Contact"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg></a>
+    </nav>
+  </aside>
+
+  <header class="ah-topbar">
+    <nav class="ah-top-nav" aria-label="Main navigation">
+      <a class="is-active" href="#home" data-i18n="nav.home">Home</a>
+      <a href="#projects" data-i18n="nav.projects">Projects</a>
+      <a href="crypto-indicators.html" data-i18n="nav.mt5">MT5 Indicators</a>
+      <a href="#products" data-i18n="nav.models">3D Models</a>
+      <a href="#apps" data-i18n="nav.apps">Apps</a>
+      <a href="#ai-lab" data-i18n="nav.ai">AI Lab</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="ah-topbar-right">
+      <div class="ah-lang-switch" aria-label="Language switcher">
+        <button class="langBtn active" data-lang="en">EN</button>
+        <button class="langBtn" data-lang="ru">RU</button>
+        <button class="langBtn" data-lang="de">DE</button>
       </div>
+      <a class="ah-explore" href="#projects"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.5 15.5 8 20l-1.2-3.3L3.5 15.5 8 11"/><path d="M9 12.8c2.6-6.4 6-9.2 11.5-9.3-.1 5.5-2.9 8.9-9.3 11.5L9 12.8Z"/><path d="M4 21c1.3-.2 2.6-.8 3.4-1.7"/></svg></span><span data-i18n="nav.explore">Explore Projects</span></a>
+    </div>
+  </header>
 
-      <button class="primary-btn new-project-btn" id="newProjectBtn">＋ Новый проект</button>
+  <div id="ownerDrawerBackdrop" class="ah-drawer-backdrop" hidden></div>
+  <aside id="ownerDrawer" class="ah-login-drawer" aria-hidden="true" aria-label="Owner cabinet login panel">
+    <button type="button" class="ah-drawer-close" data-owner-drawer-close aria-label="Close cabinet login">×</button>
+    <p class="ah-drawer-kicker" data-i18n="drawer.kicker">Owner workspace</p>
+    <h2 data-i18n="drawer.title">Cabinet login</h2>
+    <p class="ah-drawer-text" data-i18n="drawer.text">Login to the private workspace for scenarios, AI Movie Studio, prompts and ideas.</p>
+    <form id="ownerLoginForm" class="ah-drawer-form">
+      <label><span data-i18n="drawer.email">Email</span><input id="ownerEmail" type="email" autocomplete="username" placeholder="agenhill@local" required /></label>
+      <label><span data-i18n="drawer.password">Password</span><input id="ownerPassword" type="password" autocomplete="current-password" placeholder="Password" required /></label>
+      <button type="submit" data-i18n="drawer.open">Open cabinet</button>
+      <p id="ownerLoginError" class="ah-login-error" hidden data-i18n="drawer.error">Wrong email or password.</p>
+    </form>
+    <p class="ah-drawer-note" data-i18n="drawer.note">Static test login for now. Real server login can be connected later.</p>
+  </aside>
 
-      <p class="section-label">Текущий проект</p>
-      <button class="project-switcher" id="projectSwitcher" aria-expanded="false">
-        <span class="project-thumb" id="projectThumb"></span>
-        <span class="project-switcher-copy"><strong id="projectSwitcherTitle">Район мёртвых</strong><small id="projectSwitcherMeta">Постапокалипсис / 90 минут</small></span>
-        <span>⌄</span>
-      </button>
-      <div class="project-menu" id="projectMenu" hidden></div>
-
-      <div class="project-library-head">
-        <p class="section-label">Все проекты</p>
-        <span id="projectCount">1</span>
+  <main id="home" class="ah-main">
+    <section class="ah-hero" aria-label="CosmiCLab Indicators hero section">
+      <div class="ah-hero-copy">
+        <div class="ah-pill" data-i18n="hero.pill">Personal Digital Project Lab</div>
+        <h1><span>CosmiCLab</span><strong>Indicators</strong></h1>
+        <p class="ah-by">by <b>Agenhill</b></p>
+        <p class="ah-status"><span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M3 14c3.7 2.6 12.9 2.3 18-4"/><path d="M21 10c-3.7-2.6-12.9-2.3-18 4"/></svg></span> <span data-i18n="hero.status">Website currently under development</span></p>
+        <p class="ah-lead" data-i18n="hero.lead">
+          Personal digital project lab featuring MT5 indicators, 3D models, apps, AI tools and future concepts. Some products are already available on external marketplaces while new projects are still in development.
+        </p>
+        <div class="ah-actions">
+          <a class="ah-btn ah-btn-main" href="#products" data-i18n="hero.btn1">Available products</a>
+          <a class="ah-btn" href="#projects" data-i18n="hero.btn2">Development projects</a>
+        </div>
       </div>
-      <div class="project-list" id="projectList" aria-label="Список проектов"></div>
+      <div class="ah-hero-art" aria-hidden="true"></div>
+    </section>
 
-      <nav class="main-nav" id="mainNav" aria-label="Разделы студии">
-        <button data-view="overview" class="active"><span>⌂</span>Проект</button>
-        <button data-view="script"><span>▤</span>Сценарий</button>
-        <button data-view="characters"><span>♙</span>Персонажи</button>
-        <button data-view="locations"><span>⌖</span>Локации</button>
-        <button data-view="scenes"><span>▣</span>Сцены</button>
-        <button data-view="assets"><span>📎</span>Ассеты</button>
-        <button data-view="prompts"><span>✣</span>Промты</button>
-        <button data-view="renders"><span>▧</span>Рендеры</button>
-        <button data-view="editing"><span>▥</span>Монтаж</button>
-        <button data-view="export"><span>⇧</span>Экспорт</button>
-        <button data-view="settings"><span>⚙</span>Настройки</button>
+    <section id="products" class="ah-product-row" aria-label="Product directions">
+      <a class="ah-mini-card" href="crypto-indicators.html">
+        <span class="ah-mini-icon blue"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 19V9"/><path d="M12 19V5"/><path d="M17 19v-7"/><rect x="5" y="9" width="4" height="7" rx="1"/><rect x="10" y="5" width="4" height="10" rx="1"/><rect x="15" y="12" width="4" height="4" rx="1"/></svg></span>
+        <h2 data-i18n="card.mt5">MT5 Indicators</h2>
+        <em class="ah-tag ah-green" data-i18n="tag.external">Available externally</em>
+      </a>
+      <a class="ah-mini-card" href="#contact">
+        <span class="ah-mini-icon violet"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 21 8v8l-9 5-9-5V8l9-5Z"/><path d="M3 8l9 5 9-5"/><path d="M12 13v8"/></svg></span>
+        <h2 data-i18n="card.models">3D Models</h2>
+        <em class="ah-tag ah-green" data-i18n="tag.external">Available externally</em>
+      </a>
+      <a id="apps" class="ah-mini-card" href="#projects">
+        <span class="ah-mini-icon green"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10h10v7a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-7Z"/><path d="M8 10a4 4 0 0 1 8 0"/><path d="M9 6 7 3"/><path d="M15 6l2-3"/><path d="M5 11v5"/><path d="M19 11v5"/></svg></span>
+        <h2 data-i18n="card.apps">Android Apps</h2>
+        <em class="ah-tag ah-amber" data-i18n="tag.dev">In development</em>
+      </a>
+      <a class="ah-mini-card" href="#ai-lab">
+        <span class="ah-mini-icon cyan"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a4 4 0 0 1 4 4v1.1a4.6 4.6 0 0 1 2.6 4.1A4.8 4.8 0 0 1 16 16.6V18a4 4 0 0 1-8 0v-1.4a4.8 4.8 0 0 1-2.6-4.4A4.6 4.6 0 0 1 8 8.1V7a4 4 0 0 1 4-4Z"/><path d="M9.2 11.2h.1"/><path d="M14.7 11.2h.1"/><path d="M9.5 14.5c1.7 1 3.3 1 5 0"/></svg></span>
+        <h2 data-i18n="card.ai">AI Tools</h2>
+        <em class="ah-tag ah-blue" data-i18n="tag.proto">Prototype</em>
+      </a>
+      <a class="ah-mini-card" href="#projects">
+        <span class="ah-mini-icon pink"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12c3-1.7 5.7-2.5 8.1-2.5 4.1 0 7 2.4 10.9 2.4-1.4 1.2-3.1 2-5 2.2-1.1 3.7-4.4 6.4-8.3 6.4-2.8 0-4.9-.9-6.2-2.3 2.1-.3 3.6-1.3 4.3-3.3C4.9 14.2 3.6 13.3 2.5 12Z"/></svg></span>
+        <h2 data-i18n="card.concepts">Concept Projects</h2>
+        <em class="ah-tag ah-amber" data-i18n="tag.dev">In development</em>
+      </a>
+    </section>
+
+    <section class="ah-info-strip" aria-label="Project lab information">
+      <article><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.8 6.3.7-4.7 4.3 1.3 6.2L12 16.8 6.4 20l1.3-6.2L3 9.5l6.3-.7L12 3Z"/></svg></span><div><h2 data-i18n="info.lab">Personal Project Lab</h2><p data-i18n="info.labtext">Passion-driven creations and experiments from my digital lab.</p></div></article>
+      <article><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.5 15.5 8 20l-1.2-3.3L3.5 15.5 8 11"/><path d="M9 12.8c2.6-6.4 6-9.2 11.5-9.3-.1 5.5-2.9 8.9-9.3 11.5L9 12.8Z"/><path d="M4 21c1.3-.2 2.6-.8 3.4-1.7"/></svg></span><div><h2 data-i18n="info.future">Building the Future</h2><p data-i18n="info.futuretext">Exploring ideas today that become tools for tomorrow.</p></div></article>
+      <article><span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M3 14c3.7 2.6 12.9 2.3 18-4"/><path d="M21 10c-3.7-2.6-12.9-2.3-18 4"/></svg></span><div><h2 data-i18n="info.evolving">Always Evolving</h2><p data-i18n="info.evolvingtext">New projects, tools and concepts added regularly.</p></div></article>
+    </section>
+
+    <section id="projects" class="ah-section">
+      <div class="ah-section-head">
+        <p data-i18n="projects.kicker">Project archive</p>
+        <h2 data-i18n="projects.title">Current and future projects</h2>
+        <span data-i18n="projects.text">CosmiCLab Indicators is a personal creator portfolio and project space under the pseudonym Agenhill.</span>
+      </div>
+      <div class="ah-project-grid">
+        <article class="ah-project-card"><b>PhotoReport</b><em data-i18n="tag.dev">In development</em><p data-i18n="projects.photoreport">Mobile app for work photo reports, object documentation, markings, GPS notes and export.</p><a href="photoreport.html" data-i18n="common.open">Open page →</a></article>
+        <article class="ah-project-card"><b>CaptureDeck Studio</b><em data-i18n="tag.proto">Prototype</em><p data-i18n="projects.capturedeck">Screen recording and mobile video editing concept with floating control panel and timeline editor.</p></article>
+        <article id="ai-lab" class="ah-project-card"><b>Gromvex AI Lab</b><em data-i18n="projects.private">Private concept</em><p data-i18n="projects.gromvex">Experimental AI workspace for prompts, scripts, video ideas and private project tools.</p></article>
+        <article class="ah-project-card"><b>CosmiCLab VPN</b><em data-i18n="tag.dev">Development</em><p data-i18n="projects.vpn">Android VPN concept with backend, server logic and free/boost access model.</p></article>
+      </div>
+    </section>
+
+    <section id="contact" class="ah-section">
+      <div class="ah-section-head">
+        <p data-i18n="contact.kicker">Contact</p>
+        <h2 data-i18n="contact.title">External marketplaces and contact</h2>
+        <span data-i18n="contact.text">Selected MT5 indicators and 3D models are available on external marketplaces. Direct selling through this website is not active yet.</span>
+      </div>
+      <div class="ah-contact-box">
+        <a href="mailto:kirils.janssen@gmail.com">Email: kirils.janssen@gmail.com</a>
+        <a href="https://t.me/CosmiCLabSupportBot" target="_blank" rel="noopener">Telegram Support Bot</a>
+      </div>
+    </section>
+
+    <footer class="ah-footer">
+      <div>
+        <b>CosmiCLab Indicators by Agenhill</b><br />
+        <span data-i18n="footer.note">Website under development. Personal project archive and digital product showcase.</span>
+      </div>
+      <nav>
+        <a href="privacy.html">Privacy</a>
+        <a href="photoreport-privacy-policy.html">PhotoReport Privacy</a>
+        <a href="photoreportplay-privacy-policy.html">PhotoReport Play Privacy</a>
+        <a href="gromvexai_privacy_policy.html">Gromvex AI Privacy</a>
+        <a href="delete-data.html">Delete Data</a>
       </nav>
+    </footer>
+  </main>
 
-      <div class="storage-card">
-        <div class="storage-title"><span>Хранилище</span><strong id="storageValue">0 МБ</strong></div>
-        <div class="storage-track"><span id="storageBar"></span></div>
-        <small id="storageModeLabel">Локальное хранилище браузера</small>
-        <button id="manageStorageBtn">Управление</button>
-      </div>
-    </aside>
-
-    <main class="workspace">
-      <header class="workspace-hero">
-        <div class="hero-overlay"></div>
-        <div class="workspace-head-copy">
-          <div class="title-line">
-            <h1 id="projectTitleHeading">Район мёртвых</h1>
-            <button class="icon-btn" id="renameProjectBtn" title="Переименовать проект">✎</button>
-          </div>
-          <p id="projectSubtitle">Постапокалипсис / зомби / 90 минут</p>
-        </div>
-        <div class="workspace-head-actions">
-          <button class="icon-btn" id="projectMoreBtn">⋯</button>
-          <button class="soft-btn" id="projectAssetsBtn" type="button">📎 Ассеты</button>
-          <button class="soft-btn" id="assistantToggleBtn" type="button" title="Скрыть или показать панель помощника">◫ Помощник</button>
-          <span class="server-sync-status" id="serverSyncStatus" data-state="idle">Подключение…</span>
-          <a class="soft-btn cabinet-link" href="/cabinet.html">⌂ Кабинет</a>
-          <button class="soft-btn" id="shareBtn">⌯ Поделиться</button>
-        </div>
-      </header>
-
-      <div class="workspace-content">
-        <div class="top-tabs" id="topTabs">
-          <button data-view="overview" class="active">Обзор</button>
-          <button data-view="world">Библия мира</button>
-          <button data-view="structure">Трёхактная структура</button>
-          <button data-view="scenes">Сцены</button>
-        </div>
-
-        <section id="viewHost" class="view-host" aria-live="polite"></section>
-
-        <div class="command-bar">
-          <span>✣</span>
-          <input id="commandInput" placeholder="Например: разбей сцену на 8 кадров и подготовь промты для Seedance и Kling" />
-          <button id="commandSendBtn">➤</button>
-        </div>
-        <p class="ai-disclaimer">ИИ может допускать неточности. Проверяйте важную информацию.</p>
-      </div>
-    </main>
-
-    <aside class="assistant-panel">
-      <header class="assistant-header">
-        <div class="assistant-title"><span class="spark">✣</span><strong>ИИ-режиссёр</strong></div>
-        <div class="assistant-actions"><button id="assistantAssetsBtn" title="Ассеты активной сцены">📎</button><button id="themeBtn" title="Переключить оформление">◐</button><button id="notifyBtn" title="Уведомления">♢<i>3</i></button><button class="profile-btn" id="profileBtn"><span>К</span><div><strong>Кирилл</strong><small>Режиссёр</small></div>⌄</button></div>
-      </header>
-
-      <div class="role-tabs" id="roleTabs">
-        <button data-role="writer">Сценарист</button>
-        <button data-role="director" class="active">Режиссёр</button>
-        <button data-role="camera">Оператор</button>
-        <button data-role="editor">Монтажёр</button>
-      </div>
-
-      <p class="analysis-status">Анализирую <span id="activeSceneLabel">сцену 14 — Больница...</span> <b>●</b></p>
-
-      <div class="assistant-scroll">
-        <div class="accordion" id="assistantAccordion">
-          <article>
-            <button class="accordion-title" data-accordion="breakdown"><span>›</span>Разбивка сцены <small id="frameCountLabel">8 кадров</small></button>
-            <div class="accordion-body" data-panel="breakdown" hidden>
-              <div class="mini-grid" id="breakdownList"></div>
-            </div>
-          </article>
-          <article>
-            <button class="accordion-title" data-accordion="camera"><span>›</span>Камера</button>
-            <div class="accordion-body" data-panel="camera" hidden>
-              <textarea id="cameraNotes" rows="4" placeholder="Крупность, движение камеры, объектив..."></textarea>
-            </div>
-          </article>
-          <article>
-            <button class="accordion-title" data-accordion="light"><span>›</span>Свет</button>
-            <div class="accordion-body" data-panel="light" hidden>
-              <textarea id="lightNotes" rows="4" placeholder="Схема света, цветовая температура, контраст..."></textarea>
-            </div>
-          </article>
-          <article class="open">
-            <button class="accordion-title" data-accordion="prompts"><span>⌄</span>Промты</button>
-            <div class="accordion-body" data-panel="prompts">
-              <div id="promptCards" class="prompt-cards"></div>
-            </div>
-          </article>
-        </div>
-
-        <section class="storyboard-panel">
-          <div class="storyboard-title"><strong>Сториборд</strong><small id="storyboardRange">кадры 1–3 из 8</small></div>
-          <div id="storyboard" class="storyboard"></div>
-        </section>
-      </div>
-
-      <div class="assistant-buttons">
-        <button class="primary-btn" id="generateFramesBtn">✣ Сгенерировать кадры</button>
-        <button class="soft-btn" id="makeStoryboardBtn">▦ Сделать сториборд</button>
-        <button class="soft-btn" id="exportMdBtn">▣ Экспорт в .md</button>
-        <button class="soft-btn" id="shotlistBtn">☷ Собрать шотлист</button>
-      </div>
-
-      <section class="production-card">
-        <h3>Прогресс производства</h3>
-        <div class="production-steps" id="productionSteps">
-          <div class="production-step" id="scriptStep">
-            <span id="scriptProgressValue">0%</span>
-            <small>Сценарий<br><b id="scriptProgressLabel">в работе</b></small>
-          </div><i></i>
-          <div class="production-step" id="promptsStep">
-            <span id="promptsProgressValue">0%</span>
-            <small>Промты<br><b id="promptsProgressLabel">не готовы</b></small>
-          </div><i></i>
-          <div class="production-step" id="rendersStep">
-            <span id="renderProgressValue">0%</span>
-            <small>Рендеры<br><b id="renderCountValue">0/0</b></small>
-          </div><i></i>
-          <div class="production-step" id="editingStep">
-            <span id="editingProgressValue">0%</span>
-            <small>Монтаж<br><b id="editingProgressLabel">не начат</b></small>
-          </div>
-        </div>
-      </section>
-    </aside>
-  </div>
-
-  <dialog id="projectDialog" class="studio-dialog">
-    <form method="dialog" id="projectForm">
-      <header><div><p>Новый фильм</p><h2>Создать проект</h2></div><button value="cancel" class="dialog-close">×</button></header>
-      <label>Название<input id="newProjectTitle" required placeholder="Название проекта" /></label>
-      <div class="form-grid">
-        <label>Жанр<input id="newProjectGenre" placeholder="Фантастика, триллер..." /></label>
-        <label>Хронометраж<input id="newProjectDuration" type="number" min="1" max="500" value="15" /></label>
-      </div>
-      <label>Логлайн<textarea id="newProjectLogline" rows="4" placeholder="Кто герой, чего он хочет и что ему мешает?"></textarea></label>
-      <footer><button value="cancel" class="soft-btn">Отмена</button><button value="default" class="primary-btn" id="createProjectConfirm">Создать проект</button></footer>
-    </form>
-  </dialog>
-
-  <dialog id="textDialog" class="studio-dialog compact-dialog">
-    <form method="dialog" id="textDialogForm">
-      <header><div><p id="textDialogKicker">Редактирование</p><h2 id="textDialogTitle">Изменить</h2></div><button value="cancel" class="dialog-close">×</button></header>
-      <label id="textDialogLabel">Значение<input id="textDialogInput" /></label>
-      <footer><button value="cancel" class="soft-btn">Отмена</button><button value="default" class="primary-btn" id="textDialogSave">Сохранить</button></footer>
-    </form>
-  </dialog>
-
-
-  <dialog id="characterDialog" class="studio-dialog wide-dialog entity-dialog">
-    <form method="dialog" id="characterForm">
-      <header><div><p id="characterDialogKicker">Персонаж</p><h2 id="characterDialogTitle">Карточка персонажа</h2></div><button type="button" class="dialog-close" data-close-dialog="characterDialog">×</button></header>
-      <input type="hidden" id="characterId" />
-      <div class="dialog-scroll-area">
-        <div class="form-grid">
-          <label>Имя<input id="characterName" required placeholder="Имя персонажа" /></label>
-          <label>Возраст<input id="characterAge" placeholder="Например: 36 лет" /></label>
-        </div>
-        <div class="form-grid">
-          <label>Роль<input id="characterRole" placeholder="Главный герой, антагонист..." /></label>
-          <label>Профессия<input id="characterOccupation" placeholder="Инженер, врач, военный..." /></label>
-        </div>
-        <label>Цель персонажа<textarea id="characterGoal" rows="3" placeholder="Чего персонаж хочет добиться?"></textarea></label>
-        <div class="form-grid">
-          <label>Мотивация<textarea id="characterMotivation" rows="4" placeholder="Почему это для него важно?"></textarea></label>
-          <label>Внутренний конфликт<textarea id="characterConflict" rows="4" placeholder="Страх, вина, противоречие..."></textarea></label>
-        </div>
-        <div class="form-grid">
-          <label>Внешность<textarea id="characterAppearance" rows="4" placeholder="Лицо, телосложение, волосы, возрастные признаки..."></textarea></label>
-          <label>Одежда и реквизит<textarea id="characterWardrobe" rows="4" placeholder="Постоянный образ, предметы, цвета..."></textarea></label>
-        </div>
-        <div class="form-grid">
-          <label>Речь и поведение<textarea id="characterVoice" rows="4" placeholder="Манера речи, жесты, привычки..."></textarea></label>
-          <label>Дуга персонажа<textarea id="characterArc" rows="4" placeholder="Как он меняется от начала к финалу?"></textarea></label>
-        </div>
-        <label>Дополнительные заметки<textarea id="characterNotes" rows="4"></textarea></label>
-        <section class="asset-attachment-box" data-dialog-asset-zone="character">
-          <div><strong>📎 Ассеты персонажа</strong><small>Фото лица, полный рост, одежда, голосовые и текстовые референсы.</small></div>
-          <button type="button" class="soft-btn dialog-asset-add" data-dialog-owner="character">📎 Добавить с компьютера</button>
-          <div class="dialog-asset-list" id="characterAssetList"></div>
-        </section>
-      </div>
-      <footer class="dialog-footer-split"><button type="button" class="danger-btn" id="characterDeleteBtn" hidden>Удалить</button><span></span><button type="button" class="soft-btn" data-close-dialog="characterDialog">Отмена</button><button type="submit" class="primary-btn">Сохранить персонажа</button></footer>
-    </form>
-  </dialog>
-
-  <dialog id="locationDialog" class="studio-dialog wide-dialog entity-dialog">
-    <form method="dialog" id="locationForm">
-      <header><div><p id="locationDialogKicker">Локация</p><h2 id="locationDialogTitle">Карточка локации</h2></div><button type="button" class="dialog-close" data-close-dialog="locationDialog">×</button></header>
-      <input type="hidden" id="locationId" />
-      <div class="dialog-scroll-area">
-        <label>Название<input id="locationName" required placeholder="Название локации" /></label>
-        <label>Основное описание<textarea id="locationDescription" rows="5" placeholder="Как выглядит пространство и что в нём важно для действия?"></textarea></label>
-        <div class="form-grid">
-          <label>Атмосфера<textarea id="locationAtmosphere" rows="4" placeholder="Тон, погода, состояние пространства..."></textarea></label>
-          <label>Свет<textarea id="locationLighting" rows="4" placeholder="Источники света, цвет, контраст..."></textarea></label>
-        </div>
-        <div class="form-grid">
-          <label>Звуки<textarea id="locationSound" rows="4" placeholder="Фоновый шум, тишина, эхо..."></textarea></label>
-          <label>Ключевой реквизит<textarea id="locationProps" rows="4" placeholder="Предметы, техника, декорации..."></textarea></label>
-        </div>
-        <label>Непрерывность и ограничения<textarea id="locationContinuity" rows="4" placeholder="Что нельзя менять между кадрами и сценами?"></textarea></label>
-        <label>Дополнительные заметки<textarea id="locationNotes" rows="4"></textarea></label>
-        <section class="asset-attachment-box" data-dialog-asset-zone="location">
-          <div><strong>📎 Ассеты локации</strong><small>Фото, схемы, видео прохода, звук атмосферы и реквизит.</small></div>
-          <button type="button" class="soft-btn dialog-asset-add" data-dialog-owner="location">📎 Добавить с компьютера</button>
-          <div class="dialog-asset-list" id="locationAssetList"></div>
-        </section>
-      </div>
-      <footer class="dialog-footer-split"><button type="button" class="danger-btn" id="locationDeleteBtn" hidden>Удалить</button><span></span><button type="button" class="soft-btn" data-close-dialog="locationDialog">Отмена</button><button type="submit" class="primary-btn">Сохранить локацию</button></footer>
-    </form>
-  </dialog>
-
-  <dialog id="sceneDialog" class="studio-dialog scene-dialog">
-    <form method="dialog" id="sceneForm">
-      <header><div><p id="sceneDialogKicker">Сцена</p><h2 id="sceneDialogTitle">Редактор сцены</h2></div><button type="button" class="dialog-close" data-close-dialog="sceneDialog">×</button></header>
-      <input type="hidden" id="sceneId" />
-      <div class="dialog-scroll-area">
-        <div class="form-grid scene-main-grid">
-          <label>№<input id="sceneNumber" type="number" min="1" required /></label>
-          <label>Название<input id="sceneTitle" required placeholder="Название сцены" /></label>
-          <label>Локация<input id="sceneLocation" list="sceneLocationList" placeholder="Выбери или введи локацию" /><datalist id="sceneLocationList"></datalist></label>
-        </div>
-        <div class="form-grid scene-meta-grid">
-          <label>Время<select id="sceneTime"><option>День</option><option>Ночь</option><option>Рассвет</option><option>Сумерки</option><option>Вечер</option></select></label>
-          <label>Страницы<input id="scenePages" placeholder="Например: 3 4/8" /></label>
-          <label>Длительность, сек.<input id="sceneDurationSec" type="number" min="0" step="1" /></label>
-          <label>Статус<select id="sceneStatus"><option value="draft">Черновик</option><option value="work">В работе</option><option value="ready">Готово</option></select></label>
-        </div>
-        <label>Участники сцены<div id="sceneCharactersPicker" class="character-picker"></div></label>
-        <label>Краткое содержание<textarea id="sceneSummary" rows="4" placeholder="Что происходит в сцене?"></textarea></label>
-        <div class="form-grid">
-          <label>Цель сцены<textarea id="scenePurpose" rows="4" placeholder="Зачем эта сцена нужна истории?"></textarea></label>
-          <label>Конфликт / поворот<textarea id="sceneConflict" rows="4" placeholder="Что меняется к концу сцены?"></textarea></label>
-        </div>
-        <label>Действие<textarea id="sceneAction" rows="6" placeholder="Последовательность действий и ключевые события..."></textarea></label>
-        <label>Диалоги / реплики<textarea id="sceneDialogue" rows="6" placeholder="Черновые реплики или важные фразы..."></textarea></label>
-        <div class="form-grid">
-          <label>Камера<textarea id="sceneCamera" rows="5" placeholder="Крупности, объектив, движение камеры..."></textarea></label>
-          <label>Свет<textarea id="sceneLighting" rows="5" placeholder="Источники света, цвет, контраст..."></textarea></label>
-        </div>
-        <div class="form-grid">
-          <label>Звук<textarea id="sceneSound" rows="4" placeholder="Атмосфера, эффекты, музыка..."></textarea></label>
-          <label>Примечание для промта<textarea id="scenePromptNote" rows="4" placeholder="Особые требования для генератора видео..."></textarea></label>
-        </div>
-        <label>Дополнительные заметки<textarea id="sceneNotes" rows="4"></textarea></label>
-        <section class="asset-attachment-box" data-dialog-asset-zone="scene">
-          <div><strong>📎 Ассеты сцены</strong><small>Референсы кадров, видео, музыка, звуки, раскадровки и документы.</small></div>
-          <button type="button" class="soft-btn dialog-asset-add" data-dialog-owner="scene">📎 Добавить с компьютера</button>
-          <div class="dialog-asset-list" id="sceneAssetList"></div>
-        </section>
-      </div>
-      <footer class="dialog-footer-split"><button type="button" class="danger-btn" id="sceneDeleteBtn" hidden>Удалить сцену</button><span></span><button type="button" class="soft-btn" data-close-dialog="sceneDialog">Отмена</button><button type="submit" class="primary-btn">Сохранить сцену</button></footer>
-    </form>
-  </dialog>
-
-  <dialog id="confirmDialog" class="studio-dialog compact-dialog confirm-dialog">
-    <form method="dialog" id="confirmForm">
-      <header><div><p>Подтверждение</p><h2 id="confirmTitle">Подтвердить действие</h2></div><button type="button" class="dialog-close" data-close-dialog="confirmDialog">×</button></header>
-      <p id="confirmMessage" class="confirm-message"></p>
-      <footer><button type="button" class="soft-btn" data-close-dialog="confirmDialog">Отмена</button><button type="submit" class="danger-btn" id="confirmSubmitBtn">Удалить</button></footer>
-    </form>
-  </dialog>
-
-
-  <dialog id="assetDialog" class="studio-dialog asset-dialog">
-    <form method="dialog" id="assetDialogForm">
-      <header><div><p id="assetDialogKicker">Ассеты проекта</p><h2 id="assetDialogTitle">Файлы и референсы</h2></div><button type="button" class="dialog-close" data-close-dialog="assetDialog">×</button></header>
-      <div class="asset-dialog-tools">
-        <button type="button" class="primary-btn" id="assetChooseBtn">📎 Выбрать файлы с компьютера</button>
-        <input id="assetFileInput" type="file" multiple hidden />
-        <span id="assetDialogOwnerLabel"></span>
-      </div>
-      <div class="asset-dropzone" id="assetDropzone" tabindex="0">
-        <strong>Перетащи файлы сюда</strong>
-        <span>Фото, видео, аудио, PDF, текст, документы и другие материалы</span>
-      </div>
-      <div class="asset-dialog-status" id="assetDialogStatus"></div>
-      <div class="asset-list" id="assetDialogList"></div>
-      <footer><button type="button" class="soft-btn" data-close-dialog="assetDialog">Закрыть</button></footer>
-    </form>
-  </dialog>
-
-  <dialog id="assetPreviewDialog" class="studio-dialog asset-preview-dialog">
-    <form method="dialog">
-      <header><div><p>Просмотр ассета</p><h2 id="assetPreviewTitle">Файл</h2></div><button type="button" class="dialog-close" data-close-dialog="assetPreviewDialog">×</button></header>
-      <div id="assetPreviewHost" class="asset-preview-host"></div>
-      <footer><button type="button" class="soft-btn" data-close-dialog="assetPreviewDialog">Закрыть</button><button type="button" class="primary-btn" id="assetPreviewDownloadBtn">Скачать</button></footer>
-    </form>
-  </dialog>
-
-  <div id="toastHost" class="toast-host" aria-live="polite"></div>
-
-  <script src="server-sync.js?v=6"></script>
-  <script src="studio.js?v=6"></script>
-  <script src="assets-v06.js?v=6"></script>
+  <script src="agenhill.js?v=10"></script>
 </body>
 </html>
