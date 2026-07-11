@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CosmiCLab Indicators by Agenhill — Personal Digital Project Lab</title>
   <meta name="description" content="CosmiCLab Indicators by Agenhill — personal digital project lab with MT5 indicators, 3D models, Android apps, AI tools and future concepts. Website under development." />
-  <link rel="icon" href="assets/agenhill-logo-v4-256.png?v=4" />
-  <link rel="stylesheet" href="agenhill.css?v=4" />
+  <link rel="icon" href="assets/agenhill-logo-v5-256.png?v=5" />
+  <link rel="stylesheet" href="agenhill.css?v=5" />
 </head>
 <body class="ah-body">
   <div class="ah-stars" aria-hidden="true"></div>
@@ -20,7 +20,7 @@
       <a href="#products" title="3D Models"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 21 8v8l-9 5-9-5V8l9-5Z"/><path d="M3 8l9 5 9-5"/><path d="M12 13v8"/></svg></a>
       <a href="#apps" title="Apps"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M10 18h4"/></svg></a>
       <a href="#ai-lab" title="AI Lab"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5.5a3 3 0 0 0-4 2.8 3 3 0 0 0 .7 5.6A3.2 3.2 0 0 0 9 19"/><path d="M15 5.5a3 3 0 0 1 4 2.8 3 3 0 0 1-.7 5.6A3.2 3.2 0 0 1 15 19"/><path d="M9 5.5V19"/><path d="M15 5.5V19"/><path d="M9 9h6"/><path d="M9 14h6"/></svg></a>
-      <a href="#cabinet-access" title="Cabinet login"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6"/><path d="M10 3v6l-5.8 9.4A1.7 1.7 0 0 0 5.7 21h12.6a1.7 1.7 0 0 0 1.5-2.6L14 9V3"/><path d="M7 16h10"/></svg></a>
+      <button type="button" data-owner-drawer-open title="Owner cabinet login"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7.6A4 4 0 0 1 12 3.6a4 4 0 0 1 4 4V10"/><path d="M12 14v2.4"/></svg></button>
       <a href="#contact" title="Contact"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></a>
     </nav>
   </aside>
@@ -38,6 +38,21 @@
     <a class="ah-explore" href="#projects"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.5 15.5 8 20l-1.2-3.3L3.5 15.5 8 11"/><path d="M9 12.8c2.6-6.4 6-9.2 11.5-9.3-.1 5.5-2.9 8.9-9.3 11.5L9 12.8Z"/><path d="M14.7 7.1h.1"/><path d="M4 21c1.3-.2 2.6-.8 3.4-1.7"/></svg></span>Explore Projects</a>
   </header>
 
+  <div id="ownerDrawerBackdrop" class="ah-drawer-backdrop" hidden></div>
+  <aside id="ownerDrawer" class="ah-login-drawer" aria-hidden="true" aria-label="Owner cabinet login panel">
+    <button type="button" class="ah-drawer-close" data-owner-drawer-close aria-label="Close cabinet login">×</button>
+    <p class="ah-drawer-kicker">Owner workspace</p>
+    <h2>Cabinet login</h2>
+    <p class="ah-drawer-text">Вход в приватную рабочую панель для сценариев, AI Movie Studio, промтов и идей.</p>
+    <form id="ownerLoginForm" class="ah-drawer-form">
+      <label>Email<input id="ownerEmail" type="email" autocomplete="username" placeholder="agenhill@local" required /></label>
+      <label>Password<input id="ownerPassword" type="password" autocomplete="current-password" placeholder="Password" required /></label>
+      <button type="submit">Open cabinet</button>
+      <p id="ownerLoginError" class="ah-login-error" hidden>Wrong email or password.</p>
+    </form>
+    <p class="ah-drawer-note">Тестовый статический вход. Позже можно подключить настоящий серверный login.</p>
+  </aside>
+
   <main id="home" class="ah-main">
     <section class="ah-hero" aria-label="CosmiCLab Indicators hero section">
       <div class="ah-hero-copy">
@@ -53,13 +68,10 @@
         <div class="ah-actions">
           <a class="ah-btn ah-btn-main" href="#products">Available products</a>
           <a class="ah-btn" href="#projects">Development projects</a>
-          <a class="ah-btn" href="#cabinet-access">Owner cabinet</a>
         </div>
       </div>
 
-      <div class="ah-hero-art" aria-label="Cat astronaut floating in space">
-        <div class="ah-cat-visual" aria-hidden="true"></div>
-      </div>
+      <div class="ah-hero-art" aria-hidden="true"></div>
     </section>
 
     <section id="products" class="ah-product-row" aria-label="Product directions">
@@ -110,22 +122,6 @@
       </div>
     </section>
 
-    <section id="cabinet-access" class="ah-section ah-cabinet-section">
-      <div class="ah-cabinet-card">
-        <div class="ah-cabinet-copy">
-          <p>Owner workspace</p>
-          <h2>Cabinet login</h2>
-          <span>Вход в приватную рабочую панель для сценариев, AI Movie Studio, промтов и идей. Сейчас это первая статическая версия. Позже сюда можно подключить настоящий серверный вход.</span>
-        </div>
-        <form id="ownerLoginForm" class="ah-login-form">
-          <label>Email<input id="ownerEmail" type="email" autocomplete="username" placeholder="your@email.com" required /></label>
-          <label>Password<input id="ownerPassword" type="password" autocomplete="current-password" placeholder="Password" required /></label>
-          <button type="submit">Open cabinet</button>
-          <p id="ownerLoginError" class="ah-login-error" hidden>Wrong email or password.</p>
-        </form>
-      </div>
-    </section>
-
     <section id="contact" class="ah-section ah-contact-section">
       <div class="ah-section-head">
         <p>Contact</p>
@@ -146,6 +142,6 @@
       <a href="delete-data.html">Delete Data</a>
     </nav>
   </footer>
-  <script src="agenhill.js?v=4"></script>
+  <script src="agenhill.js?v=5"></script>
 </body>
 </html>
