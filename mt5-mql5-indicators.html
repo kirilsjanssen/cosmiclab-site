@@ -1,91 +1,111 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MetaTrader 5 / MQL5 • CosmiCLab</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>MT5 / MQL5 Indicators — CosmiCLab Indicators by Agenhill</title>
+  <meta name="description" content="Custom MT5 / MQL5 indicators, EX5 files, dashboards, alerts and visual trading tools by Agenhill." />
+  <link rel="icon" href="assets/agenhill-logo-v9.png?v=9" />
+  <link rel="stylesheet" href="mt5-agenhill.css?v=9" />
 </head>
-<body>
-  <div class="bg"></div>
-  <header class="topbar">
-    <div class="container topbarInner">
-      <a class="brand" href="index.html">
-        <img class="brandLogo" src="assets/cosmiclab_logo.png" alt="CosmiCLabIndicators" />
-        <div class="brandText">
-          <div class="brandName">CosmiCLabIndicators</div>
-          <div class="brandSub">Apps • Bots • Servers • Indicators</div>
+<body class="mt5-page">
+  <header class="mt5-topbar">
+    <div class="mt5-container mt5-topbar-inner">
+      <a class="mt5-brand" href="index.html">
+        <img src="assets/agenhill-logo-v9.png?v=9" alt="CosmiCLab cat astronaut logo" />
+        <div>
+          <b>CosmiCLab Indicators</b>
+          <span>by Agenhill</span>
         </div>
       </a>
-      <nav class="nav">
-        <a class="navLink" href="index.html#services">Услуги</a>
-        <a class="navLink" href="index.html#projects">Проекты</a>
-        <a class="navLink" href="index.html#process">Процесс</a>
-        <a class="navLink" href="index.html#contact">Контакт</a>
+
+      <nav class="mt5-nav">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="index.html#projects" data-i18n="nav.projects">Projects</a>
+        <a class="active" href="mt5-mql5-indicators.html" data-i18n="nav.mt5">MT5 Indicators</a>
+        <a href="index.html#products" data-i18n="nav.models">3D Models</a>
+        <a href="index.html#apps" data-i18n="nav.apps">Apps</a>
+        <a href="index.html#ai-lab" data-i18n="nav.ai">AI Lab</a>
+        <a href="index.html#contact" data-i18n="nav.contact">Contact</a>
       </nav>
-      <div class="topbarRight">
-        <a class="btn pill" target="_blank" rel="noopener" href="https://t.me/CosmiCLabSupportBot">Support Bot</a>
+
+      <div class="mt5-right">
+        <div class="mt5-lang" aria-label="Language switcher">
+          <button class="langBtn active" data-lang="en">EN</button>
+          <button class="langBtn" data-lang="ru">RU</button>
+          <button class="langBtn" data-lang="de">DE</button>
+        </div>
+        <a class="mt5-support" target="_blank" rel="noopener" href="https://t.me/CosmiCLabSupportBot" data-i18n="nav.support">Support Bot</a>
       </div>
     </div>
   </header>
 
-  <main class="container">
-    <section class="serviceHero">
-      <div class="serviceHeroBox">
-        <a class="backLink" href="index.html#services">← Назад к услугам</a>
-        <div class="serviceKicker">MetaTrader 5 / MQL5</div>
-        <h1 class="serviceTitle">MT5 / MQL5 индикаторы</h1>
-        <p class="serviceLead">Custom MT5 indicators, EX5 files, dashboard logic, signals and trading visual tools.</p>
-        <div class="heroCtas">
-          <a class="btn primary" target="_blank" rel="noopener" href="https://t.me/CosmiCLabSupportBot">Написать в Support Bot</a>
-          <a class="btn ghost" href="index.html">На главную</a>
+  <main class="mt5-container">
+    <section class="mt5-hero">
+      <div class="mt5-glass">
+        <div class="mt5-kicker">MetaTrader 5 / MQL5</div>
+        <a class="mt5-back" href="index.html#products" data-i18n="hero.back">← Back to products</a>
+        <h1 data-i18n="hero.title">MT5 / MQL5 Indicators</h1>
+        <p data-i18n="hero.lead">Custom indicators, EX5 files, dashboard logic, alerts, signal labels and visual trading tools.</p>
+        <div class="mt5-actions">
+          <a class="mt5-btn primary" target="_blank" rel="noopener" href="https://t.me/CosmiCLabSupportBot" data-i18n="hero.bot">Write to Support Bot</a>
+          <a class="mt5-btn" href="index.html" data-i18n="hero.home">Home page</a>
         </div>
       </div>
     </section>
 
-    <section class="serviceLayout">
-      <div class="serviceMain">
-        <div class="infoBox">
-          <h2>Что входит</h2>
+    <section class="mt5-layout">
+      <div class="mt5-main">
+        <article class="mt5-card">
+          <h2 data-i18n="included.title">What is included</h2>
           <ul>
-            <li>MQL5 custom indicators</li>
-            <li>EX5 delivery</li>
-            <li>Dashboard logic</li>
-            <li>Signal arrows and labels</li>
-            <li>Alerts</li>
-            <li>Branding / watermark</li>
+            <li data-i18n="included.1">MQL5 custom indicators</li>
+            <li data-i18n="included.2">EX5 delivery</li>
+            <li data-i18n="included.3">Dashboard logic</li>
+            <li data-i18n="included.4">Signal arrows and labels</li>
+            <li data-i18n="included.5">Alerts</li>
+            <li data-i18n="included.6">Branding / watermark</li>
           </ul>
-        </div>
-        <div class="infoBox">
-          <h2>Для кого подходит</h2>
-          <p>Для клиента, которому нужен рабочий MVP, прототип, отдельный модуль, автоматизация или готовая техническая часть под публикацию/использование.</p>
-        </div>
-        <div class="infoBox">
-          <h2>Что нужно от клиента</h2>
+        </article>
+
+        <article class="mt5-card">
+          <h2 data-i18n="for.title">Who it is for</h2>
+          <p data-i18n="for.text">For a client who needs a working MVP, prototype, separate module, automation or a ready technical part for publication or private use.</p>
+        </article>
+
+        <article class="mt5-card">
+          <h2 data-i18n="need.title">What I need from you</h2>
           <ul>
-            <li>Кратко описать задачу</li>
-            <li>Показать пример/референс, если есть</li>
-            <li>Объяснить, что должно работать в первой версии</li>
-            <li>Указать платформу: Android, web, Telegram, server, TradingView, MT5</li>
+            <li data-i18n="need.1">Briefly describe the task</li>
+            <li data-i18n="need.2">Show an example or reference if you have one</li>
+            <li data-i18n="need.3">Explain what must work in the first version</li>
+            <li data-i18n="need.4">Specify the platform and expected behavior</li>
           </ul>
-        </div>
+        </article>
       </div>
 
-      <aside class="serviceAside">
-        <div class="asideCard">
-          <h3>Связь</h3>
-          <p>Пиши через официальный support bot. Прямой личный Telegram на сайте не используется.</p>
-          <a class="btn primary" target="_blank" rel="noopener" href="https://t.me/CosmiCLabSupportBot">Открыть Support Bot</a>
-        </div>
-        <div class="asideCard">
+      <aside class="mt5-aside">
+        <article class="mt5-card">
+          <h3 data-i18n="contact.title">Contact</h3>
+          <p data-i18n="contact.text">Use the official support bot. Direct personal Telegram is not used on this website.</p>
+          <a class="mt5-btn primary full" target="_blank" rel="noopener" href="https://t.me/CosmiCLabSupportBot" data-i18n="contact.bot">Open Support Bot</a>
+        </article>
+        <article class="mt5-card">
           <h3>Email</h3>
           <p>cosmiclab.support@gmail.com</p>
-        </div>
+        </article>
       </aside>
     </section>
 
-    <div class="copy">© <span id="year"></span> CosmiCLab / CosmiCLabIndicators</div>
+    <footer class="mt5-footer">
+      <span>© <span id="year"></span> CosmiCLab Indicators by Agenhill</span>
+      <nav>
+        <a href="privacy.html">Privacy</a>
+        <a href="delete-data.html">Delete Data</a>
+      </nav>
+    </footer>
   </main>
-  <script src="app.js"></script>
+
+  <script src="mt5-agenhill.js?v=9"></script>
 </body>
 </html>
