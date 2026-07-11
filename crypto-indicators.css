@@ -53,8 +53,9 @@ img { display: block; max-width: 100%; }
   flex: 0 0 auto;
 }
 .crypto-brand img {
-  width: 76px;
+  width: auto;
   height: 76px;
+  max-width: 152px;
   object-fit: contain;
   filter: drop-shadow(0 0 18px rgba(120,231,255,.58));
 }
