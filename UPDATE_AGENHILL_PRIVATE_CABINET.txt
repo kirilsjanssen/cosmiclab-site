@@ -1,0 +1,44 @@
+CosmiCLab Indicators by Agenhill — Update 2026-07-11
+
+WHAT CHANGED
+1. New homepage design:
+   - Personal brand / project lab style instead of big-company style.
+   - Public name: Agenhill.
+   - Clear notice: Website currently under development.
+   - Mentions selected MT5 indicators and 3D models are already available externally.
+   - Keeps projects/apps/AI tools as in-development or prototype.
+
+2. New visual assets:
+   - assets/agenhill_cat_logo.png
+   - assets/agenhill_cat_astronaut_hero.jpg
+   - assets/agenhill_site_concept.png
+
+3. Hidden owner cabinet:
+   - New file: cabinet.html
+   - New file: cabinet.js
+   - Open direct URL: /cabinet.html
+   - Or click the cat logo on the homepage 5 times.
+   - Temporary default password: agenhill2026
+
+4. Scenario Writer Panel:
+   - Local script/project editor.
+   - AI prompt builder.
+   - 3-act structure prompt.
+   - Scene-by-scene prompt.
+   - Dialogue helper prompt.
+   - Video generator prompt.
+   - Saves draft locally in browser localStorage.
+
+IMPORTANT SECURITY NOTE
+This private cabinet is only temporary static protection. It hides the area from the normal public menu, but it is not real server security. For real protection later, add backend login, e-mail allowlist, and server sessions. Planned launch model: only owner e-mail allowed at the beginning, then access by request.
+
+PRIVACY POLICY FILES
+Kept in the archive:
+- privacy.html
+- photoreport-privacy-policy.html
+- photoreportplay-privacy-policy.html
+- gromvexai_privacy_policy.html
+- delete-data.html
+
+UPLOAD
+Upload the whole contents of the sait folder to the website root.

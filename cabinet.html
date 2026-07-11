@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Private Cabinet — Agenhill</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="cabinetPage">
+  <div class="clBg"></div>
+
+  <main class="cabWrap">
+    <section id="cabLock" class="cabLock">
+      <img src="assets/agenhill_cat_logo.png" alt="Agenhill cat astronaut logo" />
+      <p class="cabKicker">Private owner area</p>
+      <h1>Agenhill Cabinet</h1>
+      <p class="cabMuted">
+        Hidden frontend workspace for project notes and scenario writing. This is the first local version.
+      </p>
+      <form id="cabLoginForm" class="cabLoginForm">
+        <input id="cabPassword" type="password" autocomplete="current-password" placeholder="Owner password" required />
+        <button class="clBtn primary" type="submit">Open cabinet</button>
+      </form>
+      <div id="cabLoginError" class="cabError" hidden>Wrong password.</div>
+      <a class="cabBack" href="index.html">← Back to site</a>
+      <p class="cabTiny">
+        Temporary static protection. For real security use server login + allowed e-mails.
+      </p>
+    </section>
+
+    <section id="cabApp" class="cabApp" hidden>
+      <header class="cabHeader">
+        <div>
+          <p class="cabKicker">Private workspace</p>
+          <h1>Scenario Writer Panel</h1>
+          <span>Local notes, AI prompt builder and project drafting area.</span>
+        </div>
+        <div class="cabHeaderActions">
+          <a class="clBtn" href="index.html">Site</a>
+          <button id="cabLockBtn" class="clBtn" type="button">Lock</button>
+        </div>
+      </header>
+
+      <div class="cabNotice">
+        <b>AI connection status:</b> frontend prototype only. Today this panel prepares strong prompts and stores drafts in your browser. Later it can connect to your server endpoint like <code>/api/ai/script</code>.
+      </div>
+
+      <div class="cabGrid">
+        <section class="cabCard cabEditor">
+          <h2>Project / Script</h2>
+          <label>Project title<input id="scTitle" type="text" placeholder="Example: Space Cat / AI Movie Idea" /></label>
+          <label>Format<select id="scFormat"><option>Short video</option><option>Movie scene</option><option>Series episode</option><option>Trailer</option><option>Game cutscene</option><option>YouTube script</option></select></label>
+          <label>Genre<input id="scGenre" type="text" placeholder="Sci-fi, dark fantasy, comedy, action..." /></label>
+          <label>Main idea<textarea id="scIdea" rows="5" placeholder="Write the main story idea here..."></textarea></label>
+          <label>Characters<textarea id="scCharacters" rows="4" placeholder="Main characters, goals, conflicts..."></textarea></label>
+          <label>Visual style / mood<textarea id="scMood" rows="3" placeholder="Cinematic, realistic, dark, funny, retro, cosmic..."></textarea></label>
+          <label>Scene notes<textarea id="scScenes" rows="7" placeholder="Scene 1... Scene 2... Scene 3..."></textarea></label>
+        </section>
+
+        <section class="cabCard cabTools">
+          <h2>AI Helper</h2>
+          <div class="cabToolButtons">
+            <button data-tool="master" type="button">Build master AI prompt</button>
+            <button data-tool="structure" type="button">Create 3-act structure</button>
+            <button data-tool="scene" type="button">Scene-by-scene prompt</button>
+            <button data-tool="dialogue" type="button">Dialogue helper</button>
+            <button data-tool="video" type="button">Video generator prompt</button>
+          </div>
+          <label>AI / Output<textarea id="scOutput" rows="17" placeholder="Generated prompt / structure appears here..."></textarea></label>
+          <div class="cabToolButtons two">
+            <button id="copyOutput" type="button">Copy output</button>
+            <button id="saveProject" type="button">Save locally</button>
+            <button id="clearOutput" type="button">Clear output</button>
+          </div>
+          <div id="saveState" class="cabSaveState"></div>
+        </section>
+      </div>
+
+      <section class="cabCard cabRoadmap">
+        <h2>Next server version</h2>
+        <ul>
+          <li>Login by approved e-mail only.</li>
+          <li>Private pages: script writer, prompt studio, project memory, file library.</li>
+          <li>AI backend: OpenAI / Gemini endpoint, prompt history and saved projects.</li>
+          <li>Admin allow-list: only your e-mail at launch, later access by request.</li>
+        </ul>
+      </section>
+    </section>
+  </main>
+
+  <script src="cabinet.js"></script>
+</body>
+</html>

@@ -141,3 +141,18 @@ document.querySelectorAll(".langBtn").forEach((btn) => {
 });
 
 applyLang(localStorage.getItem("cosmiclab_lang") || "ru");
+
+// Hidden owner cabinet trigger: click the cat logo 5 times.
+(function () {
+  let secretClicks = 0;
+  const logo = document.querySelector('.js-secret-logo');
+  if (!logo) return;
+  logo.addEventListener('click', function (e) {
+    secretClicks += 1;
+    if (secretClicks >= 5) {
+      e.preventDefault();
+      window.location.href = 'cabinet.html';
+    }
+    window.setTimeout(function () { secretClicks = 0; }, 1800);
+  });
+})();
