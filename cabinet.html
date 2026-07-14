@@ -3,76 +3,86 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CosmiCLab — Приватный кабинет</title>
+  <title>Agenhill Private Cabinet — Scenario Workspace</title>
   <meta name="robots" content="noindex,nofollow" />
-  <link rel="icon" href="assets/agenhill-logo-256.png?v=5" />
-  <link rel="stylesheet" href="cabinet.css?v=11" />
+  <link rel="icon" href="assets/agenhill-logo-256.png?v=2" />
+  <link rel="stylesheet" href="cabinet.css?v=13" />
 </head>
-<body>
-  <div class="cabinet-bg" aria-hidden="true"></div>
-  <main class="cabinet-shell" id="cabinetShell" hidden>
-    <aside class="cabinet-sidebar">
-      <a class="cabinet-brand" href="index.html">
-        <img src="assets/agenhill-logo-512.png" alt="" />
-        <div><strong>CosmiCLab</strong><span>Private Cabinet</span></div>
-      </a>
-      <nav>
-        <button class="active" data-section="products">▦ Мои продукты</button>
-        <button data-section="access" id="accessNavBtn">♙ Доступ</button>
-        <button data-section="account">⚙ Аккаунт</button>
-        <a href="index.html">← На сайт</a>
-      </nav>
-      <div class="cabinet-user-card">
-        <span id="userAvatar">К</span>
-        <div><strong id="userEmail">—</strong><small id="userRole">—</small></div>
-      </div>
-      <button class="logout-btn" id="logoutBtn">Выйти</button>
-    </aside>
+<body class="cab-body">
+  <div class="cab-bg" aria-hidden="true"></div>
 
-    <section class="cabinet-content">
-      <header class="cabinet-header">
-        <div><p>РАБОЧАЯ ПАНЕЛЬ</p><h1 id="sectionTitle">Мои продукты</h1><span id="sectionSubtitle">Приватные инструменты, проекты и материалы.</span></div>
-        <div class="server-indicator"><i></i><span>Сервер подключён</span></div>
+  <main class="cab-shell">
+    <section id="loginPanel" class="cab-login" aria-label="Private login">
+      <img src="assets/agenhill-logo-512.png?v=2" alt="" />
+      <p class="cab-kicker">Private owner workspace</p>
+      <h1>Agenhill Cabinet</h1>
+      <p class="cab-muted">Временная закрытая панель для сценариев, промтов и AI Movie Studio идей.</p>
+      <form id="loginForm" class="cab-login-form">
+        <input id="cabEmail" type="email" autocomplete="username" placeholder="Email" />
+        <input id="cabPassword" type="password" autocomplete="current-password" placeholder="Password" />
+        <button type="submit">Open cabinet</button>
+      </form>
+      <p id="loginError" class="cab-error" hidden>Неверный email или пароль.</p>
+      <a class="cab-back" href="index.html">← Back to website</a>
+    </section>
+
+    <section id="workspace" class="cab-workspace" hidden>
+      <header class="cab-header">
+        <div>
+          <p class="cab-kicker">Private AI workspace</p>
+          <h1>Scenario Writing Panel</h1>
+          <span>Локальная рабочая выкладка: идея → структура → сцены → промты для ИИ.</span>
+        </div>
+        <nav>
+          <button id="saveBtn">Save local</button>
+          <button id="clearBtn" class="ghost">Clear</button>
+          <a href="index.html">Website</a>
+        </nav>
       </header>
 
-      <section class="cabinet-section active" data-panel="products">
-        <div class="product-grid" id="productGrid"><div class="loading-card">Загрузка продуктов…</div></div>
-      </section>
-
-      <section class="cabinet-section" data-panel="access">
-        <article class="panel-card">
-          <div class="panel-heading"><div><p>ЗАКРЫТЫЙ ДОСТУП</p><h2>Одобренные пользователи</h2><span>Публичной регистрации нет. В кабинет входят только добавленные тобой email.</span></div></div>
-          <form class="access-form" id="addUserForm">
-            <label>Email<input id="newUserEmail" type="email" required placeholder="name@example.com" /></label>
-            <label>Временный пароль<input id="newUserPassword" type="password" minlength="10" required placeholder="Минимум 10 символов" /></label>
-            <button type="submit">＋ Добавить доступ</button>
-          </form>
-          <p class="form-message" id="accessMessage" hidden></p>
-          <div class="user-list" id="userList"></div>
+      <section class="cab-grid">
+        <article class="cab-card wide">
+          <h2>Project Core</h2>
+          <label>Название проекта<input id="projectTitle" placeholder="Например: Cosmic Cat Movie" /></label>
+          <label>Логлайн<textarea id="logline" rows="3" placeholder="Коротко: кто герой, чего хочет, что мешает..."></textarea></label>
+          <div class="cab-two">
+            <label>Жанр<input id="genre" placeholder="sci-fi, thriller, adventure..." /></label>
+            <label>Формат<input id="format" placeholder="short film, episode, trailer..." /></label>
+          </div>
         </article>
-      </section>
 
-      <section class="cabinet-section" data-panel="account">
-        <div class="account-grid">
-          <article class="panel-card">
-            <div class="panel-heading"><div><p>ПРОФИЛЬ</p><h2>Текущий аккаунт</h2></div></div>
-            <dl class="account-details"><div><dt>Email</dt><dd id="accountEmail">—</dd></div><div><dt>Роль</dt><dd id="accountRole">—</dd></div><div><dt>Хранение</dt><dd>Проекты и ассеты на VPS</dd></div></dl>
-          </article>
-          <article class="panel-card">
-            <div class="panel-heading"><div><p>БЕЗОПАСНОСТЬ</p><h2>Сменить пароль</h2><span>После смены остальные активные сессии будут закрыты.</span></div></div>
-            <form class="password-form" id="passwordForm">
-              <label>Текущий пароль<input id="currentPassword" type="password" required /></label>
-              <label>Новый пароль<input id="newPassword" type="password" minlength="10" required /></label>
-              <button type="submit">Сменить пароль</button>
-            </form>
-            <p class="form-message" id="passwordMessage" hidden></p>
-          </article>
-        </div>
+        <article class="cab-card">
+          <h2>Style</h2>
+          <label>Визуальный стиль<textarea id="style" rows="8" placeholder="cinematic, dark cosmic, realistic, neon, moody..."></textarea></label>
+        </article>
+
+        <article class="cab-card">
+          <h2>Characters</h2>
+          <label>Персонажи<textarea id="characters" rows="8" placeholder="Герой, антагонист, помощники, мотивация..."></textarea></label>
+        </article>
+
+        <article class="cab-card wide">
+          <h2>Scene Board</h2>
+          <label>Сцены<textarea id="scenes" rows="8" placeholder="1. Opening shot...&#10;2. Conflict...&#10;3. Final image..."></textarea></label>
+        </article>
+
+        <article class="cab-card wide">
+          <h2>Prompt Builder</h2>
+          <div class="cab-button-row">
+            <button data-build="structure">3-act structure</button>
+            <button data-build="dialogue">Dialogue prompt</button>
+            <button data-build="video">Video generator prompt</button>
+            <button data-build="pitch">Short pitch</button>
+          </div>
+          <label>Output<textarea id="output" rows="12" placeholder="Здесь появится готовый промт..."></textarea></label>
+          <div class="cab-button-row">
+            <button id="copyBtn">Copy output</button>
+          </div>
+        </article>
       </section>
     </section>
   </main>
 
-  <div class="cabinet-loading" id="cabinetLoading"><div class="spinner"></div><strong>Проверяю доступ…</strong></div>
-  <script src="cabinet.js?v=11"></script>
+  <script src="cabinet.js?v=13"></script>
 </body>
 </html>

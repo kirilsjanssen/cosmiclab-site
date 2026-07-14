@@ -1,16 +1,12 @@
 (function () {
-  const API_ORIGIN = ['127.0.0.1', 'localhost'].includes(location.hostname) || location.protocol === 'file:'
-    ? ''
-    : 'https://ai-api.cosmiclabindicators.com';
-  const AUTH_API = `${API_ORIGIN}/api/gromvex`;
-  const API_CREDENTIALS = API_ORIGIN ? 'include' : 'same-origin';
+  const OWNER_EMAILS = ['agenhill@local', 'batirevss@gmail.com'];
+  const OWNER_PASSWORD = 'agenhill2026';
   const drawer = document.getElementById('ownerDrawer');
   const backdrop = document.getElementById('ownerDrawerBackdrop');
   const form = document.getElementById('ownerLoginForm');
   const email = document.getElementById('ownerEmail');
   const password = document.getElementById('ownerPassword');
   const error = document.getElementById('ownerLoginError');
-  if (email) email.placeholder = 'kirils.janssen@gmail.com';
 
   const I18N = {
     en: {
@@ -20,7 +16,7 @@
       'info.lab':'Personal Project Lab','info.labtext':'Passion-driven creations and experiments from my digital lab.','info.future':'Building the Future','info.futuretext':'Exploring ideas today that become tools for tomorrow.','info.evolving':'Always Evolving','info.evolvingtext':'New projects, tools and concepts added regularly.',
       'projects.kicker':'Project archive','projects.title':'Current and future projects','projects.text':'CosmiCLab Indicators is a personal creator portfolio and project space under the pseudonym Agenhill.','projects.photoreport':'Mobile app for work photo reports, object documentation, markings, GPS notes and export.','projects.capturedeck':'Screen recording and mobile video editing concept with floating control panel and timeline editor.','projects.private':'Private concept','projects.gromvex':'Experimental AI workspace for prompts, scripts, video ideas and private project tools.','projects.vpn':'Android VPN concept with backend, server logic and free/boost access model.','common.open':'Open page →',
       'contact.kicker':'Contact','contact.title':'External marketplaces and contact','contact.text':'Selected MT5 indicators and 3D models are available on external marketplaces. Direct selling through this website is not active yet.','footer.note':'Website under development. Personal project archive and digital product showcase.',
-      'drawer.kicker':'Owner workspace','drawer.title':'Cabinet login','drawer.text':'Login to the private workspace for scenarios, AI Movie Studio, prompts and ideas.','drawer.email':'Email','drawer.password':'Password','drawer.open':'Open cabinet','drawer.error':'Wrong email or password.','drawer.note':'Secure server login. Access is available only to approved email addresses.'
+      'drawer.kicker':'Owner workspace','drawer.title':'Cabinet login','drawer.text':'Login to the private workspace for scenarios, AI Movie Studio, prompts and ideas.','drawer.email':'Email','drawer.password':'Password','drawer.open':'Open cabinet','drawer.error':'Wrong email or password.','drawer.note':'Static test login for now. Real server login can be connected later.'
     },
     ru: {
       'nav.home':'Главная','nav.projects':'Проекты','nav.mt5':'Crypto-индикаторы','nav.models':'3D Модели','nav.apps':'Приложения','nav.ai':'AI Lab','nav.contact':'Контакт','nav.explore':'Проекты',
@@ -29,7 +25,7 @@
       'info.lab':'Личная лаборатория','info.labtext':'Проекты и эксперименты из моей цифровой лаборатории.','info.future':'Создавая будущее','info.futuretext':'Исследую идеи сегодня, чтобы завтра они стали инструментами.','info.evolving':'Постоянное развитие','info.evolvingtext':'Новые проекты, инструменты и концепты добавляются регулярно.',
       'projects.kicker':'Архив проектов','projects.title':'Текущие и будущие проекты','projects.text':'CosmiCLab Indicators — это личное портфолио и пространство проектов под псевдонимом Agenhill.','projects.photoreport':'Мобильное приложение для фотоотчётов, документации объектов, пометок, GPS-заметок и экспорта.','projects.capturedeck':'Концепт записи экрана и мобильного видеоредактора с плавающей панелью и таймлайном.','projects.private':'Приватный концепт','projects.gromvex':'Экспериментальное AI-пространство для промтов, сценариев, видео-идей и приватных инструментов.','projects.vpn':'Концепт Android VPN с backend-логикой, серверной частью и free/boost моделью доступа.','common.open':'Открыть страницу →',
       'contact.kicker':'Контакт','contact.title':'Внешние площадки и контакт','contact.text':'Некоторые MT5-индикаторы и 3D-модели доступны на внешних площадках. Прямые продажи через этот сайт пока не активны.','footer.note':'Сайт в разработке. Личный архив проектов и витрина цифровых продуктов.',
-      'drawer.kicker':'Рабочая панель владельца','drawer.title':'Вход в кабинет','drawer.text':'Вход в приватную рабочую панель для сценариев, AI Movie Studio, промтов и идей.','drawer.email':'Email','drawer.password':'Пароль','drawer.open':'Открыть кабинет','drawer.error':'Неверный email или пароль.','drawer.note':'Защищённый серверный вход. Доступ имеют только одобренные владельцем email.'
+      'drawer.kicker':'Рабочая панель владельца','drawer.title':'Вход в кабинет','drawer.text':'Вход в приватную рабочую панель для сценариев, AI Movie Studio, промтов и идей.','drawer.email':'Email','drawer.password':'Пароль','drawer.open':'Открыть кабинет','drawer.error':'Неверный email или пароль.','drawer.note':'Пока это статический тестовый вход. Позже можно подключить настоящий серверный логин.'
     },
     de: {
       'nav.home':'Start','nav.projects':'Projekte','nav.mt5':'Crypto Indikatoren','nav.models':'3D Modelle','nav.apps':'Apps','nav.ai':'AI Lab','nav.contact':'Kontakt','nav.explore':'Projekte ansehen',
@@ -38,7 +34,7 @@
       'info.lab':'Persönliches Projektlabor','info.labtext':'Leidenschaftliche Projekte und Experimente aus meinem digitalen Labor.','info.future':'Die Zukunft bauen','info.futuretext':'Ideen von heute erforschen, die morgen zu Tools werden.','info.evolving':'Ständige Entwicklung','info.evolvingtext':'Neue Projekte, Tools und Konzepte kommen regelmäßig dazu.',
       'projects.kicker':'Projektarchiv','projects.title':'Aktuelle und zukünftige Projekte','projects.text':'CosmiCLab Indicators ist ein persönliches Portfolio und Projektbereich unter dem Pseudonym Agenhill.','projects.photoreport':'Mobile App für Foto-Reports, Objektdokumentation, Markierungen, GPS-Notizen und Export.','projects.capturedeck':'Konzept für Screen-Recording und mobilen Video-Editor mit schwebender Steuerung und Timeline.','projects.private':'Privates Konzept','projects.gromvex':'Experimenteller AI-Arbeitsbereich für Prompts, Skripte, Videoideen und private Tools.','projects.vpn':'Android-VPN-Konzept mit Backend-Logik, Server-Teil und Free/Boost-Zugangsmodell.','common.open':'Seite öffnen →',
       'contact.kicker':'Kontakt','contact.title':'Externe Plattformen und Kontakt','contact.text':'Ausgewählte MT5-Indikatoren und 3D-Modelle sind auf externen Plattformen verfügbar. Der direkte Verkauf über diese Website ist derzeit noch nicht aktiv.','footer.note':'Website im Aufbau. Persönliches Projektarchiv und digitale Produktpräsentation.',
-      'drawer.kicker':'Eigener Arbeitsbereich','drawer.title':'Cabinet Login','drawer.text':'Login zum privaten Arbeitsbereich für Szenarien, AI Movie Studio, Prompts und Ideen.','drawer.email':'E-Mail','drawer.password':'Passwort','drawer.open':'Cabinet öffnen','drawer.error':'Falsche E-Mail oder falsches Passwort.','drawer.note':'Sicherer Server-Login. Zugriff nur für freigegebene E-Mail-Adressen.'
+      'drawer.kicker':'Eigener Arbeitsbereich','drawer.title':'Cabinet Login','drawer.text':'Login zum privaten Arbeitsbereich für Szenarien, AI Movie Studio, Prompts und Ideen.','drawer.email':'E-Mail','drawer.password':'Passwort','drawer.open':'Cabinet öffnen','drawer.error':'Falsche E-Mail oder falsches Passwort.','drawer.note':'Vorerst statischer Test-Login. Später kann ein echter Server-Login angeschlossen werden.'
     }
   };
 
@@ -74,39 +70,18 @@
   backdrop && backdrop.addEventListener('click', closeDrawer);
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDrawer(); });
 
-  async function apiRequest(path, options = {}) {
-    const headers = new Headers(options.headers || {});
-    if (options.body && !headers.has('Content-Type')) headers.set('Content-Type', 'application/json');
-    const response = await fetch(`${AUTH_API}${path}`, { credentials: API_CREDENTIALS, cache: 'no-store', ...options, headers });
-    const payload = await response.json().catch(() => null);
-    if (!response.ok) throw new Error(payload?.detail || 'Ошибка входа');
-    return payload;
-  }
-
   if (form) {
-    form.addEventListener('submit', async function (event) {
+    form.addEventListener('submit', function (event) {
       event.preventDefault();
-      error.hidden = true;
-      const submit = form.querySelector('button[type="submit"]');
-      const originalText = submit?.textContent || '';
-      if (submit) { submit.disabled = true; submit.textContent = 'Подключение…'; }
-      try {
-        await apiRequest('/auth/login', {
-          method: 'POST',
-          body: JSON.stringify({ email: (email.value || '').trim(), password: password.value || '' })
-        });
-        const next = new URLSearchParams(location.search).get('next');
-        window.location.href = next && next.startsWith('/') ? next : 'cabinet.html';
-      } catch (loginError) {
-        error.textContent = loginError.message;
+      const enteredEmail = (email.value || '').trim().toLowerCase();
+      const ok = OWNER_EMAILS.includes(enteredEmail) && (password.value || '') === OWNER_PASSWORD;
+      if (ok) {
+        sessionStorage.setItem('agenhill_cabinet_open', '1');
+        window.location.href = 'cabinet.html';
+      } else {
         error.hidden = false;
         password.focus();
-      } finally {
-        if (submit) { submit.disabled = false; submit.textContent = originalText; }
       }
     });
   }
-
-  const params = new URLSearchParams(location.search);
-  if (params.get('login') === '1') window.setTimeout(openDrawer, 120);
 })();
