@@ -1,6 +1,6 @@
 (() => {
   'use strict';
-  const API = '/api/gromvex';
+  const API = 'https://ai-api.cosmiclabindicators.com/api/gromvex';
   const $ = selector => document.querySelector(selector);
   const $$ = selector => Array.from(document.querySelectorAll(selector));
   let currentUser = null;
@@ -8,7 +8,7 @@
   async function request(path, options = {}) {
     const headers = new Headers(options.headers || {});
     if (options.body && !(options.body instanceof FormData) && !headers.has('Content-Type')) headers.set('Content-Type', 'application/json');
-    const response = await fetch(`${API}${path}`, { credentials: 'same-origin', cache: 'no-store', ...options, headers });
+    const response = await fetch(`${API}${path}`, { credentials: 'include', cache: 'no-store', ...options, headers });
     const payload = await response.json().catch(() => null);
     if (!response.ok) {
       const error = new Error(payload?.detail || `Ошибка ${response.status}`);

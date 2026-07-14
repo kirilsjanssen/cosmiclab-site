@@ -1,5 +1,5 @@
 (function () {
-  const AUTH_API = '/api/gromvex';
+  const AUTH_API = 'https://ai-api.cosmiclabindicators.com/api/gromvex';
   const drawer = document.getElementById('ownerDrawer');
   const backdrop = document.getElementById('ownerDrawerBackdrop');
   const form = document.getElementById('ownerLoginForm');
@@ -73,7 +73,7 @@
   async function apiRequest(path, options = {}) {
     const headers = new Headers(options.headers || {});
     if (options.body && !headers.has('Content-Type')) headers.set('Content-Type', 'application/json');
-    const response = await fetch(`${AUTH_API}${path}`, { credentials: 'same-origin', cache: 'no-store', ...options, headers });
+    const response = await fetch(`${AUTH_API}${path}`, { credentials: 'include', cache: 'no-store', ...options, headers });
     const payload = await response.json().catch(() => null);
     if (!response.ok) throw new Error(payload?.detail || 'Ошибка входа');
     return payload;
