@@ -2,189 +2,1133 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>PhotoReport — Outdoor Photo Reports & Work Documentation</title>
-  <meta name="description" content="PhotoReport is an Android app for outdoor photo reports, work documentation, plan and map marking, GPS notes, comments, PNG/PDF export and local-first storage." />
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PhotoReport — Professional photo reports on Android</title>
+  <meta name="description" content="Create structured photo reports with photos, plans, markings, comments and PNG/PDF export directly on your Android phone." />
+  <meta name="theme-color" content="#052e35" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="CosmicLab Indicators" />
+  <meta property="og:title" content="PhotoReport — Professional photo reports on Android" />
+  <meta property="og:description" content="Create structured photo reports with photos, plans, markings, comments and PNG/PDF export directly on your Android phone." />
+  <meta property="og:image" content="https://cosmiclabindicators.com/assets/photoreport/phone_objects.webp" />
+  <meta property="og:url" content="https://cosmiclabindicators.com/photoreport.html" />
+  <link rel="canonical" href="https://cosmiclabindicators.com/photoreport.html" />
+  <link rel="icon" href="assets/photoreport_play_icon.svg" type="image/svg+xml" />
+  <style>
+    :root {
+      --navy-950: #031f25;
+      --navy-900: #052e35;
+      --navy-800: #073b43;
+      --navy-700: #0a525b;
+      --mint: #00cfa6;
+      --green: #19d995;
+      --ink: #152426;
+      --muted: #5c6c6f;
+      --line: #dce8e7;
+      --surface: #ffffff;
+      --soft: #f5f8f8;
+      --radius: 22px;
+      --shadow: 0 18px 55px rgba(3, 31, 37, 0.12);
+      --container: 1200px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--ink);
+      background: var(--surface);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    body.menu-open { overflow: hidden; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { font: inherit; }
+    .container { width: min(calc(100% - 40px), var(--container)); margin-inline: auto; }
+    section[id] { scroll-margin-top: 92px; }
+    .skip-link {
+      position: fixed;
+      z-index: 1000;
+      top: 10px;
+      left: 10px;
+      transform: translateY(-160%);
+      padding: 10px 14px;
+      border-radius: 10px;
+      color: var(--navy-950);
+      background: var(--mint);
+      font-weight: 800;
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    .site-header {
+      position: sticky;
+      z-index: 100;
+      top: 0;
+      color: #fff;
+      background: rgba(3, 31, 37, 0.94);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+      backdrop-filter: blur(16px);
+    }
+    .header-row {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 238px;
+      color: #fff;
+      text-decoration: none;
+    }
+    .brand img { width: 44px; height: 44px; }
+    .brand-copy { display: grid; line-height: 1; }
+    .brand-name { font-size: 1.42rem; font-weight: 850; letter-spacing: -0.03em; }
+    .brand-name span { color: var(--mint); }
+    .brand-tagline { margin-top: 7px; color: #c3d4d5; font-size: 0.72rem; letter-spacing: 0.02em; }
+    .main-nav { margin-left: auto; display: flex; align-items: center; gap: 7px; }
+    .main-nav a {
+      padding: 10px 11px;
+      border-radius: 10px;
+      color: #edf7f7;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+    .main-nav a:hover, .main-nav a:focus-visible { color: var(--mint); background: rgba(255, 255, 255, 0.06); outline: none; }
+    .language-switcher {
+      display: inline-flex;
+      gap: 2px;
+      padding: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+    }
+    .language-switcher button {
+      width: 38px;
+      height: 34px;
+      border: 0;
+      border-radius: 8px;
+      color: #c7d6d7;
+      background: transparent;
+      cursor: pointer;
+      font-size: 0.76rem;
+      font-weight: 850;
+    }
+    .language-switcher button:hover, .language-switcher button:focus-visible { color: #fff; outline: 2px solid var(--mint); outline-offset: 1px; }
+    .language-switcher button[aria-pressed="true"] { color: var(--navy-950); background: var(--mint); }
+    .menu-toggle {
+      display: none;
+      width: 44px;
+      height: 42px;
+      padding: 9px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 11px;
+      background: transparent;
+      cursor: pointer;
+    }
+    .menu-toggle span { display: block; height: 2px; margin: 5px 0; background: #fff; border-radius: 3px; }
+
+    .hero {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      min-height: 680px;
+      color: #fff;
+      background:
+        radial-gradient(circle at 82% 18%, rgba(0, 207, 166, 0.18), transparent 34%),
+        radial-gradient(circle at 14% 85%, rgba(25, 217, 149, 0.11), transparent 32%),
+        linear-gradient(125deg, var(--navy-950), var(--navy-900) 48%, #064a55);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      opacity: 0.19;
+      background:
+        linear-gradient(118deg, transparent 0 60%, rgba(255,255,255,.2) 60.1% 60.3%, transparent 60.4%),
+        linear-gradient(62deg, transparent 0 74%, rgba(255,255,255,.15) 74.1% 74.3%, transparent 74.4%),
+        repeating-linear-gradient(0deg, transparent 0 69px, rgba(255,255,255,.08) 70px);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      right: -5%;
+      bottom: -80px;
+      width: 54%;
+      height: 430px;
+      opacity: 0.13;
+      background: repeating-linear-gradient(90deg, #dffdfa 0 3px, transparent 3px 54px);
+      transform: skewX(-14deg);
+      mask-image: linear-gradient(to top, #000, transparent 92%);
+    }
+    .hero-grid {
+      min-height: 680px;
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(480px, 1.05fr);
+      align-items: center;
+      gap: 36px;
+      padding-block: 64px 56px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 18px;
+      color: var(--mint);
+      font-size: 0.78rem;
+      font-weight: 850;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 34px; height: 2px; border-radius: 2px; background: currentColor; }
+    .hero h1 { margin: 0; max-width: 690px; font-size: clamp(3.3rem, 6vw, 5.7rem); line-height: 0.95; letter-spacing: -0.065em; }
+    .hero h1 span { color: var(--mint); }
+    .hero h2 { margin: 19px 0 14px; max-width: 610px; font-size: clamp(1.35rem, 2.2vw, 2rem); line-height: 1.2; letter-spacing: -0.025em; }
+    .hero-description { max-width: 620px; margin: 0; color: #cfddde; font-size: 1.02rem; }
+    .hero-benefits {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px 20px;
+      margin: 25px 0 30px;
+      padding: 0;
+      list-style: none;
+    }
+    .hero-benefits li { display: flex; align-items: center; gap: 9px; color: #f1f9f9; font-size: 0.93rem; font-weight: 650; }
+    .hero-benefits li::before {
+      content: "✓";
+      display: grid;
+      place-items: center;
+      flex: 0 0 20px;
+      width: 20px;
+      height: 20px;
+      color: var(--navy-950);
+      background: var(--mint);
+      border-radius: 50%;
+      font-size: 0.75rem;
+      font-weight: 900;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .button {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 21px;
+      border: 1px solid transparent;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 0.84rem;
+      font-weight: 850;
+      letter-spacing: 0.02em;
+      text-align: center;
+    }
+    .button-primary { color: var(--navy-950); background: linear-gradient(120deg, var(--mint), var(--green)); box-shadow: 0 12px 28px rgba(0, 207, 166, 0.24); }
+    .button-primary:hover, .button-primary:focus-visible { transform: translateY(-1px); box-shadow: 0 16px 34px rgba(0, 207, 166, 0.32); outline: none; }
+    .button-secondary { color: #fff; border-color: rgba(255, 255, 255, 0.32); background: rgba(255, 255, 255, 0.04); }
+    .button-secondary:hover, .button-secondary:focus-visible { border-color: var(--mint); color: var(--mint); outline: none; }
+    .release-note { margin: 12px 0 0; color: #9fb7b9; font-size: 0.78rem; }
+
+    .phone-stage { position: relative; min-height: 565px; }
+    .phone {
+      position: absolute;
+      width: 210px;
+      margin: 0;
+      padding: 9px 7px 11px;
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 34px;
+      background: linear-gradient(145deg, #182326, #030708);
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.46), inset 0 0 0 2px rgba(255,255,255,.06);
+    }
+    .phone::before {
+      content: "";
+      position: absolute;
+      z-index: 2;
+      top: 14px;
+      left: 50%;
+      width: 68px;
+      height: 15px;
+      border-radius: 0 0 11px 11px;
+      background: #05090a;
+      transform: translateX(-50%);
+    }
+    .phone img { width: 100%; height: auto; aspect-ratio: 720 / 1456; object-fit: cover; border-radius: 27px; background: #e9eeee; }
+    .phone figcaption {
+      position: absolute;
+      bottom: -38px;
+      left: 50%;
+      width: max-content;
+      max-width: 190px;
+      padding: 7px 10px;
+      color: #d7e8e8;
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 999px;
+      background: rgba(3,31,37,.82);
+      font-size: 0.72rem;
+      font-weight: 750;
+      text-align: center;
+      transform: translateX(-50%);
+      backdrop-filter: blur(8px);
+    }
+    .phone-left { left: 0; top: 80px; transform: rotate(-4deg); }
+    .phone-center { z-index: 3; left: 50%; top: 0; width: 230px; transform: translateX(-50%); }
+    .phone-right { right: 0; top: 83px; transform: rotate(4deg); }
+
+    .section { padding-block: 94px; }
+    .section-soft { background: var(--soft); }
+    .section-dark { color: #fff; background: var(--navy-900); }
+    .section-heading { max-width: 760px; margin: 0 auto 46px; text-align: center; }
+    .section-heading .eyebrow { margin-bottom: 12px; }
+    .section-heading h2 { margin: 0; font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.08; letter-spacing: -0.045em; }
+    .section-heading p { margin: 16px auto 0; color: var(--muted); font-size: 1.02rem; }
+    .section-dark .section-heading p { color: #bcd0d1; }
+    .section-heading::after { content: ""; display: block; width: 54px; height: 3px; margin: 22px auto 0; border-radius: 3px; background: var(--mint); }
+
+    .feature-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .feature-card {
+      min-height: 240px;
+      padding: 27px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: 0 10px 32px rgba(3, 31, 37, 0.055);
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .feature-card:hover { transform: translateY(-4px); border-color: rgba(0,207,166,.45); box-shadow: var(--shadow); }
+    .icon-box {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 23px;
+      border-radius: 16px;
+      color: var(--navy-800);
+      background: #e5fbf6;
+    }
+    .icon-box svg, .step-icon svg, .privacy-icon svg, .download-icon svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.9; }
+    .feature-card h3 { margin: 0 0 9px; font-size: 1.14rem; }
+    .feature-card p { margin: 0; color: var(--muted); font-size: 0.92rem; }
+
+    .workflow { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; }
+    .step { position: relative; padding: 0 17px; text-align: center; }
+    .step:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 31px;
+      left: calc(50% + 38px);
+      width: calc(100% - 76px);
+      border-top: 1px dashed #95beb8;
+    }
+    .step-icon {
+      position: relative;
+      z-index: 1;
+      width: 64px;
+      height: 64px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 18px;
+      color: var(--navy-800);
+      border: 1px solid #cfe1df;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 8px 22px rgba(3,31,37,.08);
+    }
+    .step-number { color: #077d68; font-size: 0.75rem; font-weight: 900; letter-spacing: .08em; }
+    .step h3 { margin: 7px 0 0; font-size: 0.92rem; line-height: 1.35; }
+
+    .guide-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .guide-card {
+      display: grid;
+      grid-template-columns: 64px minmax(0, 1fr);
+      gap: 17px;
+      align-items: start;
+      min-height: 160px;
+      padding: 21px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 18px;
+      background: rgba(255,255,255,.055);
+    }
+    .guide-card:hover { border-color: rgba(0,207,166,.48); background: rgba(255,255,255,.075); }
+    .guide-media {
+      position: relative;
+      width: 64px;
+      height: 82px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      color: var(--mint);
+      border: 1px dashed rgba(0,207,166,.5);
+      border-radius: 13px;
+      background: rgba(0,207,166,.08);
+    }
+    .guide-media::before, .guide-media::after { content: ""; position: absolute; background: currentColor; opacity: .28; }
+    .guide-media::before { width: 30px; height: 23px; border-radius: 5px; }
+    .guide-media::after { width: 7px; height: 7px; top: 22px; right: 16px; border-radius: 50%; }
+    .guide-number { position: relative; z-index: 1; align-self: end; margin-bottom: 7px; color: #d8f8f1; font-size: .7rem; font-weight: 900; }
+    .guide-card h3 { margin: 1px 0 7px; color: #fff; font-size: 1rem; line-height: 1.35; }
+    .guide-card p { margin: 0; color: #bcd0d1; font-size: .84rem; }
+
+    .limit-card {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 28px;
+      align-items: center;
+      padding: 34px;
+      border: 1px solid #cce9e3;
+      border-radius: 24px;
+      background: linear-gradient(120deg, #f4fffc, #fff);
+      box-shadow: 0 16px 40px rgba(3,31,37,.07);
+    }
+    .limit-number {
+      width: 108px;
+      height: 108px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      border-radius: 30px;
+      background: var(--navy-800);
+      font-size: 2.7rem;
+      font-weight: 900;
+      letter-spacing: -.06em;
+      box-shadow: inset 0 -8px 18px rgba(0,0,0,.16);
+    }
+    .limit-card h2 { margin: 0 0 8px; font-size: clamp(1.5rem,3vw,2.25rem); letter-spacing: -.035em; }
+    .limit-card p { margin: 0; color: var(--muted); }
+
+    .privacy-panel {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 54px;
+      align-items: center;
+      padding: 56px;
+      color: #fff;
+      border-radius: 30px;
+      background: linear-gradient(130deg, var(--navy-900), #076053);
+      box-shadow: var(--shadow);
+    }
+    .privacy-icon {
+      width: 88px;
+      height: 88px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 24px;
+      color: var(--navy-950);
+      border-radius: 26px;
+      background: var(--mint);
+    }
+    .privacy-icon svg { width: 42px; height: 42px; stroke-width: 1.7; }
+    .privacy-panel h2 { margin: 0; font-size: clamp(2rem,4vw,3.25rem); line-height: 1.06; letter-spacing: -.05em; }
+    .privacy-copy > p { margin: 0 0 20px; color: #d2e1e1; }
+    .privacy-points { margin: 0; padding: 0; list-style: none; }
+    .privacy-points li { position: relative; margin-top: 11px; padding-left: 24px; color: #eff8f7; }
+    .privacy-points li::before { content: "✓"; position: absolute; left: 0; color: var(--mint); font-weight: 900; }
+    .legal-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 25px; }
+    .legal-links a, .legal-note {
+      padding: 9px 12px;
+      border: 1px solid rgba(255,255,255,.24);
+      border-radius: 10px;
+      color: #fff;
+      font-size: .78rem;
+      font-weight: 750;
+      text-decoration: none;
+    }
+    .legal-links a:hover, .legal-links a:focus-visible { color: var(--mint); border-color: var(--mint); outline: none; }
+    .legal-note { color: #adc1c2; border-style: dashed; cursor: help; }
+
+    .roadmap-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 18px; }
+    .roadmap-card {
+      position: relative;
+      overflow: hidden;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: 0 10px 28px rgba(3,31,37,.05);
+    }
+    .roadmap-card::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: #9fb3b4; }
+    .roadmap-card.current::before { background: var(--mint); }
+    .roadmap-card.next::before { background: #32a8a0; }
+    .roadmap-card.future { background: #f8fbfb; }
+    .roadmap-card.future::before { background: var(--navy-700); }
+    .stage-label { display: inline-flex; padding: 6px 9px; color: #05725f; border-radius: 999px; background: #e4faf4; font-size: .7rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+    .future .stage-label { color: #fff; background: var(--navy-700); }
+    .roadmap-card h3 { margin: 17px 0 10px; font-size: 1.32rem; }
+    .roadmap-card > p { margin: 0 0 16px; color: var(--muted); font-size: .9rem; }
+    .roadmap-card ul { margin: 0; padding-left: 18px; color: #3e5153; font-size: .86rem; }
+    .roadmap-card li + li { margin-top: 7px; }
+    .roadmap-standalone { max-width: 850px; margin: 24px auto 0; padding: 18px 22px; border-left: 4px solid var(--mint); border-radius: 0 14px 14px 0; color: #385052; background: #effaf7; text-align: center; font-weight: 650; }
+
+    .download-panel {
+      display: grid;
+      grid-template-columns: auto minmax(0,1fr) auto;
+      gap: 26px;
+      align-items: center;
+      padding: 35px 40px;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 24px;
+      background: linear-gradient(120deg, #06484d, var(--navy-950));
+    }
+    .download-icon { width: 70px; height: 70px; display: grid; place-items: center; color: var(--navy-950); border-radius: 21px; background: var(--mint); }
+    .download-icon svg { width: 34px; height: 34px; }
+    .download-panel h2 { margin: 0; font-size: clamp(1.55rem,3vw,2.4rem); }
+    .download-panel p { margin: 6px 0 0; color: #c0d2d3; }
+
+    .footer { color: #d5e2e2; background: var(--navy-950); }
+    .footer-main { display: grid; grid-template-columns: 1fr auto; gap: 30px; align-items: center; padding-block: 44px 30px; }
+    .footer-brand { display: flex; align-items: center; gap: 13px; }
+    .footer-brand img { width: 45px; height: 45px; }
+    .footer-brand strong { display: block; color: #fff; font-size: 1.05rem; }
+    .footer-brand span { display: block; color: #8fa8aa; font-size: .78rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px 20px; }
+    .footer-links a { color: #c3d3d4; font-size: .82rem; text-decoration: none; }
+    .footer-links a:hover, .footer-links a:focus-visible { color: var(--mint); outline: none; }
+    .footer-terms { color: #708b8e; font-size: .82rem; cursor: help; }
+    .footer-bottom { display: flex; justify-content: space-between; gap: 20px; padding-block: 19px; border-top: 1px solid rgba(255,255,255,.09); color: #809a9d; font-size: .76rem; }
+
+    @media (max-width: 1040px) {
+      .header-row { gap: 14px; }
+      .brand { min-width: 205px; }
+      .main-nav a { padding-inline: 7px; font-size: .82rem; }
+      .hero-grid { grid-template-columns: 1fr; gap: 26px; padding-top: 70px; }
+      .hero-copy { max-width: 760px; }
+      .phone-stage { width: min(100%, 690px); min-height: 535px; margin-inline: auto; }
+      .guide-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    }
+
+    @media (max-width: 820px) {
+      .container { width: min(calc(100% - 30px), var(--container)); }
+      .header-row { min-height: 68px; }
+      .brand { min-width: 0; margin-right: auto; }
+      .brand img { width: 39px; height: 39px; }
+      .brand-name { font-size: 1.2rem; }
+      .brand-tagline { font-size: .63rem; }
+      .menu-toggle { display: block; order: 3; }
+      .language-switcher { order: 2; }
+      .main-nav {
+        position: absolute;
+        z-index: 98;
+        top: 100%;
+        right: 0;
+        bottom: auto;
+        width: min(82vw, 330px);
+        height: calc(100vh - 68px);
+        height: calc(100dvh - 68px);
+        display: grid;
+        align-content: start;
+        gap: 6px;
+        padding: 25px;
+        overflow-y: auto;
+        background: #04282e;
+        box-shadow: -18px 20px 45px rgba(0,0,0,.3);
+        transform: translateX(105%);
+        transition: transform .2s ease;
+      }
+      .main-nav.open { transform: translateX(0); }
+      .main-nav a { padding: 13px 14px; font-size: .98rem; }
+      .feature-grid, .roadmap-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .roadmap-card.future { grid-column: 1 / -1; }
+      .workflow { grid-template-columns: 1fr; gap: 18px; max-width: 570px; margin-inline: auto; }
+      .step { display: grid; grid-template-columns: 70px 1fr; gap: 16px; align-items: center; padding: 0; text-align: left; }
+      .step:not(:last-child)::after { top: 64px; left: 31px; width: 1px; height: 26px; border-top: 0; border-left: 1px dashed #95beb8; }
+      .step-icon { grid-row: span 2; margin: 0; }
+      .step-number { align-self: end; }
+      .step h3 { align-self: start; margin: 0; }
+      .privacy-panel { grid-template-columns: 1fr; gap: 30px; padding: 40px; }
+      .download-panel { grid-template-columns: auto 1fr; }
+      .download-panel .button { grid-column: 1 / -1; }
+      .footer-main { grid-template-columns: 1fr; }
+      .footer-links { justify-content: flex-start; }
+    }
+
+    @media (max-width: 580px) {
+      .container { width: min(calc(100% - 24px), var(--container)); }
+      .brand-tagline { display: none; }
+      .language-switcher button { width: 32px; height: 31px; font-size: .7rem; }
+      .menu-toggle { width: 40px; height: 38px; }
+      .hero, .hero-grid { min-height: auto; }
+      .hero-grid { padding-block: 52px 70px; }
+      .hero h1 { font-size: clamp(3rem, 16vw, 4.2rem); }
+      .hero h2 { font-size: 1.35rem; }
+      .hero-description { font-size: .94rem; }
+      .hero-benefits { grid-template-columns: 1fr; gap: 8px; }
+      .hero-actions { display: grid; }
+      .button { width: 100%; }
+      .phone-stage { min-height: 390px; margin-top: 20px; }
+      .phone { width: 34%; padding: 5px 4px 7px; border-radius: 23px; }
+      .phone::before { top: 8px; width: 38px; height: 9px; }
+      .phone img { border-radius: 18px; }
+      .phone-left { top: 42px; left: 1%; transform: rotate(-3deg); }
+      .phone-center { top: 0; width: 38%; }
+      .phone-right { top: 44px; right: 1%; transform: rotate(3deg); }
+      .phone figcaption { bottom: -31px; max-width: 120px; padding: 5px 7px; font-size: .57rem; }
+      .section { padding-block: 68px; }
+      .section-heading { margin-bottom: 34px; }
+      .feature-grid, .guide-grid, .roadmap-grid { grid-template-columns: 1fr; }
+      .roadmap-card.future { grid-column: auto; }
+      .feature-card { min-height: auto; }
+      .guide-card { min-height: 145px; }
+      .limit-card { grid-template-columns: 1fr; gap: 19px; padding: 25px; }
+      .limit-number { width: 82px; height: 82px; border-radius: 23px; font-size: 2.1rem; }
+      .privacy-panel { padding: 29px 23px; border-radius: 23px; }
+      .privacy-icon { width: 70px; height: 70px; }
+      .legal-links { display: grid; }
+      .download-panel { grid-template-columns: 1fr; padding: 28px 23px; text-align: left; }
+      .download-panel .button { grid-column: auto; }
+      .footer-bottom { flex-direction: column; gap: 5px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
+    }
+  </style>
 </head>
 <body>
-  <div class="bg"></div>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
 
-  <header class="topbar">
-    <div class="container topbarInner">
-      <a class="brand" href="index.html">
-        <img class="brandLogo" src="assets/cosmiclab_logo.png" alt="CosmiCLabIndicators" />
-        <div class="brandText">
-          <div class="brandName">CosmiCLabIndicators</div>
-          <div class="brandSub">Apps • Bots • Servers • Indicators</div>
-        </div>
+  <svg width="0" height="0" aria-hidden="true" style="position:absolute">
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 7.5h3l1.4-2h7.2l1.4 2h3a2 2 0 0 1 2 2v8.5a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9.5a2 2 0 0 1 2-2Z"/><circle cx="12" cy="13.5" r="4"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><path d="m4 20 4.5-1 10-10a2.1 2.1 0 0 0-3-3l-10 10L4 20Z"/><path d="m14 7 3 3M5.5 16.5l3 2.5"/></symbol>
+    <symbol id="i-comment" viewBox="0 0 24 24"><path d="M20 15a3 3 0 0 1-3 3H9l-5 3v-6a3 3 0 0 1-1-2.2V7a3 3 0 0 1 3-3h11a3 3 0 0 1 3 3v8Z"/><path d="M7 9h10M7 13h6"/></symbol>
+    <symbol id="i-report" viewBox="0 0 24 24"><path d="M6 2h8l4 4v16H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Z"/><path d="M14 2v5h5M8 12h6M8 16h6"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.7 10.7 6.6-4.2M8.7 13.4l6.6 4.1"/></symbol>
+    <symbol id="i-archive" viewBox="0 0 24 24"><path d="M3 7h18v13H3zM2 3h20v4H2z"/><path d="M9 11h6"/></symbol>
+    <symbol id="i-object" viewBox="0 0 24 24"><path d="M7 3h10v4H7zM5 5H3v16h18V5h-2M8 12h8M8 16h5"/></symbol>
+    <symbol id="i-plan" viewBox="0 0 24 24"><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3V6Z"/><path d="M9 3v15M15 6v15"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M4 21h16"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5.2 3.4 9.3 8 11 4.6-1.7 8-5.8 8-11V5l-8-3Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="#home" aria-label="PhotoReport home">
+        <img src="assets/photoreport_play_icon.svg" alt="" width="44" height="44" />
+        <span class="brand-copy">
+          <span class="brand-name">Photo<span>Report</span></span>
+          <span class="brand-tagline">Document. Mark. Report.</span>
+        </span>
       </a>
 
-      <nav class="nav">
-        <a class="navLink" href="index.html#services">Services</a>
-        <a class="navLink" href="index.html#projects">Projects</a>
-        <a class="navLink" href="photoreport.html">PhotoReport</a>
-        <a class="navLink" href="photoreportplay-privacy-policy.html">Privacy</a>
-        <a class="navLink" href="#contact">Contact</a>
+      <nav class="main-nav" id="main-nav" data-i18n-aria="navLabel" aria-label="Main navigation">
+        <a href="#home" data-i18n="navHome">Home</a>
+        <a href="#features" data-i18n="navFeatures">Features</a>
+        <a href="#guide" data-i18n="navGuide">Guide</a>
+        <a href="#download" data-i18n="navDownload">Download</a>
+        <a href="#roadmap" data-i18n="navRoadmap">Roadmap</a>
+        <a href="#support" data-i18n="navSupport">Support</a>
       </nav>
 
-      <div class="topbarRight">
-        <a class="btn pill" target="_blank" rel="noopener" href="https://t.me/CosmiCLabSupportBot">Support Bot</a>
+      <div class="language-switcher" data-i18n-aria="languageLabel" aria-label="Choose language">
+        <button type="button" data-lang="de" aria-pressed="false">DE</button>
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="ru" aria-pressed="false">RU</button>
       </div>
+
+      <button class="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" data-i18n-aria="menuOpen" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
-  <main class="container">
-    <section class="serviceHero photoreportHero">
-      <div class="serviceHeroBox productHeroBox photoreportHeroBox">
-        <div class="productHeroText">
-          <div class="serviceKicker photoreportKicker">PhotoReport / Android App</div>
-          <h1 class="serviceTitle">Outdoor photo reports & work documentation</h1>
-          <p class="serviceLead">
-            PhotoReport helps create clean photo reports directly on the phone: objects, locations,
-            work periods, plan/map markings, work photos, problem photos, comments, GPS notes and
-            export as long PNG pages or PDF.
-          </p>
-          <div class="heroTags productTags">
-            <span class="tag">Google Play app</span>
-            <span class="tag">Outdoor reports</span>
-            <span class="tag">Plan / map marking</span>
-            <span class="tag">GPS notes</span>
-            <span class="tag">PNG export</span>
-            <span class="tag">PDF export</span>
-            <span class="tag">Local-first</span>
+  <main id="main">
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow" data-i18n="heroEyebrow">Field documentation for Android</div>
+          <h1>Photo<span>Report</span></h1>
+          <h2 data-i18n="heroTitle">Professional photo reports directly on your phone</h2>
+          <p class="hero-description" data-i18n="heroDescription">Create structured photo reports directly on site. Keep photos, plans, markings and comments together in one project.</p>
+          <ul class="hero-benefits" id="hero-benefits"></ul>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#download"><svg width="18" height="18" aria-hidden="true"><use href="#i-download"></use></svg><span data-i18n="heroDownload">DOWNLOAD FOR ANDROID</span></a>
+            <a class="button button-secondary" href="#guide" data-i18n="heroGuide">USER GUIDE</a>
           </div>
-          <div class="heroCtas">
-            <a class="btn primary" href="#contact">Google Play coming soon</a>
-            <a class="btn ghost" href="photoreportplay-privacy-policy.html">Privacy Policy</a>
-            <a class="btn ghost" href="#features">Features</a>
-          </div>
+          <p class="release-note" data-i18n="releaseNote">Android release is being prepared.</p>
         </div>
 
-        <div class="productHeroVisual">
-          <div class="phoneMock photoreportPhone" aria-label="PhotoReport app preview">
-            <div class="phoneTop"></div>
-            <div class="phoneOverlay">
-              <div class="prHeader">
-                <div class="prHeaderTop">
-                  <span class="prRoundIcon">☰</span>
-                  <span>PhotoReport</span>
-                  <span class="prRoundIcon">⚙</span>
-                </div>
-                <div class="prTabs">
-                  <span>Reports</span><span>Objects</span><span>Archive</span>
-                </div>
-              </div>
+        <div class="phone-stage" aria-label="PhotoReport application screens" data-i18n-aria="screensLabel">
+          <figure class="phone phone-left">
+            <img src="assets/photoreport/phone_objects.webp" alt="PhotoReport object workspace" data-i18n-alt="screenObjectsAlt" width="720" height="1456" />
+            <figcaption data-i18n="screenObjects">Objects</figcaption>
+          </figure>
+          <figure class="phone phone-center">
+            <img src="assets/photoreport/phone_marking.webp" alt="PhotoReport photo marking tools" data-i18n-alt="screenMarkingAlt" width="720" height="1456" />
+            <figcaption data-i18n="screenMarking">Photo marking</figcaption>
+          </figure>
+          <figure class="phone phone-right">
+            <img src="assets/photoreport/phone_report.webp" alt="PhotoReport report workflow" data-i18n-alt="screenReportAlt" width="720" height="1456" />
+            <figcaption data-i18n="screenReport">Report workflow</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
 
-              <div class="prCard">
-                <div class="prCardTitle">Objects</div>
-                <div class="prCardText">Groups for projects, clients, objects and work zones.</div>
-              </div>
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow" data-i18n="featuresEyebrow">Everything in one project</div>
+          <h2 data-i18n="featuresTitle">Tools for clear field documentation</h2>
+          <p data-i18n="featuresIntro">Capture the situation, add context and prepare a structured result without leaving the job site.</p>
+        </div>
+        <div class="feature-grid" id="feature-grid"></div>
+      </div>
+    </section>
 
-              <div class="prCard">
-                <div class="prObjectRow">
-                  <div class="prThumb">🌿</div>
-                  <div>
-                    <div class="prCardTitle">Work area</div>
-                    <div class="prCardText">Place, period, photos, status and report.</div>
-                  </div>
-                  <div class="prStatus">open</div>
-                </div>
-              </div>
+    <section class="section section-soft" id="workflow-section">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow" data-i18n="workflowEyebrow">Simple workflow</div>
+          <h2 data-i18n="workflowTitle">How it works</h2>
+          <p data-i18n="workflowIntro">From a new object to a ready file in five clear steps.</p>
+        </div>
+        <div class="workflow" id="workflow"></div>
+      </div>
+    </section>
 
-              <div class="prFab">+</div>
+    <section class="section section-dark" id="guide">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow" data-i18n="guideEyebrow">Built-in help</div>
+          <h2 data-i18n="guideTitle">PhotoReport step by step</h2>
+          <p data-i18n="guideIntro">The app includes a built-in guide. This page provides a compact overview; each card is ready for an additional real screenshot later.</p>
+        </div>
+        <div class="guide-grid" id="guide-grid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="report-limit">
+      <div class="container">
+        <div class="limit-card">
+          <div class="limit-number">12</div>
+          <div>
+            <div class="eyebrow" data-i18n="limitEyebrow">Stable, practical reports</div>
+            <h2 data-i18n="limitTitle">Up to 12 photos per object and report</h2>
+            <p data-i18n="limitText">This limit keeps mobile work stable and reports easy to use. When it is reached, create a new object or a new report for the next set of photos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="privacy">
+      <div class="container">
+        <div class="privacy-panel">
+          <div>
+            <div class="privacy-icon"><svg aria-hidden="true"><use href="#i-shield"></use></svg></div>
+            <h2 data-i18n="privacyTitle">Your data stays under your control</h2>
+          </div>
+          <div class="privacy-copy">
+            <p data-i18n="privacyText">Core project data is stored locally on your device. You decide where generated reports and project files are saved or sent.</p>
+            <ul class="privacy-points" id="privacy-points"></ul>
+            <div class="legal-links">
+              <a href="photoreportplay-privacy-policy.html" data-i18n="privacyPolicy">Privacy Policy</a>
+              <a href="photoreport-privacy-policy.html" data-i18n="privacyPolicyAlt">PhotoReport Privacy</a>
+              <a href="delete-data.html" data-i18n="deleteData">Data Deletion</a>
+              <span class="legal-note" data-i18n="termsUnavailable" data-i18n-title="termsUnavailableTitle" title="No Terms of Use file is currently present on the website.">Terms of Use — page not yet available</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="features" class="section">
-      <div class="sectionHead">
-        <h2 class="sectionTitle">What PhotoReport does</h2>
-        <div class="sectionHint">
-          A neutral documentation tool for landscape maintenance, construction/site documentation,
-          inspections, cleaning, tree/clearing work and other outdoor service reports.
+    <section class="section" id="roadmap">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow" data-i18n="roadmapEyebrow">Clear direction</div>
+          <h2 data-i18n="roadmapTitle">PhotoReport roadmap</h2>
+          <p data-i18n="roadmapIntro">Current capabilities, careful mobile improvements and a clearly separated future company concept.</p>
         </div>
-      </div>
-
-      <div class="photoreportFeatureGrid">
-        <div class="photoreportFeature"><div class="photoreportFeatureIcon">📁</div><div class="photoreportFeatureTitle">Objects & archive</div><div class="photoreportFeatureText">Create projects, clients, sites, work zones and archive folders.</div></div>
-        <div class="photoreportFeature"><div class="photoreportFeatureIcon">📷</div><div class="photoreportFeatureTitle">Photos & comments</div><div class="photoreportFeatureText">Take work photos, problem photos, import gallery images and add comments.</div></div>
-        <div class="photoreportFeature"><div class="photoreportFeatureIcon">🗺️</div><div class="photoreportFeatureTitle">Plan / map marking</div><div class="photoreportFeatureText">Mark finished, blocked, checked or partially completed areas on plans and photos.</div></div>
-        <div class="photoreportFeature"><div class="photoreportFeatureIcon">📍</div><div class="photoreportFeatureTitle">GPS / location</div><div class="photoreportFeatureText">Add location information and address notes to the work report.</div></div>
-        <div class="photoreportFeature"><div class="photoreportFeatureIcon">🧾</div><div class="photoreportFeatureTitle">PNG / PDF reports</div><div class="photoreportFeatureText">Export long image reports, split report pages or PDF files and share them through Android.</div></div>
-        <div class="photoreportFeature"><div class="photoreportFeatureIcon">🔒</div><div class="photoreportFeatureTitle">Local-first</div><div class="photoreportFeatureText">Photos, comments and reports stay on the device unless the user chooses to share them.</div></div>
+        <div class="roadmap-grid" id="roadmap-grid"></div>
+        <p class="roadmap-standalone" data-i18n="roadmapStandalone">The current PhotoReport mobile app remains a standalone tool. A company platform is considered a separate future development direction.</p>
       </div>
     </section>
 
-    <section class="section">
-      <div class="sectionHead">
-        <h2 class="sectionTitle">How it works</h2>
-        <div class="sectionHint">Simple workflow for daily work documentation and customer reports.</div>
-      </div>
-      <div class="workflowSteps">
-        <div class="workflowStep"><div class="workflowStepNum">1</div><div class="photoreportFeatureTitle">Create an object</div><div class="photoreportFeatureText">Add a project, client, place, work period, area in m²/ha and optional GPS/location data.</div></div>
-        <div class="workflowStep"><div class="workflowStepNum">2</div><div class="photoreportFeatureTitle">Add photos & markings</div><div class="photoreportFeatureText">Take photos, import images, mark the plan/map and write short notes under photos.</div></div>
-        <div class="workflowStep"><div class="workflowStepNum">3</div><div class="photoreportFeatureTitle">Export and share</div><div class="photoreportFeatureText">Create a clean report and share it via WhatsApp, email, cloud apps or other Android share targets.</div></div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="infoBox localModeBox">
-        <h2>Local-first privacy</h2>
-        <p>
-          PhotoReport is designed to work locally on the phone. There is no forced account and no automatic
-          cloud upload for local report functions. Camera, gallery and location access are used only for the
-          selected app functions. Sharing happens only when the user chooses the Android share menu.
-        </p>
-        <div class="ctaRow">
-          <a class="btn ghost" href="photoreportplay-privacy-policy.html">Read Privacy Policy</a>
-          <a class="btn ghost" href="delete-data.html">Data deletion info</a>
+    <section class="section section-soft" id="download">
+      <div class="container">
+        <div class="download-panel">
+          <div class="download-icon"><svg aria-hidden="true"><use href="#i-download"></use></svg></div>
+          <div>
+            <div class="eyebrow" data-i18n="downloadEyebrow">PhotoReport for Android</div>
+            <h2 data-i18n="downloadTitle">Android release is being prepared.</h2>
+            <p data-i18n="downloadText">There is no public Google Play link yet. Updates will appear here when the release is ready.</p>
+          </div>
+          <a class="button button-secondary" href="mailto:cosmiclabindicators@gmail.com?subject=PhotoReport%20Android" data-i18n="downloadContact">ASK ABOUT THE RELEASE</a>
         </div>
       </div>
     </section>
-
-    <section class="section">
-      <div class="sectionHead">
-        <h2 class="sectionTitle">Release plans</h2>
-        <div class="sectionHint">The app is prepared for Google Play testing. Pricing can be shown after release preparation is complete.</div>
-      </div>
-      <div class="planCards">
-        <div class="planCard">
-          <div class="planName">PhotoReport</div>
-          <div class="planValue">Standard</div>
-          <div class="planText">Objects, photos, plan/map, marking, GPS, groups/archive, custom skins, PNG reports and Android share menu.</div>
-        </div>
-        <div class="planCard">
-          <div class="planName">PhotoReport Plus</div>
-          <div class="planValue">Planned</div>
-          <div class="planText">PDF export/share, task import/export and future optional cloud connection features.</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section contact">
-      <div class="contactBox">
-        <h2 class="sectionTitle">Contact / Support</h2>
-        <p class="contactText">
-          For PhotoReport support, Google Play testing, privacy questions or development requests — contact CosmicLab Indicators.
-        </p>
-        <div class="contactLinks">
-          <a class="btn primary" target="_blank" rel="noopener" href="https://t.me/CosmiCLabSupportBot">Open Support Bot</a>
-          <a class="btn ghost" href="mailto:cosmiclab.support@gmail.com">Email Support</a>
-        </div>
-        <div class="supportText">
-          Telegram: <b>@CosmiCLabSupportBot</b><br>
-          Email: <b>cosmiclab.support@gmail.com</b><br>
-          Website: <b>cosmiclabindicators.com</b>
-        </div>
-      </div>
-    </section>
-
-    <div class="copy">© <span id="year"></span> CosmicLab Indicators / PhotoReport</div>
   </main>
 
-  <script src="app.js"></script>
+  <footer class="footer" id="support">
+    <div class="container footer-main">
+      <div class="footer-brand">
+        <img src="assets/photoreport_play_icon.svg" alt="" width="45" height="45" />
+        <div><strong>CosmicLab Indicators · PhotoReport</strong><span>Document. Mark. Report.</span></div>
+      </div>
+      <div class="footer-links">
+        <a href="photoreportplay-privacy-policy.html" data-i18n="privacyPolicy">Privacy Policy</a>
+        <span class="footer-terms" data-i18n="termsUnavailable" data-i18n-title="termsUnavailableTitle" title="No Terms of Use file is currently present on the website.">Terms of Use — page not yet available</span>
+        <a href="delete-data.html" data-i18n="deleteData">Data Deletion</a>
+        <a href="https://t.me/CosmiCLabSupportBot" target="_blank" rel="noopener" data-i18n="navSupport">Support</a>
+        <a href="https://cosmiclabindicators.com/">cosmiclabindicators.com</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2026 CosmicLab Indicators</span>
+      <span data-i18n="footerNote">PhotoReport for Android · Local-first field documentation</span>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const iconNames = ["camera", "pen", "comment", "report", "share", "archive"];
+      const stepIcons = ["object", "camera", "pen", "report", "share"];
+
+      const translations = {
+        en: {
+          seoTitle: "PhotoReport — Professional photo reports on Android",
+          seoDescription: "Create structured photo reports with photos, plans, markings, comments and PNG/PDF export directly on your Android phone.",
+          skip: "Skip to content", navLabel: "Main navigation", languageLabel: "Choose language", menuOpen: "Open menu", menuClose: "Close menu",
+          navHome: "Home", navFeatures: "Features", navGuide: "Guide", navDownload: "Download", navRoadmap: "Roadmap", navSupport: "Support",
+          heroEyebrow: "Field documentation for Android", heroTitle: "Professional photo reports directly on your phone",
+          heroDescription: "Create structured photo reports directly on site. Keep photos, plans, markings and comments together in one project.",
+          heroBenefits: ["Photos and plans", "Marking", "Comments", "PNG / PDF reports", ".frtask project transfer", "Organizer / Archive"],
+          heroDownload: "DOWNLOAD FOR ANDROID", heroGuide: "USER GUIDE", releaseNote: "Android release is being prepared.",
+          screensLabel: "PhotoReport application screens", screenObjects: "Objects", screenMarking: "Photo marking", screenReport: "Report workflow",
+          screenObjectsAlt: "PhotoReport object workspace", screenMarkingAlt: "PhotoReport photo marking tools", screenReportAlt: "PhotoReport report workflow",
+          featuresEyebrow: "Everything in one project", featuresTitle: "Tools for clear field documentation",
+          featuresIntro: "Capture the situation, add context and prepare a structured result without leaving the job site.",
+          features: [
+            ["Photos & Plans", "Add photos from the camera or gallery, together with plans and maps."],
+            ["Marking", "Mark photos and plans directly on your phone with practical drawing tools."],
+            ["Comments", "Add clear notes to photos and other project elements."],
+            ["Reports", "Create structured reports in PNG and PDF formats."],
+            ["Export & .frtask", "Save, share and import complete projects using the .frtask format."],
+            ["Organizer & Archive", "Keep active and completed objects organised and easy to find."]
+          ],
+          workflowEyebrow: "Simple workflow", workflowTitle: "How it works", workflowIntro: "From a new object to a ready file in five clear steps.",
+          steps: ["Create an object", "Add photos and a plan", "Add comments and markings", "Create a report", "Save or send the result"], stepLabel: "Step",
+          guideEyebrow: "Built-in help", guideTitle: "PhotoReport step by step",
+          guideIntro: "The app includes a built-in guide. This page provides a compact overview; each card is ready for an additional real screenshot later.",
+          guides: [
+            ["Create an object", "Enter a clear name, location and the basic project details."],
+            ["Add a photo", "Use the camera or choose an existing image from the gallery."],
+            ["Comment on a photo", "Add context, observations and important details to an image."],
+            ["Mark a photo", "Draw and label important areas directly on the image."],
+            ["Add a plan", "Attach a plan or map to keep visual project context together."],
+            ["Mark a plan", "Highlight zones, points and notes directly on the plan."],
+            ["Create a report", "Select the project content and prepare a structured result."],
+            ["Export PNG / PDF", "Choose the required output format for saving or sharing."],
+            ["Save .frtask", "Store or send a complete project as a transferable .frtask file."],
+            ["Import .frtask", "Open a valid .frtask file and restore its project content."],
+            ["Organizer / Archive", "Move completed work out of the active list and find it later."],
+            ["Settings", "Choose the app language and available appearance options."]
+          ],
+          limitEyebrow: "Stable, practical reports", limitTitle: "Up to 12 photos per object and report",
+          limitText: "This limit keeps mobile work stable and reports easy to use. When it is reached, create a new object or a new report for the next set of photos.",
+          privacyTitle: "Your data stays under your control",
+          privacyText: "Core project data is stored locally on your device. You decide where generated reports and project files are saved or sent.",
+          privacyPoints: ["Local-first project storage", "You choose the destination for exported files", "No promise of cloud storage that is not currently available"],
+          privacyPolicy: "Privacy Policy", privacyPolicyAlt: "PhotoReport Privacy", deleteData: "Data Deletion",
+          termsUnavailable: "Terms of Use — page not yet available", termsUnavailableTitle: "No Terms of Use file is currently present on the website.",
+          roadmapEyebrow: "Clear direction", roadmapTitle: "PhotoReport roadmap",
+          roadmapIntro: "Current capabilities, careful mobile improvements and a clearly separated future company concept.",
+          roadmap: [
+            { label: "CURRENT", title: "PhotoReport Mobile", text: "Priority: stable and convenient work directly on site.", items: ["Objects, photos and plans", "Comments and marking", "GPS / location tools", "PNG / PDF reports", ".frtask transfer", "Organizer / Archive", "Built-in guide", "Android"] },
+            { label: "NEXT", title: "Mobile development", text: "Careful improvements without unconfirmed release promises.", items: ["Improved user experience", "Clearer instructions", "Additional report workflow tools", "Performance optimisation", "More localisations", "Better project exchange"] },
+            { label: "FUTURE · CONCEPT", title: "PhotoReport Business", text: "A separate professional direction for companies — planned concept, not a current feature.", items: ["Company accounts", "Central project storage", "Server synchronisation", "Multi-user workflows", "Object management", "Web dashboard", "Company administration", "AI-assisted document analysis"] }
+          ],
+          roadmapStandalone: "The current PhotoReport mobile app remains a standalone tool. A company platform is considered a separate future development direction.",
+          downloadEyebrow: "PhotoReport for Android", downloadTitle: "Android release is being prepared.",
+          downloadText: "There is no public Google Play link yet. Updates will appear here when the release is ready.", downloadContact: "ASK ABOUT THE RELEASE",
+          footerNote: "PhotoReport for Android · Local-first field documentation"
+        },
+        de: {
+          seoTitle: "PhotoReport — Professionelle Fotoberichte für Android",
+          seoDescription: "Erstellen Sie strukturierte Fotoberichte mit Fotos, Plänen, Markierungen, Kommentaren und PNG/PDF-Export direkt auf Ihrem Android-Smartphone.",
+          skip: "Zum Inhalt springen", navLabel: "Hauptnavigation", languageLabel: "Sprache wählen", menuOpen: "Menü öffnen", menuClose: "Menü schließen",
+          navHome: "Start", navFeatures: "Funktionen", navGuide: "Anleitung", navDownload: "Download", navRoadmap: "Entwicklung", navSupport: "Support",
+          heroEyebrow: "Baustellendokumentation für Android", heroTitle: "Fotoberichte direkt auf dem Smartphone",
+          heroDescription: "Erstellen Sie strukturierte Fotoberichte direkt vor Ort. Fotos, Pläne, Markierungen und Kommentare bleiben in einem Projekt zusammen.",
+          heroBenefits: ["Fotos und Pläne", "Markierungen", "Kommentare", "PNG- / PDF-Berichte", ".frtask-Projektübertragung", "Organizer / Archiv"],
+          heroDownload: "FÜR ANDROID HERUNTERLADEN", heroGuide: "ANLEITUNG", releaseNote: "Die Android-Version wird vorbereitet.",
+          screensLabel: "PhotoReport-App-Bildschirme", screenObjects: "Objekte", screenMarking: "Fotomarkierung", screenReport: "Berichtsablauf",
+          screenObjectsAlt: "Objektbereich in PhotoReport", screenMarkingAlt: "Werkzeuge zur Fotomarkierung in PhotoReport", screenReportAlt: "Berichtsablauf in PhotoReport",
+          featuresEyebrow: "Alles in einem Projekt", featuresTitle: "Werkzeuge für klare Dokumentation vor Ort",
+          featuresIntro: "Erfassen Sie die Situation, ergänzen Sie Kontext und erstellen Sie ein strukturiertes Ergebnis direkt auf der Baustelle.",
+          features: [
+            ["Fotos & Pläne", "Fügen Sie Fotos aus Kamera oder Galerie sowie Pläne und Karten hinzu."],
+            ["Markierungen", "Markieren Sie Fotos und Pläne direkt auf dem Smartphone mit praktischen Zeichenwerkzeugen."],
+            ["Kommentare", "Ergänzen Sie Fotos und andere Projektelemente um klare Hinweise."],
+            ["Berichte", "Erstellen Sie strukturierte Berichte im PNG- und PDF-Format."],
+            ["Export & .frtask", "Speichern, versenden und importieren Sie vollständige Projekte im .frtask-Format."],
+            ["Organizer & Archiv", "Organisieren Sie aktive und abgeschlossene Objekte übersichtlich."]
+          ],
+          workflowEyebrow: "Einfacher Ablauf", workflowTitle: "So funktioniert es", workflowIntro: "Vom neuen Objekt bis zur fertigen Datei in fünf klaren Schritten.",
+          steps: ["Objekt erstellen", "Fotos und Plan hinzufügen", "Kommentare und Markierungen hinzufügen", "Bericht erstellen", "Ergebnis speichern oder senden"], stepLabel: "Schritt",
+          guideEyebrow: "Integrierte Hilfe", guideTitle: "PhotoReport Schritt für Schritt",
+          guideIntro: "In der App ist eine Anleitung integriert. Diese Seite gibt einen kompakten Überblick; jede Karte ist für einen späteren echten Screenshot vorbereitet.",
+          guides: [
+            ["Objekt erstellen", "Name, Ort und grundlegende Projektdaten übersichtlich erfassen."],
+            ["Foto hinzufügen", "Die Kamera verwenden oder ein vorhandenes Bild aus der Galerie wählen."],
+            ["Foto kommentieren", "Kontext, Beobachtungen und wichtige Details zum Bild ergänzen."],
+            ["Foto markieren", "Wichtige Bereiche direkt im Bild einzeichnen und beschriften."],
+            ["Plan hinzufügen", "Einen Plan oder eine Karte als visuellen Projektkontext anhängen."],
+            ["Plan markieren", "Bereiche, Punkte und Hinweise direkt im Plan hervorheben."],
+            ["Bericht erstellen", "Projektinhalte auswählen und ein strukturiertes Ergebnis vorbereiten."],
+            ["PNG / PDF exportieren", "Das benötigte Ausgabeformat zum Speichern oder Teilen wählen."],
+            [".frtask speichern", "Ein vollständiges Projekt als übertragbare .frtask-Datei speichern oder senden."],
+            [".frtask importieren", "Eine gültige .frtask-Datei öffnen und den Projektinhalt wiederherstellen."],
+            ["Organizer / Archiv", "Abgeschlossene Arbeiten auslagern und später schnell wiederfinden."],
+            ["Einstellungen", "App-Sprache und verfügbare Darstellungsoptionen auswählen."]
+          ],
+          limitEyebrow: "Stabile, praxisgerechte Berichte", limitTitle: "Bis zu 12 Fotos pro Objekt und Bericht",
+          limitText: "Diese Grenze sorgt für stabile mobile Arbeit und übersichtliche Berichte. Danach erstellen Sie für die nächsten Fotos einfach ein neues Objekt oder einen neuen Bericht.",
+          privacyTitle: "Ihre Daten bleiben unter Ihrer Kontrolle",
+          privacyText: "Die wesentlichen Projektdaten werden lokal auf Ihrem Gerät gespeichert. Sie entscheiden selbst, wo Berichte und Projektdateien gespeichert oder versendet werden.",
+          privacyPoints: ["Lokale Speicherung der Projektdaten", "Sie wählen das Ziel für exportierte Dateien", "Kein Versprechen eines derzeit nicht verfügbaren Cloud-Speichers"],
+          privacyPolicy: "Datenschutzerklärung", privacyPolicyAlt: "PhotoReport Datenschutz", deleteData: "Daten löschen",
+          termsUnavailable: "Nutzungsbedingungen — Seite noch nicht vorhanden", termsUnavailableTitle: "Auf der Website ist derzeit keine Datei mit Nutzungsbedingungen vorhanden.",
+          roadmapEyebrow: "Klare Richtung", roadmapTitle: "PhotoReport Entwicklung",
+          roadmapIntro: "Aktuelle Funktionen, sorgfältige mobile Verbesserungen und ein klar getrenntes zukünftiges Unternehmenskonzept.",
+          roadmap: [
+            { label: "AKTUELL", title: "PhotoReport Mobile", text: "Priorität: stabil und komfortabel direkt vor Ort arbeiten.", items: ["Objekte, Fotos und Pläne", "Kommentare und Markierungen", "GPS- / Standortfunktionen", "PNG- / PDF-Berichte", ".frtask-Übertragung", "Organizer / Archiv", "Integrierte Anleitung", "Android"] },
+            { label: "NÄCHSTE SCHRITTE", title: "Mobile Weiterentwicklung", text: "Sorgfältige Verbesserungen ohne unbestätigte Versprechen oder Termine.", items: ["Verbesserte Bedienung", "Klarere Anleitungen", "Zusätzliche Werkzeuge für Berichte", "Leistungsoptimierung", "Weitere Lokalisierungen", "Besserer Projektaustausch"] },
+            { label: "ZUKUNFT · KONZEPT", title: "PhotoReport Business", text: "Eine separate professionelle Richtung für Unternehmen — geplantes Konzept, keine aktuelle Funktion.", items: ["Unternehmenskonten", "Zentrale Projektspeicherung", "Serversynchronisierung", "Arbeit mehrerer Mitarbeiter", "Objektverwaltung", "Web-Dashboard", "Unternehmensadministration", "KI-gestützte Dokumentenanalyse"] }
+          ],
+          roadmapStandalone: "Die aktuelle mobile PhotoReport-Version bleibt ein eigenständiges Werkzeug. Eine Unternehmensplattform ist als separate zukünftige Entwicklungsrichtung geplant.",
+          downloadEyebrow: "PhotoReport für Android", downloadTitle: "Die Android-Version wird vorbereitet.",
+          downloadText: "Derzeit gibt es noch keinen öffentlichen Google-Play-Link. Neuigkeiten erscheinen hier, sobald die Veröffentlichung bereit ist.", downloadContact: "ZUR VERÖFFENTLICHUNG FRAGEN",
+          footerNote: "PhotoReport für Android · Lokale Dokumentation vor Ort"
+        },
+        ru: {
+          seoTitle: "PhotoReport — профессиональные фотоотчёты на Android",
+          seoDescription: "Создавайте на Android структурированные фотоотчёты с фотографиями, планами, разметкой, комментариями и экспортом PNG/PDF.",
+          skip: "Перейти к содержанию", navLabel: "Основная навигация", languageLabel: "Выбрать язык", menuOpen: "Открыть меню", menuClose: "Закрыть меню",
+          navHome: "Главная", navFeatures: "Возможности", navGuide: "Инструкция", navDownload: "Скачать", navRoadmap: "Развитие", navSupport: "Поддержка",
+          heroEyebrow: "Документация на объекте · Android", heroTitle: "Фотоотчёты прямо на телефоне",
+          heroDescription: "Создавайте структурированные фотоотчёты прямо на объекте. Фотографии, планы, разметка и комментарии хранятся вместе в одном проекте.",
+          heroBenefits: ["Фото и планы", "Разметка", "Комментарии", "Отчёты PNG / PDF", "Передача проектов .frtask", "Органайзер / Архив"],
+          heroDownload: "СКАЧАТЬ ДЛЯ ANDROID", heroGuide: "ИНСТРУКЦИЯ", releaseNote: "Android-версия готовится к публикации.",
+          screensLabel: "Экраны приложения PhotoReport", screenObjects: "Объекты", screenMarking: "Разметка фото", screenReport: "Работа с отчётом",
+          screenObjectsAlt: "Экран объекта в PhotoReport", screenMarkingAlt: "Инструменты разметки фотографии в PhotoReport", screenReportAlt: "Работа с отчётом в PhotoReport",
+          featuresEyebrow: "Всё в одном проекте", featuresTitle: "Инструменты для понятной документации",
+          featuresIntro: "Зафиксируйте ситуацию, добавьте контекст и подготовьте структурированный результат прямо на объекте.",
+          features: [
+            ["Фото и планы", "Добавляйте фотографии с камеры или из галереи, а также планы и карты."],
+            ["Разметка", "Размечайте фотографии и планы прямо на телефоне удобными инструментами."],
+            ["Комментарии", "Добавляйте понятные примечания к фотографиям и элементам проекта."],
+            ["Отчёты", "Создавайте структурированные отчёты в форматах PNG и PDF."],
+            ["Экспорт и .frtask", "Сохраняйте, передавайте и импортируйте проекты в формате .frtask."],
+            ["Органайзер и архив", "Упорядочивайте активные и завершённые объекты."]
+          ],
+          workflowEyebrow: "Простой процесс", workflowTitle: "Как это работает", workflowIntro: "От нового объекта до готового файла за пять понятных шагов.",
+          steps: ["Создайте объект", "Добавьте фотографии и план", "Добавьте комментарии и разметку", "Создайте отчёт", "Сохраните или отправьте результат"], stepLabel: "Шаг",
+          guideEyebrow: "Встроенная помощь", guideTitle: "PhotoReport — пошаговая инструкция",
+          guideIntro: "В приложении доступна встроенная инструкция. Здесь собран краткий обзор; в каждую карточку позже можно легко добавить настоящий скриншот.",
+          guides: [
+            ["Создание объекта", "Укажите понятное название, место и основные данные проекта."],
+            ["Добавление фотографии", "Используйте камеру или выберите готовое изображение из галереи."],
+            ["Комментарий к фотографии", "Добавьте к изображению контекст, наблюдения и важные детали."],
+            ["Разметка фотографии", "Нарисуйте и подпишите важные участки прямо на изображении."],
+            ["Добавление плана", "Прикрепите план или карту, сохранив визуальный контекст проекта."],
+            ["Разметка плана", "Отметьте зоны, точки и примечания непосредственно на плане."],
+            ["Создание отчёта", "Выберите содержимое проекта и подготовьте структурированный результат."],
+            ["Экспорт PNG / PDF", "Выберите нужный формат результата для сохранения или отправки."],
+            ["Сохранение .frtask", "Сохраните или отправьте полный проект переносимым файлом .frtask."],
+            ["Импорт .frtask", "Откройте корректный .frtask и восстановите содержимое проекта."],
+            ["Органайзер / Архив", "Уберите завершённые работы из активного списка и быстро находите их позже."],
+            ["Настройки", "Выберите язык приложения и доступные параметры оформления."]
+          ],
+          limitEyebrow: "Стабильные и удобные отчёты", limitTitle: "До 12 фотографий в одном объекте и отчёте",
+          limitText: "Такое ограничение обеспечивает стабильную работу на телефоне и удобный размер рабочих отчётов. После достижения лимита создайте новый объект или новый отчёт для следующей серии фотографий.",
+          privacyTitle: "Ваши данные остаются под вашим контролем",
+          privacyText: "Основные данные проекта хранятся локально на устройстве. Вы сами выбираете, куда сохранять или отправлять созданные отчёты и файлы проекта.",
+          privacyPoints: ["Локальное хранение основных данных проекта", "Вы сами выбираете место для экспортируемых файлов", "Никаких обещаний облачного хранения, которого пока нет"],
+          privacyPolicy: "Политика конфиденциальности", privacyPolicyAlt: "Конфиденциальность PhotoReport", deleteData: "Удаление данных",
+          termsUnavailable: "Условия использования — страницы пока нет", termsUnavailableTitle: "В папке сайта пока нет файла с условиями использования.",
+          roadmapEyebrow: "Понятное направление", roadmapTitle: "Развитие PhotoReport",
+          roadmapIntro: "Текущие возможности, аккуратное развитие мобильной версии и отдельно обозначенная будущая корпоративная концепция.",
+          roadmap: [
+            { label: "СЕЙЧАС", title: "PhotoReport Mobile", text: "Главный приоритет — стабильная и удобная работа непосредственно на объекте.", items: ["Объекты, фотографии и планы", "Комментарии и разметка", "GPS и функции местоположения", "Отчёты PNG / PDF", "Передача .frtask", "Органайзер / Архив", "Встроенная инструкция", "Android"] },
+            { label: "ДАЛЬШЕ", title: "Развитие мобильной версии", text: "Аккуратные улучшения без неподтверждённых обещаний и дат.", items: ["Улучшение интерфейса", "Более понятные инструкции", "Дополнительные инструменты работы с отчётами", "Оптимизация производительности", "Расширение локализаций", "Улучшение обмена проектами"] },
+            { label: "БУДУЩЕЕ · КОНЦЕПЦИЯ", title: "PhotoReport Business", text: "Отдельное профессиональное направление для компаний — планируемая концепция, а не текущая функция.", items: ["Корпоративные аккаунты", "Централизованное хранение проектов", "Серверная синхронизация", "Работа нескольких сотрудников", "Управление объектами", "Веб-панель", "Корпоративное администрирование", "AI-анализ отчётов и документов"] }
+          ],
+          roadmapStandalone: "Текущая мобильная версия PhotoReport остаётся самостоятельным инструментом. Корпоративная платформа рассматривается как отдельное направление развития.",
+          downloadEyebrow: "PhotoReport для Android", downloadTitle: "Android-версия готовится к публикации.",
+          downloadText: "Публичной ссылки Google Play пока нет. Информация появится здесь, когда выпуск будет готов.", downloadContact: "УЗНАТЬ О ВЫПУСКЕ",
+          footerNote: "PhotoReport для Android · Локальная документация на объекте"
+        }
+      };
+
+      const icon = (name) => `<svg aria-hidden="true"><use href="#i-${name}"></use></svg>`;
+
+      function getStoredLanguage() {
+        try { return localStorage.getItem("photoreport-language"); } catch (_) { return null; }
+      }
+
+      function detectLanguage() {
+        const stored = getStoredLanguage();
+        if (["de", "en", "ru"].includes(stored)) return stored;
+        const browserLanguage = String(navigator.language || "en").toLowerCase();
+        if (browserLanguage.startsWith("de")) return "de";
+        if (browserLanguage.startsWith("ru")) return "ru";
+        return "en";
+      }
+
+      function renderList(targetId, items, className = "") {
+        const target = document.getElementById(targetId);
+        target.replaceChildren(...items.map((text) => {
+          const li = document.createElement("li");
+          if (className) li.className = className;
+          li.textContent = text;
+          return li;
+        }));
+      }
+
+      function renderFeatures(t) {
+        const fragment = document.createDocumentFragment();
+        t.features.forEach(([title, text], index) => {
+          const card = document.createElement("article");
+          card.className = "feature-card";
+          card.innerHTML = `<div class="icon-box">${icon(iconNames[index])}</div><h3></h3><p></p>`;
+          card.querySelector("h3").textContent = title;
+          card.querySelector("p").textContent = text;
+          fragment.append(card);
+        });
+        document.getElementById("feature-grid").replaceChildren(fragment);
+      }
+
+      function renderSteps(t) {
+        const fragment = document.createDocumentFragment();
+        t.steps.forEach((title, index) => {
+          const card = document.createElement("article");
+          card.className = "step";
+          card.innerHTML = `<div class="step-icon">${icon(stepIcons[index])}</div><div class="step-number"></div><h3></h3>`;
+          card.querySelector(".step-number").textContent = `${t.stepLabel} ${index + 1}`;
+          card.querySelector("h3").textContent = title;
+          fragment.append(card);
+        });
+        document.getElementById("workflow").replaceChildren(fragment);
+      }
+
+      function renderGuides(t) {
+        const fragment = document.createDocumentFragment();
+        t.guides.forEach(([title, text], index) => {
+          const number = String(index + 1).padStart(2, "0");
+          const card = document.createElement("article");
+          card.className = "guide-card";
+          card.dataset.screenshotSlot = `guide-${number}`;
+          card.innerHTML = `<div class="guide-media" aria-hidden="true"><span class="guide-number">${number}</span></div><div><h3></h3><p></p></div>`;
+          card.querySelector("h3").textContent = title;
+          card.querySelector("p").textContent = text;
+          fragment.append(card);
+        });
+        document.getElementById("guide-grid").replaceChildren(fragment);
+      }
+
+      function renderRoadmap(t) {
+        const classes = ["current", "next", "future"];
+        const fragment = document.createDocumentFragment();
+        t.roadmap.forEach((stage, index) => {
+          const card = document.createElement("article");
+          card.className = `roadmap-card ${classes[index]}`;
+          const label = document.createElement("span");
+          label.className = "stage-label";
+          label.textContent = stage.label;
+          const title = document.createElement("h3");
+          title.textContent = stage.title;
+          const text = document.createElement("p");
+          text.textContent = stage.text;
+          const list = document.createElement("ul");
+          stage.items.forEach((item) => {
+            const li = document.createElement("li");
+            li.textContent = item;
+            list.append(li);
+          });
+          card.append(label, title, text, list);
+          fragment.append(card);
+        });
+        document.getElementById("roadmap-grid").replaceChildren(fragment);
+      }
+
+      function applyLanguage(language, save = true) {
+        const lang = translations[language] ? language : "en";
+        const t = translations[lang];
+        document.documentElement.lang = lang;
+        document.title = t.seoTitle;
+        document.querySelector('meta[name="description"]').content = t.seoDescription;
+        document.querySelector('meta[property="og:title"]').content = t.seoTitle;
+        document.querySelector('meta[property="og:description"]').content = t.seoDescription;
+
+        document.querySelectorAll("[data-i18n]").forEach((element) => {
+          const value = t[element.dataset.i18n];
+          if (typeof value === "string") element.textContent = value;
+        });
+        document.querySelectorAll("[data-i18n-aria]").forEach((element) => {
+          const key = element.dataset.i18nAria;
+          element.setAttribute("aria-label", t[key]);
+        });
+        document.querySelectorAll("[data-i18n-alt]").forEach((element) => {
+          element.alt = t[element.dataset.i18nAlt];
+        });
+        document.querySelectorAll("[data-i18n-title]").forEach((element) => {
+          element.title = t[element.dataset.i18nTitle];
+        });
+
+        renderList("hero-benefits", t.heroBenefits);
+        renderFeatures(t);
+        renderSteps(t);
+        renderGuides(t);
+        renderList("privacy-points", t.privacyPoints);
+        renderRoadmap(t);
+
+        document.querySelectorAll("[data-lang]").forEach((button) => {
+          button.setAttribute("aria-pressed", String(button.dataset.lang === lang));
+        });
+        if (save) {
+          try { localStorage.setItem("photoreport-language", lang); } catch (_) { /* Storage can be unavailable in strict privacy modes. */ }
+        }
+        closeMenu(t);
+      }
+
+      const menuButton = document.querySelector(".menu-toggle");
+      const navigation = document.getElementById("main-nav");
+
+      function closeMenu(t = translations[document.documentElement.lang] || translations.en) {
+        navigation.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.setAttribute("aria-label", t.menuOpen);
+        document.body.classList.remove("menu-open");
+      }
+
+      menuButton.addEventListener("click", () => {
+        const isOpen = navigation.classList.toggle("open");
+        const t = translations[document.documentElement.lang] || translations.en;
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+        menuButton.setAttribute("aria-label", isOpen ? t.menuClose : t.menuOpen);
+        document.body.classList.toggle("menu-open", isOpen);
+      });
+
+      document.querySelectorAll("[data-lang]").forEach((button) => {
+        button.addEventListener("click", () => applyLanguage(button.dataset.lang));
+      });
+      navigation.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => closeMenu()));
+      window.addEventListener("resize", () => { if (window.innerWidth > 820) closeMenu(); });
+      document.addEventListener("keydown", (event) => { if (event.key === "Escape") closeMenu(); });
+
+      applyLanguage(detectLanguage(), false);
+    })();
+  </script>
 </body>
 </html>
