@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>ScrRec Privacy Policy</title>
+  <style>
+    :root{
+      --bg:#081014; --panel:#0d171c; --text:#eef8fb; --muted:#9db2bb;
+      --cyan:#25d7e8; --orange:#ff8b2d; --line:#20353d; --link:#55ddeb;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f6fafb; --panel:#ffffff; --text:#132026; --muted:#52666f;
+        --cyan:#008ea0; --orange:#d85d00; --line:#dbe7eb; --link:#007c8c;
+      }
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;background:var(--bg);color:var(--text);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      line-height:1.6;
+    }
+    main{max-width:900px;margin:auto;padding:28px 18px 56px}
+    .hero,.card{
+      background:var(--panel);border:1px solid var(--line);border-radius:18px;
+    }
+    .hero{padding:24px;margin-bottom:16px}
+    .card{padding:20px;margin:14px 0}
+    h1{margin:0 0 6px;font-size:2rem}
+    h2{margin:0 0 10px;font-size:1.18rem}
+    p{margin:8px 0}
+    ul{margin:8px 0 0;padding-left:22px}
+    a{color:var(--link)}
+    .brand{color:var(--cyan);font-weight:800;letter-spacing:.02em}
+    .accent{color:var(--orange)}
+    .meta{color:var(--muted);font-size:.94rem}
+    .langs{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+    button{
+      border:1px solid var(--line);background:transparent;color:var(--text);
+      padding:8px 14px;border-radius:999px;cursor:pointer;font:inherit;
+    }
+    button.active{border-color:var(--cyan);color:var(--cyan)}
+    .notice{
+      border-left:3px solid var(--orange);padding-left:14px;color:var(--muted)
+    }
+    footer{color:var(--muted);font-size:.9rem;margin-top:26px;text-align:center}
+    [hidden]{display:none!important}
+  </style>
+</head>
+<body>
+<main>
+  <section class="hero">
+    <div class="brand">ScrRec</div>
+    <h1>Privacy Policy</h1>
+    <p class="meta">Package: <code>com.cosmiclab.scrrec</code> · Last updated: 26 September 2026</p>
+    <div class="langs">
+      <button id="btn-en" class="active" type="button" onclick="showLang('en')">English</button>
+      <button id="btn-ru" type="button" onclick="showLang('ru')">Русский</button>
+    </div>
+  </section>
+
+  <div id="en">
+    <section class="card">
+      <h2>1. Overview</h2>
+      <p>ScrRec is an Android screen recorder and video editor. This Privacy Policy explains how ScrRec accesses, uses, stores, and shares information when you use the app.</p>
+      <p>ScrRec does not currently provide its own user accounts, cloud storage, or ScrRec-operated backend service. Recordings and editor projects are processed and stored on your device unless you choose to export or share them.</p>
+    </section>
+
+    <section class="card">
+      <h2>2. Screen, audio and camera access</h2>
+      <p>ScrRec requests access only when needed for features you choose to use:</p>
+      <ul>
+        <li><strong>Screen capture:</strong> Android MediaProjection is used to record the screen. Android displays a system consent dialog before screen capture starts.</li>
+        <li><strong>Microphone:</strong> microphone permission is used when you select microphone recording.</li>
+        <li><strong>Internal/device audio:</strong> supported Android audio-capture APIs are used when you select internal audio. Some apps or protected content may block audio capture.</li>
+        <li><strong>Camera:</strong> camera permission is used only for the optional Facecam feature.</li>
+        <li><strong>Display over other apps:</strong> overlay permission is used for the optional Floating Remote and Facecam controls.</li>
+        <li><strong>Notifications and foreground services:</strong> Android notifications/foreground services are used to keep active recording and related controls reliable in the background.</li>
+        <li><strong>Wake lock:</strong> the device may be kept awake briefly while a recording is being finalized so the file can be completed safely.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>3. Recordings, projects and local storage</h2>
+      <p>Screen recordings, exported videos, temporary recording data, and editor project data are processed locally on your device. ScrRec uses Android storage and MediaStore mechanisms to publish completed videos so they can appear in compatible gallery/media apps.</p>
+      <p>ScrRec does not upload your recordings or editor projects to a ScrRec server. Android automatic app backup is disabled for ScrRec. You control deletion of recordings and projects stored on your device.</p>
+    </section>
+
+    <section class="card">
+      <h2>4. Show taps</h2>
+      <p>ScrRec can open Android Developer Options so you can manually enable or disable Android's system <strong>Show taps</strong> feature. ScrRec does not require privileged secure-settings permission to change this setting automatically and does not collect your touch coordinates through this feature.</p>
+    </section>
+
+    <section class="card">
+      <h2>5. Advertising and third-party services</h2>
+      <p>The free version of ScrRec may use Google Mobile Ads (AdMob). ScrRec also uses Google's User Messaging Platform (UMP) where applicable to request and manage advertising/privacy choices before ads are requested.</p>
+      <p>Google's advertising SDK may process data such as IP address, app interactions, diagnostic information, and device/account identifiers (including advertising-related identifiers where available) for purposes such as advertising, measurement, analytics, and fraud prevention. The exact processing can depend on your region, device settings, consent choices, and Google's services.</p>
+      <p>ScrRec does not currently integrate a separate ScrRec-operated analytics service.</p>
+      <p>Learn more about Google's privacy practices:</p>
+      <ul>
+        <li><a href="https://policies.google.com/privacy" rel="noopener noreferrer">Google Privacy Policy</a></li>
+        <li><a href="https://policies.google.com/technologies/partner-sites" rel="noopener noreferrer">How Google uses information from apps and sites that use its services</a></li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>6. Internet access</h2>
+      <p>ScrRec may use internet access for advertising and related consent/privacy services. Core screen recording and local editing are designed to operate on the device.</p>
+    </section>
+
+    <section class="card">
+      <h2>7. Sharing</h2>
+      <p>ScrRec shares a recording or exported file only when you choose a share/export action or when Android/another app is selected by you as a destination. Once you share content with another service, that service's privacy policy applies.</p>
+    </section>
+
+    <section class="card">
+      <h2>8. Data retention and deletion</h2>
+      <p>ScrRec does not maintain a server-side user profile. Local recordings and projects remain on your device until you delete them, uninstall the app, or Android removes app data. Data processed by Google advertising services is handled according to Google's policies and your applicable privacy choices.</p>
+    </section>
+
+    <section class="card">
+      <h2>9. Your privacy choices</h2>
+      <ul>
+        <li>You can deny or revoke microphone, camera, notification, and overlay permissions in Android Settings.</li>
+        <li>You can choose a recording mode that does not use microphone audio.</li>
+        <li>You can disable Floating Remote and Facecam.</li>
+        <li>Where required, ScrRec provides access to Google's advertising privacy options through the app.</li>
+        <li>You can delete local recordings/projects from the device.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>10. Security</h2>
+      <p>ScrRec is designed to keep recording and editing content on the device. No method of storage or transmission is completely secure, but ScrRec limits its own handling of recording content to the functions described in this policy.</p>
+    </section>
+
+    <section class="card">
+      <h2>11. Changes to this policy</h2>
+      <p>This policy may be updated when ScrRec features, advertising integrations, legal requirements, or data practices change. The “Last updated” date at the top of this page will be revised when material changes are made.</p>
+    </section>
+
+    <section class="card">
+      <h2>12. Contact</h2>
+      <p>Privacy and support contact: <a href="mailto:scrrec@cosmiclabindicators.com">scrrec@cosmiclabindicators.com</a></p>
+      <p class="notice">This address must be active before the app is published or this page is used as the production privacy policy.</p>
+    </section>
+  </div>
+
+  <div id="ru" hidden lang="ru">
+    <section class="card">
+      <h2>1. Общая информация</h2>
+      <p>ScrRec — приложение для записи экрана и редактирования видео на Android. В этой Политике конфиденциальности описано, как ScrRec получает доступ к информации, использует, хранит и передаёт её при работе приложения.</p>
+      <p>В ScrRec сейчас нет собственных пользовательских аккаунтов, облачного хранилища или сервера ScrRec. Записи и проекты редактора обрабатываются и хранятся на вашем устройстве, если вы сами не экспортируете или не отправляете их.</p>
+    </section>
+
+    <section class="card">
+      <h2>2. Доступ к экрану, аудио и камере</h2>
+      <p>ScrRec запрашивает доступ только для функций, которые вы используете:</p>
+      <ul>
+        <li><strong>Захват экрана:</strong> используется системный Android MediaProjection. Перед началом записи Android показывает системное окно подтверждения.</li>
+        <li><strong>Микрофон:</strong> разрешение на микрофон используется, если выбран режим записи с микрофона.</li>
+        <li><strong>Внутренний звук:</strong> используются поддерживаемые Android API захвата звука. Некоторые приложения и защищённый контент могут запрещать такой захват.</li>
+        <li><strong>Камера:</strong> разрешение на камеру используется только для дополнительной функции Facecam.</li>
+        <li><strong>Отображение поверх других приложений:</strong> разрешение overlay используется для плавающего пульта и элементов Facecam.</li>
+        <li><strong>Уведомления и foreground service:</strong> используются для стабильной записи и управления ею в фоне.</li>
+        <li><strong>Wake lock:</strong> устройство может кратковременно удерживаться в активном состоянии во время завершения записи, чтобы файл был корректно сохранён.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>3. Записи, проекты и локальное хранение</h2>
+      <p>Записи экрана, экспортированные видео, временные данные записи и проекты редактора обрабатываются локально на устройстве. Для публикации готовых видео ScrRec использует стандартные механизмы Android/MediaStore, чтобы совместимые приложения Галереи могли увидеть файл.</p>
+      <p>ScrRec не загружает ваши записи или проекты на собственный сервер. Автоматическое резервное копирование данных приложения Android для ScrRec отключено. Удалением записей и проектов на устройстве управляете вы.</p>
+    </section>
+
+    <section class="card">
+      <h2>4. Показ касаний</h2>
+      <p>ScrRec может открыть «Параметры разработчика» Android, где вы вручную включаете или выключаете системную функцию <strong>«Показывать касания»</strong>. ScrRec не использует привилегированное разрешение для скрытого изменения этой настройки и не собирает координаты ваших касаний через эту функцию.</p>
+    </section>
+
+    <section class="card">
+      <h2>5. Реклама и сторонние сервисы</h2>
+      <p>Бесплатная версия ScrRec может использовать Google Mobile Ads (AdMob). Там, где это требуется, ScrRec также использует Google User Messaging Platform (UMP) для запроса и управления выбором пользователя в отношении рекламы и конфиденциальности до запроса рекламы.</p>
+      <p>Рекламный SDK Google может обрабатывать такие данные, как IP-адрес, взаимодействия с приложением, диагностическая информация, идентификаторы устройства/аккаунта и рекламные идентификаторы (если они доступны). Эти данные могут использоваться для рекламы, измерений, аналитики и предотвращения мошенничества. Конкретная обработка зависит от региона, настроек устройства, выбранных вариантов согласия и сервисов Google.</p>
+      <p>ScrRec в настоящее время не использует отдельный собственный сервис аналитики.</p>
+      <p>Подробнее о конфиденциальности Google:</p>
+      <ul>
+        <li><a href="https://policies.google.com/privacy" rel="noopener noreferrer">Политика конфиденциальности Google</a></li>
+        <li><a href="https://policies.google.com/technologies/partner-sites" rel="noopener noreferrer">Как Google использует информацию из приложений и сайтов, использующих его сервисы</a></li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>6. Доступ в интернет</h2>
+      <p>ScrRec может использовать интернет для рекламы и связанных с ней механизмов согласия/конфиденциальности. Основная запись экрана и локальное редактирование предназначены для работы непосредственно на устройстве.</p>
+    </section>
+
+    <section class="card">
+      <h2>7. Отправка и обмен файлами</h2>
+      <p>ScrRec передаёт запись или экспортированный файл другому приложению только после выбранного вами действия «Поделиться»/«Экспорт» или выбора другого приложения/сервиса в Android. После отправки контента действуют правила конфиденциальности выбранного вами сервиса.</p>
+    </section>
+
+    <section class="card">
+      <h2>8. Срок хранения и удаление</h2>
+      <p>ScrRec не хранит серверный профиль пользователя. Локальные записи и проекты остаются на устройстве, пока вы не удалите их, не удалите приложение или Android не очистит данные приложения. Данные, обрабатываемые рекламными сервисами Google, хранятся и удаляются в соответствии с политиками Google и применимыми настройками конфиденциальности.</p>
+    </section>
+
+    <section class="card">
+      <h2>9. Ваши настройки конфиденциальности</h2>
+      <ul>
+        <li>Вы можете запретить или отозвать разрешения микрофона, камеры, уведомлений и отображения поверх других приложений в настройках Android.</li>
+        <li>Можно использовать режим записи без микрофона.</li>
+        <li>Можно отключить плавающий пульт и Facecam.</li>
+        <li>Там, где это требуется, ScrRec предоставляет доступ к настройкам рекламной конфиденциальности Google.</li>
+        <li>Локальные записи и проекты можно удалить с устройства.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>10. Безопасность</h2>
+      <p>ScrRec спроектирован так, чтобы записи и материалы редактора оставались на устройстве. Ни один способ хранения или передачи данных не гарантирует абсолютную безопасность, но ScrRec ограничивает собственную обработку записей функциями, описанными в этой политике.</p>
+    </section>
+
+    <section class="card">
+      <h2>11. Изменения политики</h2>
+      <p>Политика может обновляться при изменении функций ScrRec, рекламных интеграций, юридических требований или практик обработки данных. При существенных изменениях дата в верхней части страницы будет обновлена.</p>
+    </section>
+
+    <section class="card">
+      <h2>12. Контакты</h2>
+      <p>По вопросам конфиденциальности и поддержки: <a href="mailto:scrrec@cosmiclabindicators.com">scrrec@cosmiclabindicators.com</a></p>
+      <p class="notice">Этот адрес должен быть активен до публикации приложения или использования этой страницы как production Privacy Policy.</p>
+    </section>
+  </div>
+
+  <footer>ScrRec · Privacy Policy</footer>
+</main>
+
+<script>
+function showLang(lang){
+  const en=document.getElementById('en');
+  const ru=document.getElementById('ru');
+  const ben=document.getElementById('btn-en');
+  const bru=document.getElementById('btn-ru');
+  const isRu=lang==='ru';
+  en.hidden=isRu;
+  ru.hidden=!isRu;
+  ben.classList.toggle('active',!isRu);
+  bru.classList.toggle('active',isRu);
+  document.documentElement.lang=isRu?'ru':'en';
+}
+</script>
+</body>
+</html>
