@@ -1,103 +1,158 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PixelGift Games — персональные ретро-игры для Android</title>
-  <meta name="description" content="Станьте героем собственной 16-битной игры. Персональные ретро-приключения для Android — необычный подарок к важному событию.">
-  <meta name="theme-color" content="#0B1020">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="PixelGift Games — персональные ретро-игры для Android">
-  <meta property="og:description" content="Станьте героем собственной 16-битной игры.">
-  <meta property="og:url" content="https://cosmiclabindicators.com/pixelgift/">
-  <meta property="og:image" content="https://cosmiclabindicators.com/pixelgift/assets/images/og-image.jpg">
-  <link rel="canonical" href="https://cosmiclabindicators.com/pixelgift/">
-  <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/styles.css">
-  <script defer src="assets/i18n/ru.js"></script><script defer src="assets/i18n/de.js"></script><script defer src="assets/i18n/en.js"></script>
-  <script defer src="assets/js/config.js"></script><script defer src="assets/js/app.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CosmiCLab Crypto Indicators by Agenhill — Personal Digital Project Lab</title>
+  <meta name="description" content="CosmiCLab Indicators by Agenhill — personal digital project lab with crypto indicators, bots, TradingView/MT5 tools, 3D models, Android apps, AI tools and future concepts." />
+  <link rel="icon" href="assets/agenhill-logo-v9.png?v=9" />
+  <link rel="stylesheet" href="agenhill.css?v=10" />
 </head>
-<body data-page="home">
-  <a class="skip-link" href="#main" data-i18n="common.skip">К содержанию</a>
-  <header class="site-header">
-    <div class="site-header__inner">
-      <a class="brand" href="index.html" aria-label="PixelGift Games">
-        <img class="brand__mark" src="assets/brand/favicon.svg" alt="" width="36" height="36"><span class="brand__word">Pixel<span>Gift</span> Games</span>
-      </a>
-      <button class="nav-toggle" type="button" aria-expanded="false" data-nav-toggle data-i18n-aria="nav.menu"><span></span><span></span><span></span></button>
-      <nav class="site-nav" data-nav-menu data-open="false" aria-label="Главная навигация">
-        <a href="index.html" data-nav-page="home" data-i18n="nav.home">Главная</a><a href="games.html" data-nav-page="games" data-i18n="nav.games">Игры</a><a href="how-it-works.html" data-nav-page="how" data-i18n="nav.how">Как это работает</a><a href="faq.html" data-nav-page="faq" data-i18n="nav.faq">FAQ</a>
-        <select class="language-select" data-language-select data-i18n-aria="nav.language"><option value="ru">RU</option><option value="de">DE</option><option value="en">EN</option></select>
-        <a class="header-cta" href="customize.html" data-nav-page="customize" data-i18n="nav.customize">Создать игру</a>
-      </nav>
+<body class="ah-body">
+  <div class="ah-stars" aria-hidden="true"></div>
+
+  <aside class="ah-sidebar" aria-label="Quick navigation">
+    <a class="ah-logo" href="index.html" aria-label="CosmiCLab Indicators home"><span class="ah-logo-mark"></span></a>
+    <nav class="ah-side-nav" aria-label="Icon navigation">
+      <a class="is-active" href="#home" title="Home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.5 12 5l8 6.5"/><path d="M6.5 10.8V20h11v-9.2"/><path d="M9.6 20v-5.8h4.8V20"/></svg></a>
+      <a href="#projects" title="Projects"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="4" width="6" height="6" rx="1.5"/><rect x="4" y="14" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/></svg></a>
+      <a href="crypto-indicators.html" title="MT5 Indicators"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19V9"/><path d="M12 19V5"/><path d="M19 19v-8"/><path d="M3.5 9h3V19h-3z"/><path d="M10.5 5h3v14h-3z"/><path d="M17.5 11h3v8h-3z"/></svg></a>
+      <a href="#products" title="3D Models"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 21 8v8l-9 5-9-5V8l9-5Z"/><path d="M3 8l9 5 9-5"/><path d="M12 13v8"/></svg></a>
+      <a href="#apps" title="Apps"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2.2"/><path d="M10 18h4"/></svg></a>
+      <a href="#ai-lab" title="AI Lab"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a4 4 0 0 1 4 4v1.1a4.6 4.6 0 0 1 2.6 4.1A4.8 4.8 0 0 1 16 16.6V18a4 4 0 0 1-8 0v-1.4a4.8 4.8 0 0 1-2.6-4.4A4.6 4.6 0 0 1 8 8.1V7a4 4 0 0 1 4-4Z"/><path d="M9.2 11.2h.1"/><path d="M14.7 11.2h.1"/><path d="M9.5 14.5c1.7 1 3.3 1 5 0"/></svg></a>
+      <button type="button" data-owner-drawer-open title="Owner cabinet login"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7.5A4 4 0 0 1 12 3.5a4 4 0 0 1 4 4V10"/><path d="M12 14v2.5"/></svg></button>
+      <a href="#contact" title="Contact"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg></a>
+    </nav>
+  </aside>
+
+  <header class="ah-topbar">
+    <nav class="ah-top-nav" aria-label="Main navigation">
+      <a class="is-active" href="#home" data-i18n="nav.home">Home</a>
+      <a href="#projects" data-i18n="nav.projects">Projects</a>
+      <a href="crypto-indicators.html" data-i18n="nav.mt5">MT5 Indicators</a>
+      <a href="#products" data-i18n="nav.models">3D Models</a>
+      <a href="#apps" data-i18n="nav.apps">Apps</a>
+      <a href="#ai-lab" data-i18n="nav.ai">AI Lab</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="ah-topbar-right">
+      <div class="ah-lang-switch" aria-label="Language switcher">
+        <button class="langBtn active" data-lang="en">EN</button>
+        <button class="langBtn" data-lang="ru">RU</button>
+        <button class="langBtn" data-lang="de">DE</button>
+      </div>
+      <a class="ah-explore" href="#projects"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.5 15.5 8 20l-1.2-3.3L3.5 15.5 8 11"/><path d="M9 12.8c2.6-6.4 6-9.2 11.5-9.3-.1 5.5-2.9 8.9-9.3 11.5L9 12.8Z"/><path d="M4 21c1.3-.2 2.6-.8 3.4-1.7"/></svg></span><span data-i18n="nav.explore">Explore Projects</span></a>
     </div>
   </header>
 
-  <main id="main">
-    <section class="hero">
-      <div class="hero__media" aria-hidden="true"><picture><source media="(max-width: 700px)" srcset="assets/images/hero-world-960.webp"><img src="assets/images/hero-world-1600.webp" width="1600" height="900" alt="" fetchpriority="high"></picture></div>
-      <div class="hero__grid" aria-hidden="true"></div>
-      <div class="container"><div class="hero__content">
-        <p class="hero__badge" data-i18n="home.heroBadge">Ваши люди. Ваши шутки. Ваше приключение.</p>
-        <h1 data-i18n-html="home.heroTitle">Стань героем <span>собственной игры!</span></h1>
-        <p class="lead" data-i18n="home.heroText">Персональные ретро-игры для Android — необычный подарок на день рождения, свадьбу или любой праздник.</p>
-        <div class="button-row"><a class="button button--primary" href="games.html" data-i18n="home.heroCta">Выбрать игру</a><a class="button button--ghost" href="how-it-works.html" data-i18n="home.heroSecondary">Как это работает</a></div>
-        <p class="hero__note" data-i18n="home.heroNote">Pixel Adventure уже доступна для настройки</p>
-      </div></div>
+  <div id="ownerDrawerBackdrop" class="ah-drawer-backdrop" hidden></div>
+  <aside id="ownerDrawer" class="ah-login-drawer" aria-hidden="true" aria-label="Owner cabinet login panel">
+    <button type="button" class="ah-drawer-close" data-owner-drawer-close aria-label="Close cabinet login">×</button>
+    <p class="ah-drawer-kicker" data-i18n="drawer.kicker">Owner workspace</p>
+    <h2 data-i18n="drawer.title">Cabinet login</h2>
+    <p class="ah-drawer-text" data-i18n="drawer.text">Login to the private workspace for scenarios, AI Movie Studio, prompts and ideas.</p>
+    <form id="ownerLoginForm" class="ah-drawer-form">
+      <label><span data-i18n="drawer.email">Email</span><input id="ownerEmail" type="email" autocomplete="username" placeholder="kirils.janssen@gmail.com" required /></label>
+      <label><span data-i18n="drawer.password">Password</span><input id="ownerPassword" type="password" autocomplete="current-password" placeholder="Password" required /></label>
+      <button type="submit" data-i18n="drawer.open">Open cabinet</button>
+      <p id="ownerLoginError" class="ah-login-error" hidden data-i18n="drawer.error">Wrong email or password.</p>
+    </form>
+    <p class="ah-drawer-note" data-i18n="drawer.note">Secure server login. Access is available only to approved email addresses.</p>
+  </aside>
+
+  <main id="home" class="ah-main">
+    <section class="ah-hero" aria-label="CosmiCLab Indicators hero section">
+      <div class="ah-hero-copy">
+        <div class="ah-pill" data-i18n="hero.pill">Personal Digital Project Lab</div>
+        <h1><span>CosmiCLab</span><strong>Indicators</strong></h1>
+        <p class="ah-by">by <b>Agenhill</b></p>
+        <p class="ah-status"><span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M3 14c3.7 2.6 12.9 2.3 18-4"/><path d="M21 10c-3.7-2.6-12.9-2.3-18 4"/></svg></span> <span data-i18n="hero.status">Website currently under development</span></p>
+        <p class="ah-lead" data-i18n="hero.lead">
+          Personal digital project lab featuring MT5 indicators, 3D models, apps, AI tools and future concepts. Some products are already available on external marketplaces while new projects are still in development.
+        </p>
+        <div class="ah-actions">
+          <a class="ah-btn ah-btn-main" href="#products" data-i18n="hero.btn1">Available products</a>
+          <a class="ah-btn" href="#projects" data-i18n="hero.btn2">Development projects</a>
+        </div>
+      </div>
+      <div class="ah-hero-art" aria-hidden="true"></div>
     </section>
 
-    <div class="signal-strip"><div class="container"><div class="signal-strip__inner">
-      <article class="signal"><span class="signal__index">01</span><strong data-i18n="home.stripOneTitle">Ручная персонализация</strong><p data-i18n="home.stripOneText">Образ и детали согласуются перед созданием.</p></article>
-      <article class="signal"><span class="signal__index">02</span><strong data-i18n="home.stripTwoTitle">Android APK</strong><p data-i18n="home.stripTwoText">Игра для совместимого Android-устройства.</p></article>
-      <article class="signal"><span class="signal__index">03</span><strong data-i18n="home.stripThreeTitle">DEMO перед финалом</strong><p data-i18n="home.stripThreeText">Сначала проверка демо-версии, затем полная игра.</p></article>
-    </div></div></div>
+    <section id="products" class="ah-product-row" aria-label="Product directions">
+      <a class="ah-mini-card" href="crypto-indicators.html">
+        <span class="ah-mini-icon blue"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 19V9"/><path d="M12 19V5"/><path d="M17 19v-7"/><rect x="5" y="9" width="4" height="7" rx="1"/><rect x="10" y="5" width="4" height="10" rx="1"/><rect x="15" y="12" width="4" height="4" rx="1"/></svg></span>
+        <h2 data-i18n="card.mt5">MT5 Indicators</h2>
+        <em class="ah-tag ah-green" data-i18n="tag.external">Available externally</em>
+      </a>
+      <a class="ah-mini-card" href="#contact">
+        <span class="ah-mini-icon violet"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 21 8v8l-9 5-9-5V8l9-5Z"/><path d="M3 8l9 5 9-5"/><path d="M12 13v8"/></svg></span>
+        <h2 data-i18n="card.models">3D Models</h2>
+        <em class="ah-tag ah-green" data-i18n="tag.external">Available externally</em>
+      </a>
+      <a id="apps" class="ah-mini-card" href="#projects">
+        <span class="ah-mini-icon green"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10h10v7a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-7Z"/><path d="M8 10a4 4 0 0 1 8 0"/><path d="M9 6 7 3"/><path d="M15 6l2-3"/><path d="M5 11v5"/><path d="M19 11v5"/></svg></span>
+        <h2 data-i18n="card.apps">Android Apps</h2>
+        <em class="ah-tag ah-amber" data-i18n="tag.dev">In development</em>
+      </a>
+      <a class="ah-mini-card" href="#ai-lab">
+        <span class="ah-mini-icon cyan"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a4 4 0 0 1 4 4v1.1a4.6 4.6 0 0 1 2.6 4.1A4.8 4.8 0 0 1 16 16.6V18a4 4 0 0 1-8 0v-1.4a4.8 4.8 0 0 1-2.6-4.4A4.6 4.6 0 0 1 8 8.1V7a4 4 0 0 1 4-4Z"/><path d="M9.2 11.2h.1"/><path d="M14.7 11.2h.1"/><path d="M9.5 14.5c1.7 1 3.3 1 5 0"/></svg></span>
+        <h2 data-i18n="card.ai">AI Tools</h2>
+        <em class="ah-tag ah-blue" data-i18n="tag.proto">Prototype</em>
+      </a>
+      <a class="ah-mini-card" href="#projects">
+        <span class="ah-mini-icon pink"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12c3-1.7 5.7-2.5 8.1-2.5 4.1 0 7 2.4 10.9 2.4-1.4 1.2-3.1 2-5 2.2-1.1 3.7-4.4 6.4-8.3 6.4-2.8 0-4.9-.9-6.2-2.3 2.1-.3 3.6-1.3 4.3-3.3C4.9 14.2 3.6 13.3 2.5 12Z"/></svg></span>
+        <h2 data-i18n="card.concepts">Concept Projects</h2>
+        <em class="ah-tag ah-amber" data-i18n="tag.dev">In development</em>
+      </a>
+    </section>
 
-    <section class="section"><div class="container">
-      <div class="section-heading section-heading--row"><div><p class="eyebrow" data-i18n="home.catalogEyebrow">Выберите вселенную</p><h2 data-i18n="home.catalogTitle">Три жанра. Одна история — ваша.</h2><p class="lead" data-i18n="home.catalogText">Каждый шаблон задаёт механику и атмосферу. Имена, персонажи и финальное поздравление становятся частью приключения.</p></div><a class="text-link" href="games.html" data-i18n="home.catalogAll">Смотреть весь каталог</a></div>
-      <div class="game-grid">
-        <article class="game-card" data-reveal><div class="game-card__media"><img src="assets/images/game-adventure-1200.webp" width="1200" height="800" alt="Pixel Adventure" loading="lazy"></div><div class="game-card__body"><span class="kicker" data-i18n="home.adventureKicker">Доступно</span><h3 data-i18n="games.adventure.title">Pixel Adventure</h3><p data-i18n="home.adventureText">Яркий платформер с тайниками, лесными мирами и праздничным финалом.</p><a class="text-link" href="customize.html" data-i18n="common.customize">Настроить игру</a></div></article>
-        <article class="game-card game-card--compact" data-reveal><div class="game-card__media"><img src="assets/images/game-commando-900.webp" width="900" height="600" alt="Pixel Commando" loading="lazy"></div><div class="game-card__body"><span class="kicker kicker--soon" data-i18n="home.commandoKicker">В разработке</span><h3 data-i18n="games.commando.title">Pixel Commando</h3><p data-i18n="home.commandoText">Динамичный run-and-gun в джунглях будущего.</p><a class="text-link" href="games.html#commando" data-i18n="common.learnMore">Подробнее</a></div></article>
-        <article class="game-card game-card--compact" data-reveal><div class="game-card__media"><img src="assets/images/game-action-900.webp" width="900" height="600" alt="Pixel Action" loading="lazy"></div><div class="game-card__body"><span class="kicker kicker--soon" data-i18n="home.actionKicker">В разработке</span><h3 data-i18n="games.action.title">Pixel Action</h3><p data-i18n="home.actionText">Кинематографичное 2D-приключение среди механизмов и подземелий.</p><a class="text-link" href="games.html#action" data-i18n="common.learnMore">Подробнее</a></div></article>
+    <section class="ah-info-strip" aria-label="Project lab information">
+      <article><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.8 6.3.7-4.7 4.3 1.3 6.2L12 16.8 6.4 20l1.3-6.2L3 9.5l6.3-.7L12 3Z"/></svg></span><div><h2 data-i18n="info.lab">Personal Project Lab</h2><p data-i18n="info.labtext">Passion-driven creations and experiments from my digital lab.</p></div></article>
+      <article><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.5 15.5 8 20l-1.2-3.3L3.5 15.5 8 11"/><path d="M9 12.8c2.6-6.4 6-9.2 11.5-9.3-.1 5.5-2.9 8.9-9.3 11.5L9 12.8Z"/><path d="M4 21c1.3-.2 2.6-.8 3.4-1.7"/></svg></span><div><h2 data-i18n="info.future">Building the Future</h2><p data-i18n="info.futuretext">Exploring ideas today that become tools for tomorrow.</p></div></article>
+      <article><span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M3 14c3.7 2.6 12.9 2.3 18-4"/><path d="M21 10c-3.7-2.6-12.9-2.3-18 4"/></svg></span><div><h2 data-i18n="info.evolving">Always Evolving</h2><p data-i18n="info.evolvingtext">New projects, tools and concepts added regularly.</p></div></article>
+    </section>
+
+    <section id="projects" class="ah-section">
+      <div class="ah-section-head">
+        <p data-i18n="projects.kicker">Project archive</p>
+        <h2 data-i18n="projects.title">Current and future projects</h2>
+        <span data-i18n="projects.text">CosmiCLab Indicators is a personal creator portfolio and project space under the pseudonym Agenhill.</span>
       </div>
-    </div></section>
-
-    <section class="section section--surface"><div class="container"><div class="process-layout">
-      <div class="process-intro"><p class="eyebrow" data-i18n="home.processEyebrow">От фотографии до финала</p><h2 data-i18n="home.processTitle">Подарок, в который можно сыграть.</h2><p class="lead" data-i18n="home.processText">Вы задаёте личные детали, мы превращаем их в цельное ретро-приключение и даём проверить результат до получения полной версии.</p><a class="text-link" href="how-it-works.html" data-i18n="nav.how">Как это работает</a></div>
-      <div class="steps-list">
-        <article class="step-card" data-reveal><h3 data-i18n="home.process1Title">Выберите основу</h3><p data-i18n="home.process1Text">Определите жанр и пакет персонализации.</p></article>
-        <article class="step-card" data-reveal><h3 data-i18n="home.process2Title">Расскажите о герое</h3><p data-i18n="home.process2Text">Добавьте фотографии, имена, образ и личные детали.</p></article>
-        <article class="step-card" data-reveal><h3 data-i18n="home.process3Title">Проверьте DEMO</h3><p data-i18n="home.process3Text">Оцените персонажа и ключевые моменты до финальной выдачи.</p></article>
-        <article class="step-card" data-reveal><h3 data-i18n="home.process4Title">Получите игру</h3><p data-i18n="home.process4Text">Установите полную APK-версию на совместимое Android-устройство.</p></article>
+      <div class="ah-project-grid">
+        <article class="ah-project-card"><b>PhotoReport</b><em data-i18n="tag.dev">In development</em><p data-i18n="projects.photoreport">Mobile app for work photo reports, object documentation, markings, GPS notes and export.</p><a href="photoreport.html" data-i18n="common.open">Open page →</a></article>
+        <article class="ah-project-card"><b>CaptureDeck Studio</b><em data-i18n="tag.proto">Prototype</em><p data-i18n="projects.capturedeck">Screen recording and mobile video editing concept with floating control panel and timeline editor.</p></article>
+        <article id="ai-lab" class="ah-project-card"><b>Gromvex AI Lab</b><em data-i18n="projects.private">Private concept</em><p data-i18n="projects.gromvex">Experimental AI workspace for prompts, scripts, video ideas and private project tools.</p></article>
+        <article class="ah-project-card"><b>CosmiCLab VPN</b><em data-i18n="tag.dev">Development</em><p data-i18n="projects.vpn">Android VPN concept with backend, server logic and free/boost access model.</p></article>
       </div>
-    </div></div></section>
+    </section>
 
-    <section class="section section--glow"><div class="container"><div class="split-feature">
-      <div class="split-feature__media media-frame pixel-corners" data-reveal><img src="assets/images/character-customization-1200.webp" width="1200" height="800" alt="Варианты персонализации пиксельного героя" loading="lazy"></div>
-      <div class="feature-copy"><p class="eyebrow" data-i18n="home.personaEyebrow">Ваш герой</p><h2 data-i18n="home.personaTitle">Узнаваемый образ — в оригинальном пиксельном мире.</h2><p class="lead" data-i18n="home.personaText">Фотография служит ориентиром для образа. Вы выбираете причёску, одежду и цвета, а итоговые детали уточняются перед производством.</p><ul class="check-list"><li data-i18n="home.personaPoint1">Главный герой с вашим именем</li><li data-i18n="home.personaPoint2">Друзья как союзники, проводники или камео</li><li data-i18n="home.personaPoint3">Личная шутка и поздравление в финале</li></ul><p class="notice notice--teal" data-i18n="home.personaNote">Конструктор собирает пожелания и локальный предпросмотр фотографий. Автоматическое создание спрайта сейчас не обещается.</p></div>
-    </div></div></section>
+    <section id="contact" class="ah-section">
+      <div class="ah-section-head">
+        <p data-i18n="contact.kicker">Contact</p>
+        <h2 data-i18n="contact.title">External marketplaces and contact</h2>
+        <span data-i18n="contact.text">Selected MT5 indicators and 3D models are available on external marketplaces. Direct selling through this website is not active yet.</span>
+      </div>
+      <div class="ah-contact-box">
+        <a href="mailto:kirils.janssen@gmail.com">Email: kirils.janssen@gmail.com</a>
+        <a href="https://t.me/CosmiCLabSupportBot" target="_blank" rel="noopener">Telegram Support Bot</a>
+      </div>
+    </section>
 
-    <section class="section section--surface"><div class="container"><div class="section-heading"><p class="eyebrow" data-i18n="home.valueEyebrow">Продумано как продукт</p><h2 data-i18n="home.valueTitle">Тёплая идея, профессиональная подача.</h2></div><div class="value-grid">
-      <article class="value-card" data-reveal><span class="value-card__icon">01</span><h3 data-i18n="home.value1Title">Личная история</h3><p data-i18n="home.value1Text">Имена, повод и знакомые детали вплетены в игровой сценарий.</p></article>
-      <article class="value-card" data-reveal><span class="value-card__icon">02</span><h3 data-i18n="home.value2Title">Проверка до финала</h3><p data-i18n="home.value2Text">DEMO помогает увидеть ключевые элементы до получения полной версии.</p></article>
-      <article class="value-card" data-reveal><span class="value-card__icon">03</span><h3 data-i18n="home.value3Title">Без лишних обещаний</h3><p data-i18n="home.value3Text">Доступность функций и итоговый объём подтверждаются до начала работ.</p></article>
-      <article class="value-card" data-reveal><span class="value-card__icon">04</span><h3 data-i18n="home.value4Title">Приватный черновик</h3><p data-i18n="home.value4Text">Фотографии в этом конструкторе остаются только в памяти текущей вкладки.</p></article>
-    </div></div></section>
-
-    <section class="section"><div class="container"><div class="section-heading"><p class="eyebrow" data-i18n="home.pricingEyebrow">Пакеты персонализации</p><h2 data-i18n="home.pricingTitle">Начните с нужного масштаба.</h2><p class="lead" data-i18n="home.pricingText">Цены предварительные. Точный состав и стоимость подтверждаются перед открытием заказа.</p></div><div class="pricing-grid" data-package-grid></div></div></section>
-
-    <section class="section section--surface"><div class="container"><div class="section-heading section-heading--row"><div><p class="eyebrow" data-i18n="home.faqEyebrow">Коротко о главном</p><h2 data-i18n="home.faqTitle">Остались вопросы?</h2></div><a class="text-link" href="faq.html" data-i18n="home.faqMore">Все вопросы и ответы</a></div><div class="faq-list">
-      <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false" data-i18n="home.faq1Q">Что именно будет персональным?</button><div class="faq-answer" hidden><p data-i18n="home.faq1A">Имя и образ героя, выбранные дополнительные персонажи, повод, поздравление и согласованные детали истории.</p></div></article>
-      <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false" data-i18n="home.faq2Q">Можно ли увидеть игру до получения?</button><div class="faq-answer" hidden><p data-i18n="home.faq2A">Планируется проверка DEMO с ключевыми сценами.</p></div></article>
-      <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false" data-i18n="home.faq3Q">Как устанавливается игра?</button><div class="faq-answer" hidden><p data-i18n="home.faq3A">Полная версия предоставляется как APK для совместимого Android-устройства.</p></div></article>
-    </div></div></section>
-
-    <section class="section"><div class="container"><div class="cta-panel" data-reveal><p class="eyebrow" data-i18n="home.finalEyebrow">Подарок начинается здесь</p><h2 data-i18n="home.finalTitle">Соберите первое приключение.</h2><p data-i18n="home.finalText">Конструктор поможет оформить идею. Заявки пока не принимаются — можно безопасно изучить все шаги без отправки данных.</p><a class="button button--primary" href="customize.html" data-i18n="home.finalCta">Открыть конструктор</a></div></div></section>
+    <footer class="ah-footer">
+      <div>
+        <b>CosmiCLab Indicators by Agenhill</b><br />
+        <span data-i18n="footer.note">Website under development. Personal project archive and digital product showcase.</span>
+      </div>
+      <nav>
+        <a href="privacy.html">Privacy</a>
+        <a href="photoreport-privacy-policy.html">PhotoReport Privacy</a>
+        <a href="photoreportplay-privacy-policy.html">PhotoReport Play Privacy</a>
+        <a href="gromvexai_privacy_policy.html">Gromvex AI Privacy</a>
+        <a href="delete-data.html">Delete Data</a>
+      </nav>
+    </footer>
   </main>
 
-  <footer class="site-footer"><div class="container"><div class="footer-grid">
-    <div class="footer-brand"><a class="brand" href="index.html"><img class="brand__mark" src="assets/brand/favicon.svg" alt="" width="36" height="36"><span class="brand__word">Pixel<span>Gift</span> Games</span></a><p data-i18n="footer.tagline">Персональные ретро-приключения для Android.</p></div>
-    <nav class="footer-nav" aria-label="Footer"><strong data-i18n="footer.navigation">Навигация</strong><a href="games.html" data-i18n="nav.games">Игры</a><a href="how-it-works.html" data-i18n="nav.how">Как это работает</a><a href="faq.html" data-i18n="nav.faq">FAQ</a></nav>
-    <div class="footer-status"><strong data-i18n="footer.status">Статус v0.1</strong><p data-i18n="footer.statusText">Демонстрационная версия. Заказы, оплата и загрузка данных отключены.</p></div>
-  </div><div class="footer-bottom"><span>© 2026 <span data-i18n="footer.rights">PixelGift Games. Оригинальная концепция и графика.</span></span><span data-i18n="footer.preliminary">Цены предварительные и могут измениться до запуска сервиса.</span></div></div></footer>
+  <script src="agenhill.js?v=16"></script>
 </body>
 </html>
