@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="88" viewBox="0 0 420 88" role="img" aria-labelledby="title desc">
+  <title id="title">PixelGift Games</title><desc id="desc">Pixel gift box with a star</desc>
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#20E3C2"/><stop offset="1" stop-color="#75F6E1"/></linearGradient></defs>
+  <g shape-rendering="crispEdges">
+    <path fill="#0B1020" stroke="#263453" stroke-width="4" d="M4 4h80v80H4z"/>
+    <path fill="#151D33" d="M14 30h60v44H14z"/><path fill="#20E3C2" d="M10 22h68v16H10z"/>
+    <path fill="#FFAA45" d="M38 22h12v52H38z"/><path fill="#FFD37A" d="M26 12h12v10H26zM50 12h12v10H50zM34 8h20v8H34z"/>
+    <path fill="#0B1020" d="m60 45 3 7 8 1-6 5 2 8-7-4-7 4 2-8-6-5 8-1z"/>
+  </g>
+  <text x="104" y="46" fill="url(#g)" font-family="Arial,Helvetica,sans-serif" font-size="38" font-weight="800" letter-spacing="-1">PixelGift</text>
+  <text x="106" y="68" fill="#A7B1C7" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="700" letter-spacing="5">GAMES</text>
+</svg>
+
